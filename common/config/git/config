@@ -4,8 +4,5 @@
 [includeIf "gitdir:~/Desktop/"]
   path = config_personal
 
-[includeIf "gitdir:~/Configs/"]
-  path = config_personal
-
 [includeIf "gitdir:~/Documents/qed/"]
   path = config_qed
