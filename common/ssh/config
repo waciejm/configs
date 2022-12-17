@@ -1,0 +1,14 @@
+Host gerrit.qed.ai
+    User mac1
+    IdentityFile ~/Keys/id_rsa-mac1
+
+Host *
+    IdentityFile ~/Keys/id_ed25519
+    #IdentityFile ~/Keys/id_rsa
+
+Host arnold
+    HostName 100.74.24.42
+
+Host arnold-luks
+    HostName 192.168.0.64
+    User=root

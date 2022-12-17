@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -e
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+CONFIG_DIR="$SCRIPT_DIR/.."
+
+
+# .config
+
+mkdir -p "$HOME/.config"
+
+
+# nix
+
+ln -fFs "$CONFIG_DIR/common/config/nix" "$HOME/.config"
+
+
+# alacritty
+
+ln -fFs "$CONFIG_DIR/common/config/alacritty" "$HOME/.config/"
+
+
+# starship
+
+ln -fFs "$CONFIG_DIR/common/config/starship.toml" "$HOME/.config/"
+
+
+# ssh
+
+mkdir -p "$HOME/.ssh"
+ln -fFs "$CONFIG_DIR/common/ssh/config" "$HOME/.ssh/config"
+
+
+# zsh
+
+ln -fFs "$CONFIG_DIR/common/zshrc" "$HOME/.zshrc"
+ln -fFs "$CONFIG_DIR/common/zshenv" "$HOME/.zshenv"
+
+# git
+
+ln -fFs "$CONFIG_DIR/common/config/git" "$HOME/.config/"
+
+
+# MACOS ONLY
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  ln -fFs "$CONFIG_DIR/macos/swiftbar" "$HOME/.swiftbar"
+fi

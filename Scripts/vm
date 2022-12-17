@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+set -e
+ERRORMSG="vm - manage virtual machines\n\n  usage: vm <action> <name>\n\n  actions: start, pause, stop, status, sync, connect, session\n  names: arch"
+
+# check too many arguments
+if [[ -n "$3" ]]; then
+	echo -e "$ERRORMSG"
+	exit 1
+fi
+
+# check machine name
+if [[ 
+	"$2" != "arch"
+]]; then
+	echo -e "$ERRORMSG"
+	exit 1
+fi
+
+# commands
+if [[ "$1" == "start" ]]; then
+	ssh 2>/dev/null -o ConnectTimeout=1 -o ConnectionAttempts=1 arnold virsh --connect qemu:///system start $2vm
+elif [[ "$1" == "pause" ]]; then
+	ssh 2>/dev/null -o ConnectTimeout=1 -o ConnectionAttempts=1 arnold virsh --connect qemu:///system managedsave $2vm
+elif [[ "$1" == "stop" ]]; then
+	ssh 2>/dev/null -o ConnectTimeout=1 -o ConnectionAttempts=1 arnold virsh --connect qemu:///system shutdown $2vm
+elif [[ "$1" == "status" ]]; then
+	ssh 2>/dev/null -o ConnectTimeout=1 -o ConnectionAttempts=1 arnold virsh --connect qemu:///system domstate $2vm
+elif [[ "$1" == "sync" ]]; then
+	ssh 2>/dev/null -o ConnectTimeout=1 -o ConnectionAttempts=1 $2vm exit
+	ssh $2vm rm -rf ~/Keys ~/Configs
+	ssh $2vm mkdir -p ./Keys
+	rsync -a ~/Keys/id* $2vm:~/Keys/
+	rsync -a ~/Configs $2vm:~/
+	ssh $2vm ./Configs/Scripts/link-configs
+elif [[ "$1" == "connect" ]]; then
+	ssh -o ConnectTimeout=1 -o ConnectionAttempts=1 $2vm
+elif [[ "$1" == "session" ]]; then
+	# start if can't connect
+	STATUS=$(ssh 2>/dev/null -o ConnectTimeout=1 -o ConnectionAttempts=1 arnold virsh --connect qemu:///system domstate $2vm)
+	if [[ "$STATUS" == "shut"* ]]; then 
+		ssh 2>/dev/null -o ConnectTimeout=1 -o ConnectionAttempts=1 arnold virsh --connect qemu:///system start $2vm
+	elif [[ "$STATUS" != "running"* ]]; then
+		echo "$vm unavaliable"
+		exit 1
+	fi
+	# sync
+	ssh $2vm rm -rf ~/Keys ~/Configs
+	rsync -a ~/Keys/id* $2vm:~/Keys/
+	rsync -a ~/Configs $2vm:~/
+	ssh $2vm ./Configs/Scripts/link-configs
+	# connect
+	ssh $2vm
+	# pause
+	ssh 2>/dev/null arnold virsh --connect qemu:///system managedsave $2vm
+else
+	echo -e "$ERRORMSG"
+	exit 1
+fi
+

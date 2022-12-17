@@ -1,0 +1,22 @@
+[user]
+	email = mac1@qed.ai
+	name = Maciej Wojno
+	signingKey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCv+dHPUQ6ncn8K5KYgdD7moUZrBZXBMVpKi+wyCTeBDEJznNd7c3/kENqXrCvMiLWM1aian3EVWY/zmXGTW6EhL9yGawQoIK8Jy/P5cztIplbYH8pasogID/c89wyRQAxfQeusDF2C5Vu7tyXJGwCMs1qZjg4M9UvDjL1W05iauzvAL6sYH8TJTh4ylX33jWTOzOLan0lX0BZ8CA4tiVjlstB80NR5E9CmNom+YjmKZtpNC8IvfAEkisVYx7xN1JlDrbF/8cH0PVyzjlRIOqpCniXp+nhm2Fn+kza8e/TevA81siibLg5LIDVPzRHWz6rXKNv3v0tZYvikejVScReWG7qM8JjzRt7t8P6VkU771V80o74YvOiL79+5cKGJ9eH5HkPN2Wq+ndghL9vw7x/kXkiWhiLrKnY+Lv2U/hizInITsXUb31XX70MkD2VDnDL6O01UHPK1smzQ/DVS6oE6DllM2l8sKALIh52yPqREWbNV06y3aovDe9pdY6E3DTs= mac1@qed.ai
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
+
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgsign = true
+
+[gpg]
+	format = ssh
+
+[gpg.ssh]
+	allowedSignersFile = allowed_signers_qed

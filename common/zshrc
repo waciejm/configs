@@ -1,0 +1,93 @@
+## add path for MacOS
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export PATH="/opt/homebrew/bin:$PATH"
+	export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
+fi
+
+
+# Nix
+
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix.sh'
+fi
+
+
+## setup zsh
+
+if [[ "$OSTYPE" == "linux"* ]]; then
+	autoload -Uz compinit && compinit
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    autoload -Uz compinit
+    compinit -i
+	fi
+fi
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+HISTFILE=$HOME/.zhistory
+HISTSIZE=100000
+SAVEHIST=100000
+
+
+## setup starship
+
+eval "$(starship init zsh)"
+
+
+## setup zoxide
+
+eval "$(zoxide init --cmd cd zsh)"
+
+
+## setup ssh-agent
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	ssh-add --apple-load-keychain 2> /dev/null
+fi
+
+
+## setup aliases
+
+# ls
+alias l="ls -l"
+alias ls=lsd
+alias la="ls -lA"
+
+# python
+alias py="python3"
+
+# git
+alias gitsnap="git add . && git commit -m "snapshot" && git push"
+alias glog="git log --all --oneline --graph"
+alias gca="git commit --amend"
+alias gc="git commit"
+alias gch="git checkout"
+alias gaa="git add ."
+alias gr="git review"
+alias grb="git rebase"
+alias gs="git status"
+alias gd="git diff"
+alias gp="git push"
+
+# cargo
+alias cr="cargo run"
+alias crr="cargo run --release"
+alias cb="cargo build"
+alias cbr="cargo build --release"
+alias cf="cargo fmt"
+
+# android
+alias gcheck="./gradlew ktlintFormat ktlintCheck"
+
+# bat
+alias cat="bat"
+
+# sops
+alias homesops="SOPS_AGE_KEY=\$(age -d ~/Keys/homeops.age) sops"
