@@ -11,6 +11,7 @@
 
   home.packages = builtins.attrValues {
     inherit (pkgs)
+      docker-compose
       git
     ;
   };
