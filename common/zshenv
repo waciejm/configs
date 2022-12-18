@@ -4,15 +4,9 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-export PATH="$HOME/Configs/Scripts:$PATH"
-
 
 ## setup env
 
 export GPG_TTY=$(tty)
 export EDITOR=hx
-
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-fi
 
