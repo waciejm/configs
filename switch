@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+if [[ "$OSTYPE" == "linux"* ]]; then
+	nix run .#home-manager -- switch --flake .#waciejm-linux
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	nix run .#home-manager -- switch --flake .#waciejm-macos
+fi
