@@ -8,4 +8,10 @@
   imports = [
     ../common/home.nix
   ];
+
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      git
+    ;
+  };
 }
