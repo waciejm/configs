@@ -23,6 +23,7 @@
       ripgrep
       rsync
       rust-analyzer
+      rustup
       sops
       starship
       yt-dlp
