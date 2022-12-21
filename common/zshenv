@@ -1,5 +1,19 @@
 ## setup path
 
+# Android Studio
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export PATH="/Applications/Android\ Studio.app/Contents/jre/Contents/Home/bin:$PATH"
+fi
+
+# homebrew
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	export PATH="/opt/homebrew/bin:$PATH"
+fi
+
+# cargo
+
 if [[ -d "$HOME/.cargo/bin" ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi

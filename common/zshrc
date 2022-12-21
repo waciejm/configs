@@ -8,13 +8,6 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix.sh' ]; then
 fi
 
 
-# homebrew
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	export PATH="/opt/homebrew/bin:$PATH"
-fi
-
-
 ## setup zsh
 
 if [[ "$OSTYPE" == "linux"* ]]; then
