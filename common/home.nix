@@ -20,6 +20,7 @@
       helix
       jless
       lsd
+      nushell
       ripgrep
       rsync
       rust-analyzer
