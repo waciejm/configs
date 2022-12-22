@@ -4,7 +4,6 @@ Host gerrit.qed.ai
 
 Host *
     IdentityFile ~/Keys/id_ed25519
-    #IdentityFile ~/Keys/id_rsa
 
 Host arnold
     HostName 100.74.24.42
