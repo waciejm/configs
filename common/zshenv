@@ -3,7 +3,7 @@
 # Android Studio
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	export PATH="/Applications/Android\ Studio.app/Contents/jre/Contents/Home/bin:$PATH"
+	export PATH="/Applications/Android Studio.app/Contents/jre/Contents/Home/bin:$PATH"
 fi
 
 # homebrew
