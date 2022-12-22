@@ -1,7 +1,15 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+export NIX_CONFIG="experimental-features = nix-command flakes"
 
 if [[ "$OSTYPE" == "linux"* ]]; then
-	nix run .#home-manager -- switch --flake .#waciejm-linux
+	export HOME_PROFILE_VARIANT="linux"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	nix run .#home-manager -- switch --flake .#waciejm-macos
+	export HOME_PROFILE_VARIANT="macos"
 fi
+
+PS4="+> "
+set -x
+
+nix run .#home-manager -- switch --flake .#waciejm-${HOME_PROFILE_VARIANT}
