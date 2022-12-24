@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PS4="+> "
+set -x
+
+sudo nixos-rebuild switch --flake .

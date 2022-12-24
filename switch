@@ -4,7 +4,11 @@ set -euo pipefail
 export NIX_CONFIG="experimental-features = nix-command flakes"
 
 if [[ "$OSTYPE" == "linux"* ]]; then
-	export HOME_PROFILE_VARIANT="linux"
+	if [[ "$(uname -a)" == *"aarch64"* ]]; then
+		export HOME_PROFILE_VARIANT="linux-arm"
+	else
+		export HOME_PROFILE_VARIANT="linux"
+	fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	export HOME_PROFILE_VARIANT="macos"
 fi
