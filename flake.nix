@@ -13,18 +13,18 @@
     nixpkgs,
     home-manager,
     ...
-  }:{
+  }: {
     packages.x86_64-linux.home-manager = home-manager.packages.x86_64-linux.home-manager;
     packages.aarch64-darwin.home-manager = home-manager.packages.aarch64-darwin.home-manager;
   
     homeConfigurations.waciejm-macos = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-      modules = [ ./macos/home.nix ];
+      modules = [ ./home/macos/home.nix ];
     };
 
     homeConfigurations.waciejm-linux = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [ ./linux/home.nix ];
+      modules = [ ./home/linux/home.nix ];
     };
   };
 }

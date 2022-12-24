@@ -12,3 +12,7 @@ Host arnold
 Host arnold-luks
     HostName 192.168.0.64
     User=root
+
+Host nixos-vm
+    HostName 192.168.64.7
+    ForwardAgent yes
