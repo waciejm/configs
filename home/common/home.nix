@@ -20,6 +20,7 @@
       helix
       jless
       lsd
+      nil
       nushell
       ripgrep
       rsync
@@ -27,6 +28,7 @@
       rustup
       sops
       starship
+      taplo
       yt-dlp
       zellij
       zoxide
