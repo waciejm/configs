@@ -29,6 +29,7 @@
       sops
       starship
       taplo
+      tree
       yt-dlp
       zellij
       zoxide
