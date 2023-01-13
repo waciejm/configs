@@ -2,7 +2,7 @@
   config,
   pkgs,
   ...
-}:{
+}: {
   home.homeDirectory = "/Users/waciejm";
 
   imports = [

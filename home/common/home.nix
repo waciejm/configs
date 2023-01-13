@@ -2,7 +2,7 @@
   config,
   pkgs,
   ...
-}:{
+}: {
   programs.home-manager.enable = true;
 
   home.username = "waciejm";
@@ -10,7 +10,8 @@
   home.stateVersion = "22.11";
 
   home.packages = builtins.attrValues {
-    inherit (pkgs)
+    inherit
+      (pkgs)
       age
       bat
       fd
@@ -35,7 +36,7 @@
       zellij
       zoxide
       zsh-completions
-    ;
+      ;
   };
 
   home.file = {

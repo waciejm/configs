@@ -2,7 +2,7 @@
   config,
   pkgs,
   ...
-}:{
+}: {
   home.homeDirectory = "/home/waciejm";
 
   imports = [
@@ -10,9 +10,10 @@
   ];
 
   home.packages = builtins.attrValues {
-    inherit (pkgs)
+    inherit
+      (pkgs)
       docker-compose
       git
-    ;
+      ;
   };
 }
