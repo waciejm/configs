@@ -22,6 +22,7 @@
       jless
       lsd
       nil
+      nix-zsh-completions
       nushell
       poetry
       ripgrep
