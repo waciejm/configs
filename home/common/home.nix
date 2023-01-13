@@ -22,6 +22,7 @@
       lsd
       nil
       nushell
+      python310
       ripgrep
       rsync
       rust-analyzer
