@@ -31,15 +31,8 @@ fi
 
 ## setup zsh
 
-if [[ "$OSTYPE" == "linux"* ]]; then
-	autoload -Uz compinit && compinit
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-	if type brew &>/dev/null; then
-	    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-	    autoload -Uz compinit
-	    compinit -i
-    fi
-fi
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
 
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY

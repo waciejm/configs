@@ -34,12 +34,14 @@
       yt-dlp
       zellij
       zoxide
+      zsh-completions
     ;
   };
 
   home.file = {
     ".zshrc".source = ./zshrc;
     ".zshenv".source = ./zshenv;
+    ".zfunc".source = ./zfunc;
     ".ssh" = {
       source = ./ssh;
       recursive = true;
