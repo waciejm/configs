@@ -25,6 +25,7 @@
       nix-zsh-completions
       nushell
       poetry
+      python310
       ripgrep
       rsync
       rust-analyzer
