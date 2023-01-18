@@ -14,6 +14,7 @@
     inherit
       (pkgs)
       age
+      alejandra
       bat
       fd
       ffmpeg

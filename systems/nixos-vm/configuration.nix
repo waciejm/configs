@@ -35,7 +35,7 @@
     mutableUsers = false;
     users.waciejm = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "docker" ];
+      extraGroups = ["wheel" "docker"];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keyFiles = [
         (../../keys/ssh + "/waciejm@michair.pub")

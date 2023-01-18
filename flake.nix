@@ -26,15 +26,15 @@
     homeConfigurations = {
       waciejm-macos = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.aarch64-darwin;
-        modules = [ ./home/macos/home.nix ];
+        modules = [./home/macos/home.nix];
       };
       waciejm-linux = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
-        modules = [ ./home/linux/home.nix ];
+        modules = [./home/linux/home.nix];
       };
       waciejm-linux-arm = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.aarch64-linux;
-        modules = [ ./home/linux/home.nix ];
+        modules = [./home/linux/home.nix];
       };
     };
 
