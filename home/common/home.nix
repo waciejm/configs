@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   programs.home-manager.enable = true;
@@ -25,7 +26,8 @@
       nix-zsh-completions
       nushell
       poetry
-      python310
+      python39
+      python311
       ripgrep
       rsync
       rust-analyzer
@@ -39,6 +41,7 @@
       zoxide
       zsh-completions
       ;
+    python310 = lib.hiPrio pkgs.python310;
   };
 
   home.file = {
