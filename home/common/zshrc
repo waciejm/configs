@@ -28,6 +28,10 @@ if [[ -d "$HOME/.cargo/bin" ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+# bin
+
+export PATH="$HOME/.bin:$PATH"
+
 
 ## setup zsh
 
