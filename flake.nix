@@ -6,7 +6,7 @@
     nixpkgs-nixos.url = "github:NixOS/nixpkgs/nixos-22.11";
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-nixos";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -25,15 +25,15 @@
 
     homeConfigurations = {
       waciejm-macos = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-nixos.legacyPackages.aarch64-darwin;
+        pkgs = nixpkgs-unstable.legacyPackages.aarch64-darwin;
         modules = [./home/macos/home.nix];
       };
       waciejm-linux = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-nixos.legacyPackages.x86_64-linux;
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
         modules = [./home/linux/home.nix];
       };
       waciejm-linux-arm = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-nixos.legacyPackages.aarch64-linux;
+        pkgs = nixpkgs-unstable.legacyPackages.aarch64-linux;
         modules = [./home/linux/home.nix];
       };
     };
