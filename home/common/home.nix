@@ -26,6 +26,7 @@
       nil
       nix-zsh-completions
       nushell
+      poetry
       python39
       python311
       ripgrep
