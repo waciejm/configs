@@ -16,6 +16,7 @@
       age
       alejandra
       bat
+      du-dust
       fd
       ffmpeg
       git-review
