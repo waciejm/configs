@@ -19,21 +19,26 @@
   }: {
     packages = {
       aarch64-darwin.home-manager = home-manager.packages.aarch64-darwin.home-manager;
+      x86_64-darwin.home-manager = home-manager.packages.x86_64-darwin.home-manager;
       aarch64-linux.home-manager = home-manager.packages.aarch64-linux.home-manager;
       x86_64-linux.home-manager = home-manager.packages.x86_64-linux.home-manager;
     };
 
     homeConfigurations = {
-      waciejm-macos = home-manager.lib.homeManagerConfiguration {
+      waciejm-macos-aarch64 = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs-unstable.legacyPackages.aarch64-darwin;
         modules = [./home/macos/home.nix];
       };
-      waciejm-linux = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
+      waciejm-macos-x86_64 = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-darwin;
+        modules = [./home/macos/home.nix];
+      };
+      waciejm-linux-aarch64 = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-unstable.legacyPackages.aarch64-linux;
         modules = [./home/linux/home.nix];
       };
-      waciejm-linux-arm = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-unstable.legacyPackages.aarch64-linux;
+      waciejm-linux-x86_64 = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
         modules = [./home/linux/home.nix];
       };
     };

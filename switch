@@ -5,12 +5,16 @@ export NIX_CONFIG="experimental-features = nix-command flakes"
 
 if [[ "$OSTYPE" == "linux"* ]]; then
 	if [[ "$(uname -a)" == *"aarch64"* ]]; then
-		export HOME_PROFILE_VARIANT="linux-arm"
+		export HOME_PROFILE_VARIANT="linux-aarch64"
 	else
-		export HOME_PROFILE_VARIANT="linux"
+		export HOME_PROFILE_VARIANT="linux-x86_64"
 	fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	export HOME_PROFILE_VARIANT="macos"
+	if [[ "$(uname -a)" == *"arm64"* ]]; then
+		export HOME_PROFILE_VARIANT="macos-aarch64"
+	else
+		export HOME_PROFILE_VARIANT="macos-x86_64"
+	fi
 fi
 
 PS4="+> "
