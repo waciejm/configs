@@ -1,18 +1,26 @@
 Host gerrit.qed.ai
     User mac1
-    IdentityFile ~/Keys/id_rsa-mac1
+    IdentityFile ~/Keys/ssh_mac1
 
-Host *
-    IdentityFile ~/Keys/id_ed25519
+Host github.com
+    IdentityFile ~/Keys/ssh_waciejm
+
+Host gitlab.com
+    IdentityFile ~/Keys/ssh_waciejm
 
 Host arnold
     HostName 100.74.24.42
+    User waciejm
+    IdentityFile ~/Keys/ssh_waciejm
     ForwardAgent yes
 
 Host arnold-luks
     HostName 192.168.0.64
-    User=root
+    User root
+    IdentityFile ~/Keys/ssh_waciejm
 
 Host nixos-vm
     HostName 192.168.64.7
+    User waciejm
+    IdentityFile ~/Keys/shh_waciejm
     ForwardAgent yes
