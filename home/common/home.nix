@@ -41,6 +41,7 @@
       yt-dlp
       zellij
       zoxide
+      zsh
       zsh-completions
       ;
     python310 = lib.hiPrio pkgs.python310;
