@@ -44,11 +44,11 @@
     };
 
     nixosConfigurations = {
-      badura = nixpkgs-unstable.lib.nixosSystem {
+      badura = nixpkgs-nixos.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./systems/badura/configuration.nix
-          {_module.args.flakeInputs.nixpkgs = nixpkgs-unstable;}
+          {_module.args.flakeInputs.nixpkgs = nixpkgs-nixos;}
         ];
       };
       nixos-vm = nixpkgs-nixos.lib.nixosSystem {
