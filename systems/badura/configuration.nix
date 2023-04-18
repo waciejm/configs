@@ -36,7 +36,6 @@
 
   networking = {
     hostName = "badura";
-    useDHCP = true;
     networkmanager.enable = true;
   };
 
