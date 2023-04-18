@@ -37,6 +37,7 @@
   networking = {
     hostName = "badura";
     useDHCP = true;
+    networkmanager.enable = true;
   };
 
   nixpkgs = {
@@ -70,16 +71,13 @@
 
   console.keyMap = "pl2";
 
-  users = {
-    mutableUsers = false;
-    users.waciejm = {
-      isNormalUser = true;
-      extraGroups = ["wheel" "docker"];
-      openssh.authorizedKeys.keyFiles = [
-        (../../keys/ssh + "/waciejm@michair.pub")
-      ];
-      shell = pkgs.zsh;
-    };
+  users.users.waciejm = {
+    isNormalUser = true;
+    extraGroups = ["wheel" "docker"];
+    openssh.authorizedKeys.keyFiles = [
+      (../../keys/ssh + "/waciejm@michair.pub")
+    ];
+    shell = pkgs.zsh;
   };
 
   programs = {
