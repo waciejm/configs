@@ -1,9 +1,13 @@
 {
   config,
+  lib,
   pkgs,
+  modulesPath,
   ...
 }: {
-  imports = [];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   system.stateVersion = "22.11";
 
@@ -17,10 +21,12 @@
     };
     initrd = {
       availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
+      kernelModules = [];
       luks.devices."luks-766679bc-35c4-4f4b-91d5-1e4dbb964ae5".device = "/dev/disk/by-uuid/766679bc-35c4-4f4b-91d5-1e4dbb964ae5";
       secrets."/crypto_keyfile.bin" = null;
     };
     kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
   };
 
   fileSystems = {
@@ -34,17 +40,20 @@
     };
   };
 
+  swapDevices = [];
+
   networking = {
     hostName = "badura";
+    useDHCP = lib.mkDefault true;
     networkmanager.enable = true;
   };
 
   nixpkgs = {
-    hostPlatform = "x86_64-linux";
+    hostPlatform = lib.mkDefault "x86_64-linux";
     config.allowUnfree = true;
   };
 
-  hardware.cpu.amd.updateMicrocode = true;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault true;
 
   time.timeZone = "Europe/Warsaw";
 
@@ -72,7 +81,7 @@
 
   users.users.waciejm = {
     isNormalUser = true;
-    extraGroups = ["wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel"];
     openssh.authorizedKeys.keyFiles = [
       (../../keys/ssh + "/waciejm@michair.pub")
     ];
@@ -89,6 +98,4 @@
       };
     };
   };
-
-  virtualisation.docker.enable = true;
 }
