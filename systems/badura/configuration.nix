@@ -1,15 +1,13 @@
-{
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  ...
-}: {
+{modulesPath, ...}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   system.stateVersion = "22.11";
+
+  networking.hostName = "badura";
+
+  nixpkgs.hostPlatform = "x86_64-linux";
 
   boot = {
     loader = {
@@ -42,60 +40,5 @@
 
   swapDevices = [];
 
-  networking = {
-    hostName = "badura";
-    useDHCP = lib.mkDefault true;
-    networkmanager.enable = true;
-  };
-
-  nixpkgs = {
-    hostPlatform = lib.mkDefault "x86_64-linux";
-    config.allowUnfree = true;
-  };
-
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault true;
-
-  time.timeZone = "Europe/Warsaw";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "pl_PL.UTF-8";
-      LC_IDENTIFICATION = "pl_PL.UTF-8";
-      LC_MEASUREMENT = "pl_PL.UTF-8";
-      LC_MONETARY = "pl_PL.UTF-8";
-      LC_NAME = "pl_PL.UTF-8";
-      LC_NUMERIC = "pl_PL.UTF-8";
-      LC_PAPER = "pl_PL.UTF-8";
-      LC_TELEPHONE = "pl_PL.UTF-8";
-      LC_TIME = "pl_PL.UTF-8";
-    };
-  };
-
-  services.xserver = {
-    layout = "pl";
-    xkbVariant = "";
-  };
-
-  console.keyMap = "pl2";
-
-  users.users.waciejm = {
-    isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel"];
-    openssh.authorizedKeys.keyFiles = [
-      (../../keys/ssh + "/waciejm@michair.pub")
-    ];
-    shell = pkgs.zsh;
-  };
-
-  programs = {
-    zsh.enable = true;
-    hyprland = {
-      enable = true;
-      xwayland = {
-        enable = true;
-        hidpi = true;
-      };
-    };
-  };
+  hardware.cpu.amd.updateMicrocode = true;
 }

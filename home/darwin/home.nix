@@ -1,13 +1,9 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  home.homeDirectory = "/Users/waciejm";
-
+{...}: {
   imports = [
     ../common/home.nix
   ];
+
+  home.homeDirectory = "/Users/waciejm";
 
   home.file = {
     ".swiftbar".source = ./swiftbar;

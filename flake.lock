@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "configs-private": {
+      "locked": {
+        "lastModified": 1682278779,
+        "narHash": "sha256-AfxVyS6JBNSU44bjcGNHGwbNBQ7RGG/Ijf51rKEK5dk=",
+        "ref": "refs/heads/main",
+        "rev": "7049d69d02028aac17c074b5531b7254d2547104",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/waciejm/configs-private"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/waciejm/configs-private"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -20,7 +35,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-nixos": {
+    "nixpkgs-stable": {
       "locked": {
         "lastModified": 1681759395,
         "narHash": "sha256-7aaRtLxLAy8qFVIA26ulB+Q5nDVzuQ71qi0s0wMjAws=",
@@ -54,8 +69,9 @@
     },
     "root": {
       "inputs": {
+        "configs-private": "configs-private",
         "home-manager": "home-manager",
-        "nixpkgs-nixos": "nixpkgs-nixos",
+        "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
