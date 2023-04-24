@@ -2,17 +2,17 @@
   "nodes": {
     "configs-private": {
       "locked": {
-        "lastModified": 1682329534,
-        "narHash": "sha256-jzcYhrQ2K4pUxrVoRh+F7V6NXlDpevrAqCLPXMLfohg=",
-        "ref": "refs/heads/main",
-        "rev": "b8b0aee4537439529735d8218f905942e5870a70",
-        "revCount": 3,
-        "type": "git",
-        "url": "ssh://git@github.com/waciejm/configs-private"
+        "lastModified": 1682352477,
+        "narHash": "sha256-AfxVyS6JBNSU44bjcGNHGwbNBQ7RGG/Ijf51rKEK5dk=",
+        "owner": "waciejm",
+        "repo": "configs-private",
+        "rev": "1eb3c3cb34b82ea9bcfc24fd4afb27791e2469b5",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/waciejm/configs-private"
+        "owner": "waciejm",
+        "repo": "configs-private",
+        "type": "github"
       }
     },
     "home-manager": {

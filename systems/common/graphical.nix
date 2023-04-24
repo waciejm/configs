@@ -12,7 +12,9 @@ in {
     xkbVariant = "";
   };
 
-  fonts.fonts = private-fonts;
+  fonts.fonts = [
+    private-fonts.comic-code
+  ];
 
   programs = {
     hyprland = {
