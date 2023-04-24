@@ -8,7 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    configs-private.url = "git+ssh://git@github.com/waciejm/configs-private";
+    configs-private.url = "github:waciejm/configs-private";
   };
 
   outputs = inputs @ {home-manager, ...}: let
