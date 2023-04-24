@@ -12,7 +12,7 @@
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.waciejm = ../../home/common/home.nix;
+      home-manager.users.waciejm = ../../home/linux/home.nix;
     }
   ];
 
