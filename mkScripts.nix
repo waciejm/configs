@@ -9,7 +9,6 @@ in
       name = "home-switch";
       runtimeInputs = [pkgs.coreutils home-manager.packages."${platform}".home-manager];
       text = ''
-        export NIX_CONFIG="experimental-features = nix-command flakes"
         home-manager switch --flake ".#waciejm-${platform}"
       '';
     };
