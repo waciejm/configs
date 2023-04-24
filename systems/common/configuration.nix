@@ -2,6 +2,8 @@
   lib,
   pkgs,
   nixpkgs,
+  platform,
+  hostname,
   home-manager,
   ...
 }: {
@@ -13,6 +15,10 @@
       home-manager.users.waciejm = ../../home/common/home.nix;
     }
   ];
+
+  networking.hostName = hostname;
+
+  nixpkgs.hostPlatform = platform;
 
   nix = {
     registry.nixpkgs = {

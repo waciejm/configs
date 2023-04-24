@@ -5,10 +5,6 @@
 
   system.stateVersion = "22.11";
 
-  networking.hostName = "badura";
-
-  nixpkgs.hostPlatform = "x86_64-linux";
-
   boot = {
     loader = {
       systemd-boot.enable = true;

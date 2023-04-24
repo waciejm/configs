@@ -1,7 +1,8 @@
 {home-manager, ...}: let
   utils = import ./utils.nix;
   nixpkgs = home-manager.inputs.nixpkgs;
-in utils.forEachPlatform (platform: let
+in
+  utils.forEachPlatform (platform: let
     pkgs = nixpkgs.legacyPackages."${platform}";
   in {
     switch-home = pkgs.writeShellApplication {

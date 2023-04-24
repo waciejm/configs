@@ -8,6 +8,8 @@
     system = "x86_64-linux";
     specialArgs = {
       nixpkgs = nixpkgs-unstable;
+      platform = "x86_64-linux";
+      hostname = "badura";
       home-manager = home-manager;
       configs-private = configs-private;
     };
