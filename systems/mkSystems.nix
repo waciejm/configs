@@ -18,6 +18,7 @@
       ./common/configuration.nix
       ./common/graphical.nix
       ./common/virtualisation.nix
+      ./common/gaming.nix
     ];
   };
 }
