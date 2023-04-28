@@ -1,24 +1,22 @@
 {
   lib,
   pkgs,
-  nixpkgs,
-  platform,
-  hostname,
   home-manager,
+  nixpkgs-flake,
   ...
 }: {
   imports = [
     home-manager.nixosModules.home-manager
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users.waciejm = ../../home/linux/home.nix;
-    }
   ];
 
-  networking.hostName = hostname;
-
-  nixpkgs.hostPlatform = platform;
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.waciejm = ../../home/linux/home.nix;
+    extraSpecialArgs = {
+      inherit nixpkgs-flake;
+    };
+  };
 
   nix = {
     registry.nixpkgs = {
@@ -26,7 +24,7 @@
         type = "indirect";
         id = "nixpkgs";
       };
-      flake = nixpkgs;
+      flake = nixpkgs-flake;
     };
     settings = {
       experimental-features = ["nix-command" "flakes"];
@@ -55,6 +53,8 @@
 
   console.keyMap = "pl2";
 
+  boot.supportedFilesystems = ["ntfs"];
+
   networking = {
     useDHCP = lib.mkDefault true;
     networkmanager.enable = true;
@@ -73,7 +73,6 @@
       enable = true;
       nssmdns = true;
     };
-    tailscale.enable = true;
     fstrim.enable = true;
   };
 }

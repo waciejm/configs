@@ -1,7 +1,7 @@
 {
-  config,
   pkgs,
   lib,
+  nixpkgs-flake,
   ...
 }: {
   programs.home-manager.enable = true;
@@ -22,8 +22,10 @@
       git-review
       gitui
       helix
+      htop
       jless
       lsd
+      ncspot
       nil
       nix-zsh-completions
       nushell
@@ -31,6 +33,7 @@
       python39
       python311
       ripgrep
+      rm-improved
       rsync
       rust-analyzer
       rustup
@@ -38,6 +41,7 @@
       starship
       taplo
       tree
+      wally-cli
       yt-dlp
       zellij
       zoxide
@@ -57,9 +61,20 @@
   };
 
   xdg.configFile = {
-    "nix".source = ./config/nix;
+    "nix" = {
+      source = ./config/nix;
+      recursive = true;
+    };
     "git".source = ./config/git;
     "starship.toml".source = ./config/starship.toml;
     "alacritty".source = ./config/alacritty;
+  };
+
+  nix.registry.nixpkgs = {
+    from = {
+      type = "indirect";
+      id = "nixpkgs";
+    };
+    flake = nixpkgs-flake;
   };
 }

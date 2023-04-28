@@ -1,16 +1,9 @@
-screenshots
-
-clock
-
 daemonize
 
-indicator
 indicator-radius=150
 indicator-thickness=10
 
-effect-blur=9x7
-effect-vignette=0.2:0.2
-
+color=000000
 ring-color=111111
 key-hl-color=880033
 line-color=00000000

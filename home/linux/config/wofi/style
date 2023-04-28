@@ -1,29 +1,35 @@
-#inner-box {
-  background-color: #000000;
+* {
+    all: unset;
+    font-family: "ComicCodeLigatures Nerd Font";
+    font-size: 16px;
 }
 
-#input {
-  background-color: #000000;
-  color: #ffffff;
-  border: 2px solid #a0a0a0;
+#window {
+    background-color: #292a37;
+    border-radius: 12px;
 }
 
-#scroll {
-  background-color: #111111;
+#outer-box {
+    background-color: #292a37;
+    border: 4px solid #44465c;
+    border-radius: 12px;
+}
+
+#input{
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: #303241;
 }
 
 #entry {
-  background-color: #111111;
-}
-
-#text {
-  color: #a0a0a0;
+    margin: 0.25rem 0.75rem 0.25rem 0.75rem;
+    padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+    color: #9699b7;
+    border-radius: 8px;
 }
 
 #entry:selected {
-  background-color: #222222;
-}
-
-#text:selected {
-  color: #ffffff;
+    background-color: #303241;
+    color: #d9e0ee;
 }

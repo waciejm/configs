@@ -1,8 +1,4 @@
-{
-  nixpkgs-unstable,
-  home-manager,
-  ...
-}: let
+home-manager: let
   utils = import ../utils.nix;
   mkHomeConfigName = arch: system: "waciejm-${arch}-${system}";
 in
@@ -12,7 +8,10 @@ in
     ...
   }:
     home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs-unstable.legacyPackages."${platform}";
+      pkgs = home-manager.inputs.nixpkgs.legacyPackages."${platform}";
+      extraSpecialArgs = {
+        nixpkgs-flake = home-manager.inputs.nixpkgs;
+      };
       modules = [
         ./${system}/home.nix
       ];

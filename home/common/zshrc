@@ -1,4 +1,4 @@
-# setup nix
+## setup nix
 
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
@@ -101,3 +101,7 @@ alias cat="bat"
 
 # sops
 alias homesops="SOPS_AGE_KEY=\$(age -d ~/Keys/homeops.age) sops"
+
+# rip
+alias rip="rip --graveyard ~/.graveyard"
+alias ripu="rip --unbury"

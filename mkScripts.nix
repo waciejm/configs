@@ -1,4 +1,4 @@
-{home-manager, ...}: let
+home-manager: let
   utils = import ./utils.nix;
   nixpkgs = home-manager.inputs.nixpkgs;
 in

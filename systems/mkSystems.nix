@@ -7,18 +7,18 @@
   badura = nixpkgs-unstable.lib.nixosSystem {
     system = "x86_64-linux";
     specialArgs = {
-      nixpkgs = nixpkgs-unstable;
-      platform = "x86_64-linux";
-      hostname = "badura";
       home-manager = home-manager;
       configs-private = configs-private;
+      nixpkgs-flake = nixpkgs-unstable;
     };
     modules = [
       ./badura/configuration.nix
       ./common/configuration.nix
+      ./common/android.nix
       ./common/graphical.nix
-      ./common/virtualisation.nix
       ./common/gaming.nix
+      ./common/tailscale.nix
+      ./common/virtualisation.nix
     ];
   };
 }

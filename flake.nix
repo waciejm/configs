@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.11";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -14,9 +13,9 @@
   outputs = inputs @ {home-manager, ...}: let
     utils = import ./utils.nix;
   in {
-    packages = import ./mkScripts.nix inputs;
+    packages = import ./mkScripts.nix home-manager;
 
-    homeConfigurations = import ./home/mkHomes.nix inputs;
+    homeConfigurations = import ./home/mkHomes.nix home-manager;
 
     nixosConfigurations = import ./systems/mkSystems.nix inputs;
 

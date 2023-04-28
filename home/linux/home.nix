@@ -8,7 +8,6 @@
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
-      alacritty
       git
       ;
   };
