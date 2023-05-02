@@ -7,19 +7,21 @@
   random-wallpaper = (configs-private.waciejm.mkWallpapers pkgs).random-wallpaper;
 in {
   environment.systemPackages =
+    # gui
     [
+      pkgs.alacritty
       pkgs.mako
-      pkgs.eww-wayland
+      pkgs.nextcloud-client
+      pkgs.waybar
       pkgs.wofi
       pkgs.swww
       pkgs.swaylock
-      pkgs.pavucontrol
       random-wallpaper
     ]
+    # additional
     ++ builtins.attrValues {
       inherit
         (pkgs)
-        alacritty
         audacity
         chatterino2
         discord
@@ -30,8 +32,8 @@ in {
         kdenlive
         keepassxc
         mpv
-        nextcloud-client
         openscad
+        pavucontrol
         prusa-slicer
         psst
         signal-desktop
@@ -64,6 +66,7 @@ in {
       pulse.enable = true;
       wireplumber.enable = true;
     };
+    gnome.gnome-keyring.enable = true;
   };
 
   fonts = {
@@ -75,6 +78,13 @@ in {
 
   security = {
     rtkit.enable = true;
-    pam.services.swaylock = {};
+    pam.services = {
+      swaylock = {};
+    };
+  };
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
   };
 }
+

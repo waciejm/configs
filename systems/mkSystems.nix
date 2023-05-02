@@ -7,9 +7,9 @@
   badura = nixpkgs-unstable.lib.nixosSystem {
     system = "x86_64-linux";
     specialArgs = {
-      home-manager = home-manager;
-      configs-private = configs-private;
       nixpkgs-flake = nixpkgs-unstable;
+      inherit home-manager;
+      inherit configs-private;
     };
     modules = [
       ./badura/configuration.nix

@@ -1,0 +1,29 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 32,
+	"spacing": 12,
+	"margin-top": 18,
+	"margin-left": 18,
+	"margin-right": 18,
+
+	"modules-left": [
+		"user",
+		"hyprland/window"		
+	],
+
+	"modules-center": [
+	],
+
+	"modules-right": [
+		"pulseaudio",
+		"network",
+		"cpu",
+		"memory",
+		"disk",
+		"backlight",		
+		"battery",
+		"clock",
+		"tray"
+	]
+}
