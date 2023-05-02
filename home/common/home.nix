@@ -41,9 +41,11 @@
       starship
       taplo
       tree
+      unzip
       wally-cli
       yt-dlp
       zellij
+      zip
       zoxide
       zsh-completions
       ;
