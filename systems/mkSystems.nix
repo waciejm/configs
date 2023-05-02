@@ -1,13 +1,13 @@
 {
-  nixpkgs-unstable,
+  nixpkgs,
   home-manager,
   configs-private,
   ...
 }: {
-  badura = nixpkgs-unstable.lib.nixosSystem {
+  badura = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     specialArgs = {
-      nixpkgs-flake = nixpkgs-unstable;
+      nixpkgs-flake = nixpkgs;
       inherit home-manager;
       inherit configs-private;
     };
