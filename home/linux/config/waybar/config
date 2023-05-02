@@ -1,11 +1,6 @@
 {
 	"layer": "top",
 	"position": "top",
-	"height": 32,
-	"spacing": 12,
-	"margin-top": 18,
-	"margin-left": 18,
-	"margin-right": 18,
 
 	"modules-left": [
 		"user",
@@ -22,8 +17,87 @@
 		"memory",
 		"disk",
 		"backlight",		
-		"battery",
+		"battery#bat0",
+		"battery#bat1",
 		"clock",
 		"tray"
-	]
+	],
+
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+	"network": {
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}",
+        "tooltip-format": "{ifname} via {gwaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+
+    "cpu": {
+        "format": "{usage}% ",
+		"on-click": "alacritty -e htop"
+    },
+
+    "memory": {
+        "format": "{}% ",
+		"on-click": "alacritty -e htop"
+    },
+
+	"disk": {
+		"format": "{percentage_used}% ",
+	},
+	
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+	"battery": {
+		"format": "{percentage} {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""]
+	},
+
+    "battery#bat0": {
+        "bat": "BAT0"
+    },
+
+    "battery#bat1": {
+        "bat": "BAT1"
+    },
+
+	"battery#bat1": {
+		
+	},
+
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M} "
+    },
+
+	"tray": {
+		"spacing": 10,
+		"reverse-direction": true,
+		"show-passive-items": true
+	}
 }

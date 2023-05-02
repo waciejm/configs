@@ -1,0 +1,137 @@
+* {
+  font-family: ComicCodeLigatures Nerd Font;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* geometry */
+
+#user,
+#window,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#disk,
+#backlight,
+#battery,
+#clock,
+#tray {
+  margin-top: 12px;
+  border-width: 3px;
+  border-style: solid;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 6px;
+}
+
+#user {
+  margin-left: 18px;
+  padding-left: 16px;
+  border-radius: 16px 0 0 16px; 
+}
+
+#window {
+  margin-left: 4px;
+  padding-right: 16px;
+  border-radius: 0 16px 16px 0; 
+}
+
+#pulseaudio {
+  margin-right: 4px;
+  padding-left: 16px;
+  border-radius: 16px 0 0 16px; 
+}
+
+#network,
+#cpu,
+#memory,
+#disk,
+#backlight,
+#battery,
+#clock {
+  margin-right: 4px;
+  border-radius: 0 0 0 0; 
+}
+
+#tray {
+  margin-right: 18px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 0 16px 16px 0; 
+}
+
+
+/* colors */
+
+#user {
+  color: rgba(181, 144, 202, 1.0);
+  border-color: rgba(181, 144, 202, 0.5);
+  background: rgba(66, 53, 74, 0.6);  
+}
+
+#window {
+  color: rgba(167, 210, 217, 1.0);
+  border-color: rgba(167, 210, 217, 0.5);
+  background: rgba(69, 87, 89, 0.6); 
+}
+
+#pulseaudio {
+  color: rgba(245, 202, 179, 1.0);
+  border-color: rgba(245, 202, 179, 0.5);
+  background: rgba(54, 44, 39, 0.5);  
+}
+
+#network {
+  color: rgba(243, 236, 184, 1.0);
+  border-color: rgba(243, 236, 184, 0.5);
+  background: rgba(115, 112, 87, 0.5);  
+}
+
+#cpu {
+  color: rgba(181, 144, 202, 1.0);
+  border-color: rgba(181, 144, 202, 0.5);
+  background: rgba(66, 53, 74, 0.6);  
+}
+
+#memory {
+  color: rgba(167, 210, 217, 1.0);
+  border-color: rgba(167, 210, 217, 0.5);
+  background: rgba(69, 87, 89, 0.6); 
+}
+
+#disk {
+  color: rgba(245, 202, 179, 1.0);
+  border-color: rgba(245, 202, 179, 0.5);
+  background: rgba(54, 44, 39, 0.5);  
+}
+
+#backlight {
+  color: rgba(243, 236, 184, 1.0);
+  border-color: rgba(243, 236, 184, 0.5);
+  background: rgba(115, 112, 87, 0.5);  
+}
+
+#battery {
+  color: rgba(181, 144, 202, 1.0);
+  border-color: rgba(181, 144, 202, 0.5);
+  background: rgba(66, 53, 74, 0.6);  
+}
+
+#clock {
+  color: rgba(167, 210, 217, 1.0);
+  border-color: rgba(167, 210, 217, 0.5);
+  background: rgba(69, 87, 89, 0.6); 
+}
+
+#tray {
+  color: rgba(245, 202, 179, 1.0);
+  border-color: rgba(245, 202, 179, 0.5);
+  background: rgba(54, 44, 39, 0.5);  
+}
