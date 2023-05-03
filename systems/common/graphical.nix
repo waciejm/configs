@@ -24,6 +24,7 @@ in {
         (pkgs)
         audacity
         chatterino2
+        chromium
         discord
         feh
         firefox
@@ -40,7 +41,6 @@ in {
         slack
         streamlink
         thunderbird
-        ungoogled-chromium
         vscode-fhs
         ;
     };
