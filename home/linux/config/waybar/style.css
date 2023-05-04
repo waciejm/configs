@@ -1,6 +1,6 @@
 * {
   font-family: ComicCodeLigatures Nerd Font;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
 }
 
@@ -21,30 +21,30 @@ window#waybar {
 #battery,
 #clock,
 #tray {
-  margin-top: 12px;
+  margin-top: 8px;
   border-width: 3px;
   border-style: solid;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 6px;
+  padding-top: 7px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 5px;
 }
 
 #user {
-  margin-left: 18px;
-  padding-left: 16px;
+  margin-left: 16px;
+  padding-left: 12px;
   border-radius: 16px 0 0 16px; 
 }
 
 #window {
   margin-left: 4px;
-  padding-right: 16px;
+  padding-right: 12px;
   border-radius: 0 16px 16px 0; 
 }
 
 #pulseaudio {
   margin-right: 4px;
-  padding-left: 16px;
+  padding-left: 12px;
   border-radius: 16px 0 0 16px; 
 }
 
@@ -60,10 +60,10 @@ window#waybar {
 }
 
 #tray {
-  margin-right: 18px;
-  padding-right: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  margin-right: 16px;
+  padding-right: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   border-radius: 0 16px 16px 0; 
 }
 
@@ -73,65 +73,65 @@ window#waybar {
 #user {
   color: rgba(181, 144, 202, 1.0);
   border-color: rgba(181, 144, 202, 0.5);
-  background: rgba(66, 53, 74, 0.6);  
+  background: rgba(33, 26, 37, 0.8);  
 }
 
 #window {
   color: rgba(167, 210, 217, 1.0);
   border-color: rgba(167, 210, 217, 0.5);
-  background: rgba(69, 87, 89, 0.6); 
+  background: rgba(34, 43, 44, 0.8); 
 }
 
 #pulseaudio {
   color: rgba(245, 202, 179, 1.0);
   border-color: rgba(245, 202, 179, 0.5);
-  background: rgba(54, 44, 39, 0.5);  
+  background: rgba(27, 22, 19, 0.8);  
 }
 
 #network {
   color: rgba(243, 236, 184, 1.0);
   border-color: rgba(243, 236, 184, 0.5);
-  background: rgba(115, 112, 87, 0.5);  
+  background: rgba(57, 56, 43, 0.8);  
 }
 
 #cpu {
   color: rgba(181, 144, 202, 1.0);
   border-color: rgba(181, 144, 202, 0.5);
-  background: rgba(66, 53, 74, 0.6);  
+  background: rgba(33, 26, 37, 0.8);  
 }
 
 #memory {
   color: rgba(167, 210, 217, 1.0);
   border-color: rgba(167, 210, 217, 0.5);
-  background: rgba(69, 87, 89, 0.6); 
+  background: rgba(34, 43, 44, 0.8); 
 }
 
 #disk {
   color: rgba(245, 202, 179, 1.0);
   border-color: rgba(245, 202, 179, 0.5);
-  background: rgba(54, 44, 39, 0.5);  
+  background: rgba(27, 22, 19, 0.8);  
 }
 
 #backlight {
   color: rgba(243, 236, 184, 1.0);
   border-color: rgba(243, 236, 184, 0.5);
-  background: rgba(115, 112, 87, 0.5);  
+  background: rgba(57, 56, 43, 0.8);  
 }
 
 #battery {
   color: rgba(181, 144, 202, 1.0);
   border-color: rgba(181, 144, 202, 0.5);
-  background: rgba(66, 53, 74, 0.6);  
+  background: rgba(33, 26, 37, 0.8);
 }
 
 #clock {
   color: rgba(167, 210, 217, 1.0);
   border-color: rgba(167, 210, 217, 0.5);
-  background: rgba(69, 87, 89, 0.6); 
+  background: rgba(34, 43, 44, 0.8); 
 }
 
 #tray {
   color: rgba(245, 202, 179, 1.0);
   border-color: rgba(245, 202, 179, 0.5);
-  background: rgba(54, 44, 39, 0.5);  
+  background: rgba(27, 22, 19, 0.8);  
 }
