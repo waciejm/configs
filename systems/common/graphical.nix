@@ -6,42 +6,44 @@
   private-fonts = configs-private.waciejm.mkFonts pkgs;
   random-wallpaper = (configs-private.waciejm.mkWallpapers pkgs).random-wallpaper;
 in {
-  environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      alacritty
-      audacity
-      brightnessctl
-      chatterino2
-      discord
-      feh
-      firefox
-      gimp
-      google-chrome
-      handbrake
-      kdenlive
-      keepassxc
-      libreoffice
-      mako
-      mpv
-      nextcloud-client
-      openscad
-      pamixer
-      pavucontrol
-      playerctl
-      prusa-slicer
-      psst
-      signal-desktop
-      slack
-      streamlink
-      swaylock
-      swww
-      thunderbird
-      vscode-fhs
-      waybar
-      wofi
-      ;
-    } ++ [
+  environment.systemPackages =
+    builtins.attrValues {
+      inherit
+        (pkgs)
+        alacritty
+        audacity
+        brightnessctl
+        chatterino2
+        discord
+        feh
+        firefox
+        gimp
+        google-chrome
+        handbrake
+        kdenlive
+        keepassxc
+        libreoffice
+        mako
+        mpv
+        nextcloud-client
+        openscad
+        pamixer
+        pavucontrol
+        playerctl
+        prusa-slicer
+        psst
+        signal-desktop
+        slack
+        streamlink
+        swaylock
+        swww
+        thunderbird
+        vscode-fhs
+        waybar
+        wofi
+        ;
+    }
+    ++ [
       random-wallpaper
     ];
 
