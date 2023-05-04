@@ -96,9 +96,6 @@ alias cf="cargo fmt"
 # android
 alias gcheck="./gradlew ktlintFormat ktlintCheck"
 
-# bat
-alias cat="bat"
-
 # sops
 alias homesops="SOPS_AGE_KEY=\$(age -d ~/Keys/homeops.age) sops"
 

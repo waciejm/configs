@@ -24,11 +24,11 @@ in {
         (pkgs)
         audacity
         chatterino2
-        chromium
         discord
         feh
         firefox
         gimp
+        google-chrome
         handbrake
         kdenlive
         keepassxc
