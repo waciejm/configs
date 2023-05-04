@@ -32,6 +32,7 @@ in {
         handbrake
         kdenlive
         keepassxc
+        libreoffice
         mpv
         openscad
         pavucontrol
