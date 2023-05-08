@@ -40,6 +40,7 @@ in {
       vscode-fhs
       waybar
       wofi
+      zathura
       ;
     inherit random-wallpaper;
   };
@@ -50,6 +51,10 @@ in {
       xwayland.enable = true;
     };
     seahorse.enable = true;
+    ssh = {
+      enableAskPassword = true;
+      askPassword = "${pkgs.gnome.seahorse}/libexec/seahorse/ssh-askpass";
+    };
   };
 
   services = {
