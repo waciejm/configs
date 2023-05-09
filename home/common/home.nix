@@ -1,9 +1,12 @@
 {
+  config,
   pkgs,
   lib,
   nixpkgs-flake,
   ...
-}: {
+}: let
+  mkLink = target: config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${target}";
+in {
   programs.home-manager.enable = true;
 
   home.username = "waciejm";
@@ -60,6 +63,10 @@
       source = ./ssh;
       recursive = true;
     };
+    ".ssh/ssh_waciejm".source = mkLink "Keys/ssh_waciejm";
+    ".ssh/ssh_waciejm.pub".source = mkLink "Keys/ssh_waciejm.pub";
+    ".ssh/ssh_mac1".source = mkLink "Keys/ssh_mac1";
+    ".ssh/ssh_mac1.pub".source = mkLink "Keys/ssh_mac1.pub";
   };
 
   xdg.configFile = {

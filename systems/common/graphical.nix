@@ -43,17 +43,13 @@ in {
       zathura
       ;
     inherit random-wallpaper;
+    inherit (pkgs.gnome) seahorse nautilus;
   };
 
   programs = {
     hyprland = {
       enable = true;
       xwayland.enable = true;
-    };
-    seahorse.enable = true;
-    ssh = {
-      enableAskPassword = true;
-      askPassword = "${pkgs.gnome.seahorse}/libexec/seahorse/ssh-askpass";
     };
   };
 
