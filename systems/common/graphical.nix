@@ -18,6 +18,8 @@ in {
       firefox
       gimp
       google-chrome
+      gsettings-qt
+      gsettings-desktop-schemas
       handbrake
       kdenlive
       keepassxc
@@ -43,7 +45,8 @@ in {
       zathura
       ;
     inherit random-wallpaper;
-    inherit (pkgs.gnome) seahorse nautilus;
+    inherit (pkgs.gnome) seahorse;
+    inherit (pkgs.xfce) thunar;
   };
 
   programs = {
@@ -51,12 +54,17 @@ in {
       enable = true;
       xwayland.enable = true;
     };
+    dconf.enable = true;
   };
 
   services = {
     xserver = {
       layout = "pl";
       xkbVariant = "";
+    };
+    gnome = {
+      gnome-keyring.enable = true;
+      at-spi2-core.enable = true;
     };
     pipewire = {
       enable = true;
@@ -67,7 +75,6 @@ in {
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    gnome.gnome-keyring.enable = true;
   };
 
   fonts = {
