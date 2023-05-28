@@ -19,6 +19,7 @@
       ./common/tailscale.nix
       ./common/virtualisation.nix
       ./common/gaming.nix
+      ./common/mullvad.nix
     ];
   };
   cigma = nixpkgs.lib.nixosSystem {

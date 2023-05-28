@@ -18,7 +18,7 @@
     "wofi".source = config/wofi;
     "waybar".source = config/waybar;
   };
-  
+
   xdg.systemDirs.data = [
     "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
     "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
