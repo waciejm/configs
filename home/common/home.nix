@@ -38,7 +38,6 @@ in {
       ripgrep
       rm-improved
       rsync
-      rust-analyzer
       rustup
       sops
       starship
