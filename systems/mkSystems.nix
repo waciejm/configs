@@ -20,6 +20,7 @@
       ./common/virtualisation.nix
       ./common/gaming.nix
       ./common/mullvad.nix
+      ./common/bluetooth.nix
     ];
   };
   cigma = nixpkgs.lib.nixosSystem {
@@ -36,6 +37,7 @@
       ./common/graphical.nix
       ./common/tailscale.nix
       ./common/virtualisation.nix
+      ./common/bluetooth.nix
     ];
   };
 }
