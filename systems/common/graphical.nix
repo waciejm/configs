@@ -14,6 +14,7 @@ in {
       brightnessctl
       chatterino2
       discord
+      easyeffects
       feh
       firefox
       gimp
