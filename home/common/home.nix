@@ -27,6 +27,7 @@ in {
       helix
       htop
       jless
+      just
       lsd
       ncspot
       nil
