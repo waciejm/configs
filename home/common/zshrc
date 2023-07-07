@@ -45,6 +45,10 @@ HISTFILE=$HOME/.zhistory
 HISTSIZE=100000
 SAVEHIST=100000
 
+# Disable terminal controls bound by default to ^Q ^S ^U ^O ^V ^R ^W
+stty start undef stop undef kill undef
+stty discard undef lnext undef rprnt undef werase undef
+
 
 ## setup starship
 
