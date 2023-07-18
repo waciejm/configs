@@ -43,4 +43,6 @@
   hardware.cpu.intel.updateMicrocode = true;
 
   powerManagement.cpuFreqGovernor = "powersave";
+
+  fonts.fontconfig.subpixel.rgba = "rgb";
 }
