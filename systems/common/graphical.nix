@@ -34,6 +34,7 @@ in {
       playerctl
       prusa-slicer
       psst
+      rofi-wayland
       signal-desktop
       slack
       streamlink
@@ -41,13 +42,14 @@ in {
       swww
       thunderbird
       vscode-fhs
-      waybar
-      wofi
       zathura
       ;
     inherit random-wallpaper;
     inherit (pkgs.gnome) seahorse;
     inherit (pkgs.xfce) thunar;
+    waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    });
   };
 
   programs = {
