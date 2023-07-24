@@ -76,6 +76,7 @@ in {
     "git".source = ./config/git;
     "starship.toml".source = ./config/starship.toml;
     "alacritty".source = ./config/alacritty;
+    "helix".source = ./config/helix;
   };
 
   nix.registry.nixpkgs = {

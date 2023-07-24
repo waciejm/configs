@@ -15,7 +15,7 @@
   xdg.configFile = {
     "hypr".source = config/hypr;
     "swaylock".source = config/swaylock;
-    "wofi".source = config/wofi;
+    "rofi".source = config/rofi;
     "waybar".source = config/waybar;
   };
 
@@ -26,13 +26,13 @@
 
   gtk = {
     enable = true;
-    theme.name = "Dracula";
-    theme.package = pkgs.dracula-theme;
-    iconTheme.name = "Papirus-Dark-Maia";
-    iconTheme.package = pkgs.papirus-maia-icon-theme;
+    theme.name = "Gruvbox-Dark-BL";
+    theme.package = pkgs.gruvbox-gtk-theme;
+    iconTheme.name = "gruvbox-dark-gtk";
+    iconTheme.package = pkgs.gruvbox-dark-icons-gtk;
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
-      gtk-icon-theme-name = "Papirus-Dark-Maia";
+      gtk-icon-theme-name = "gruvbox-dark-gtk";
     };
   };
 }

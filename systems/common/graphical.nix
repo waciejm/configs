@@ -21,6 +21,7 @@ in {
       google-chrome
       gsettings-qt
       gsettings-desktop-schemas
+      gtk-engine-murrine
       handbrake
       kdenlive
       keepassxc
@@ -78,7 +79,7 @@ in {
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    flatpak.enable = true;
+    gvfs.enable = true;
   };
 
   fonts = {
