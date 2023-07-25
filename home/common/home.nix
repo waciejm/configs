@@ -24,6 +24,7 @@ in {
       ffmpeg
       git-review
       gitui
+      gzip
       helix
       htop
       jless
