@@ -29,6 +29,7 @@ in {
       mako
       mpv
       nextcloud-client
+      obsidian
       openscad
       pamixer
       pavucontrol
@@ -83,7 +84,7 @@ in {
   };
 
   fonts = {
-    fonts = [
+    packages = [
       private-fonts.comic-code
     ];
     fontconfig.defaultFonts.monospace = ["ComicCodeLigatures Nerd Font"];
