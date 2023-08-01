@@ -3,69 +3,32 @@
   font-size: 14px;
   font-weight: 500;
   color: #ebdbb2;
-  border-color: #928374;
-  background-color: #282828;
+  min-height: 0;
 }
 
 window#waybar {
   background-color: rgba(0, 0, 0, 0);
 }
 
-/* geometry */
-
-#user,
-#workspaces,
-#pulseaudio,
-#network,
-#cpu,
-#memory,
-#disk,
-#backlight,
-#battery,
-#clock,
-#tray {
-  margin-top: 8px;
-  border-width: 3px;
-  border-style: solid;
-  padding-top: 7px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-bottom: 5px;
+.modules-left {
+  background: #000000;
+  padding-left: 16px;
+  padding-right: 14px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 0 0 18px 0; 
 }
 
-#user {
-  margin-left: 16px;
-  padding-left: 12px;
-  border-radius: 16px 0 0 16px; 
+.modules-right {
+  background: #000000;
+  padding-left: 14px;
+  padding-right: 16px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 0 0 0 18px; 
 }
 
-#workspaces {
-  margin-left: 4px;
-  padding-right: 12px;
-  border-radius: 0 16px 16px 0; 
-}
-
-#pulseaudio {
-  margin-right: 4px;
-  padding-left: 12px;
-  border-radius: 16px 0 0 16px; 
-}
-
-#network,
-#cpu,
-#memory,
-#disk,
-#backlight,
-#battery,
-#clock {
-  margin-right: 4px;
-  border-radius: 0 0 0 0; 
-}
-
-#tray {
-  margin-right: 16px;
-  padding-right: 12px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  border-radius: 0 16px 16px 0; 
+#workspaces button.active {
+  color: #d65d0e;
+  background: #282828;
 }

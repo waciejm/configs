@@ -1,6 +1,7 @@
 {
 	"layer": "top",
 	"position": "top",
+	"spacing": 20,
 
 	"modules-left": [
 		"user",
@@ -87,17 +88,33 @@
         "bat": "BAT1"
     },
 
-	"battery#bat1": {
-		
-	},
-
     "clock": {
-        "format": "{:%Y-%m-%d %H:%M} "
+        "format": "{:%Y-%m-%d %H:%M}"
     },
 
 	"tray": {
 		"spacing": 10,
 		"reverse-direction": true,
 		"show-passive-items": true
+	},
+
+	"wlr/workspaces": {
+		"on-click": "activate",
+		"persistent_workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+		},
+		"format": "{name} {icon}",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"default": ""
+		}
 	}
 }

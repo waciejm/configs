@@ -12,6 +12,10 @@
       ;
   };
 
+  home.file = {
+    ".autostart".source = ./autostart;
+  };
+
   xdg.configFile = {
     "hypr".source = config/hypr;
     "swaylock".source = config/swaylock;
