@@ -1,16 +1,26 @@
 #!/usr/bin/env zsh
 
 if [ "$HOST" = "badura" ]; then
-	nextcloud --background &
+	easyeffects --gapplication-service &
+	waybar &
+	swww init & 
 	blueman-applet &
-	steam -forcedesktopscaling=1 -nochatui -nofriendsui -silent &
+	pasystray &
+	nextcloud --background &
 
+	sleep 1
+
+	swww img $(random-wallpaper) &
 	google-chrome-stable &
-	slack &
-	obsidian &
 	firefox &
-	signal-desktop &
+
+	sleep 2
+
+	slack &
 	alacritty --class ncspot --command ncspot &
-	pavucontrol &
-	easyeffects &
+
+	sleep 2
+
+	obsidian &
+	signal-desktop &
 fi

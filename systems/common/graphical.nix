@@ -33,13 +33,12 @@ in {
       openscad
       pamixer
       pavucontrol
+      pasystray
       playerctl
       prusa-slicer
-      psst
       rofi-wayland
       signal-desktop
       slack
-      streamlink
       swaylock
       swww
       thunderbird

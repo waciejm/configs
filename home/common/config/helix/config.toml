@@ -1,1 +1,4 @@
 theme = "gruvbox"
+
+[editor.lsp]
+auto-signature-help = false

@@ -26,7 +26,7 @@
 
 
     "pulseaudio": {
-        "scroll-step": 5,
+        "scroll-step": 10,
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
@@ -42,7 +42,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+		"ignored-sinks": ["Easy Effects Sink"]
     },
 
 	"network": {
@@ -105,15 +106,13 @@
 			"2": [],
 			"3": [],
 			"4": [],
-			"5": [],
 		},
 		"format": "{name} {icon}",
 		"format-icons": {
 			"1": "",
 			"2": "",
-			"3": "",
-			"4": "",
-			"5": "",
+			"3": "",
+			"4": "",
 			"default": ""
 		}
 	}
