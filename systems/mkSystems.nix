@@ -18,8 +18,9 @@
       ./common/graphical.nix
       ./common/tailscale.nix
       ./common/virtualisation.nix
-      ./common/gaming.nix
       ./common/bluetooth.nix
+      ./common/dev-networking.nix
+      ./common/gaming.nix
     ];
   };
   cigma = nixpkgs.lib.nixosSystem {

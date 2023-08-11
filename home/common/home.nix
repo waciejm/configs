@@ -87,4 +87,6 @@ in {
     };
     flake = nixpkgs-flake;
   };
+
+  nixpkgs.config.allowUnfree = true;
 }
