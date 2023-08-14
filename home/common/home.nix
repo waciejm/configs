@@ -18,6 +18,7 @@ in {
       (pkgs)
       age
       alejandra
+      amber
       bat
       du-dust
       fd
