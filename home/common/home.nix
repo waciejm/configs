@@ -32,6 +32,7 @@ in {
       just
       lsd
       ncspot
+      neovim
       nil
       nix-zsh-completions
       nushell
