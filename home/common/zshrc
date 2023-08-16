@@ -111,3 +111,6 @@ alias homesops="SOPS_AGE_KEY=\$(age -d ~/Keys/homeops.age) sops"
 # rip
 alias rip="rip --graveyard ~/.graveyard"
 alias ripu="rip --unbury"
+
+# neovim
+alias nv=nvim

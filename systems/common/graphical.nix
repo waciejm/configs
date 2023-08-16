@@ -19,6 +19,7 @@ in {
       firefox
       gimp
       google-chrome
+      grim
       gsettings-qt
       gsettings-desktop-schemas
       gtk-engine-murrine
@@ -39,10 +40,12 @@ in {
       rofi-wayland
       signal-desktop
       slack
+      slurp
       swaylock
       swww
       thunderbird
       vscode-fhs
+      wl-clipboard
       zathura
       ;
     inherit random-wallpaper;
