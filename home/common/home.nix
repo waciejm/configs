@@ -1,8 +1,9 @@
 {
   config,
   pkgs,
+  pkgs-stable,
   lib,
-  nixpkgs-flake,
+  nixpkgs,
   ...
 }: let
   mkLink = target: config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${target}";
@@ -26,7 +27,6 @@ in {
       git-review
       gitui
       gzip
-      helix
       htop
       jless
       just
@@ -54,6 +54,7 @@ in {
       zoxide
       zsh-completions
       ;
+    helix = pkgs-stable.helix;
     python310 = lib.hiPrio pkgs.python310;
   };
 
@@ -87,7 +88,7 @@ in {
       type = "indirect";
       id = "nixpkgs";
     };
-    flake = nixpkgs-flake;
+    flake = nixpkgs;
   };
 
   nixpkgs.config.allowUnfree = true;

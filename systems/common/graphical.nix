@@ -52,7 +52,7 @@ in {
     inherit (pkgs.gnome) seahorse;
     inherit (pkgs.xfce) thunar;
     waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     });
   };
 

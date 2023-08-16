@@ -1,5 +1,6 @@
 {
   nixpkgs,
+  nixpkgs-stable,
   home-manager,
   configs-private,
   ...
@@ -7,9 +8,10 @@
   badura = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     specialArgs = {
-      nixpkgs-flake = nixpkgs;
+      inherit nixpkgs;
       inherit home-manager;
       inherit configs-private;
+      pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
     };
     modules = [
       ./badura/configuration.nix
@@ -26,9 +28,10 @@
   cigma = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     specialArgs = {
-      nixpkgs-flake = nixpkgs;
+      inherit nixpkgs;
       inherit home-manager;
       inherit configs-private;
+      pkgs-stable = nixpkgs-stable.legacyPackages.x86_64-linux;
     };
     modules = [
       ./cigma/configuration.nix

@@ -2,7 +2,8 @@
   lib,
   pkgs,
   home-manager,
-  nixpkgs-flake,
+  nixpkgs,
+  pkgs-stable,
   ...
 }: {
   imports = [
@@ -14,7 +15,8 @@
     useUserPackages = true;
     users.waciejm = ../../home/linux/home.nix;
     extraSpecialArgs = {
-      inherit nixpkgs-flake;
+      inherit nixpkgs;
+      inherit pkgs-stable;
     };
   };
 
@@ -24,7 +26,7 @@
         type = "indirect";
         id = "nixpkgs";
       };
-      flake = nixpkgs-flake;
+      flake = nixpkgs;
     };
     settings = {
       experimental-features = ["nix-command" "flakes"];
