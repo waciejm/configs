@@ -42,7 +42,6 @@ in {
       ripgrep
       rm-improved
       rsync
-      rustup
       sops
       starship
       taplo
