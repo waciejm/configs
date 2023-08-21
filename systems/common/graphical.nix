@@ -89,17 +89,19 @@ in {
   fonts = {
     packages = [
       private-fonts.comic-code-ligatures
-      private-fonts.comic-code-ligatures-nerd-font
       private-fonts.symbols-nerd-font
     ];
     fontconfig = {
       localConf = ''
         <alias>
-          <family>ComicCodeLigatures</family>
-          <prefer><family>Symbols Nerd Font Mono</family></prefer>
+          <family>ComicCodeLigatures Nerd Font</family>
+-         <prefer>
+            <family>Symbols Nerd Font Mono</family>
+-           <family>ComicCodeLigatures</family>
+          </prefer>
         </alias>
       '';
-      defaultFonts.monospace = ["ComicCodeLigatures"];
+      defaultFonts.monospace = ["ComicCodeLigatures Nerd Font"];
     };
   };
 
