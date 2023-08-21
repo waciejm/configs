@@ -1,4 +1,4 @@
-theme = "gruvbox"
+theme = "gruvbox-tweaked"
 
 [editor.lsp]
 auto-signature-help = false

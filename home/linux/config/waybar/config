@@ -28,18 +28,10 @@
     "pulseaudio": {
         "scroll-step": 10,
         "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
@@ -47,12 +39,12 @@
     },
 
 	"network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}",
-        "tooltip-format": "{ifname} via {gwaddr}/{cidr}",
+        "format-wifi": "",
+        "format-ethernet": "{ifname}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "⚠",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) / {ipaddr} on {ifname} via {gwaddr}/{cidr}",
+		"tooltip-format-ethernet": "{ipaddr} on {ifname} via {gwaddr}/{cidr}"
 	},
 
     "cpu": {
@@ -66,7 +58,7 @@
     },
 
 	"disk": {
-		"format": "{percentage_used}% ",
+		"format": "{percentage_used}% "
 	},
 	
     "backlight": {
@@ -75,7 +67,7 @@
     },
 
 	"battery": {
-		"format": "{percentage} {icon}",
+		"format": "{capacity} {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-icons": ["", "", "", "", ""]
@@ -114,6 +106,8 @@
 			"3": "",
 			"4": "",
 			"default": ""
-		}
+		},
+		"sort-by-name": false,
+		"sort-by-number": true
 	}
 }

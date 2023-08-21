@@ -1,4 +1,4 @@
-{...}: {
+{
   services.openssh = {
     enabled = true;
     permitRootLogin = "prohibit-password";

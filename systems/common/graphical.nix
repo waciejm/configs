@@ -45,6 +45,7 @@ in {
       swww
       thunderbird
       vscode-fhs
+      webcord
       wl-clipboard
       zathura
       ;
@@ -87,9 +88,21 @@ in {
 
   fonts = {
     packages = [
-      private-fonts.comic-code
+      private-fonts.comic-code-ligatures
+      private-fonts.symbols-nerd-font
     ];
-    fontconfig.defaultFonts.monospace = ["ComicCodeLigatures Nerd Font"];
+    fontconfig = {
+      localConf = ''
+        <alias>
+          <family>ComicCodeLigatures Nerd Font Fallback</family>
+          <prefer>
+            <family>ComicCodeLigatures</family>
+            <family>Symbols Nerd Font Mono</family>
+          </prefer>
+        </alias>
+      '';
+      defaultFonts.monospace = ["ComicCodeLigatures Nerd Font Fallback"];
+    };
   };
 
   security = {

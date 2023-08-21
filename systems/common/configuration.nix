@@ -1,14 +1,18 @@
 {
-  lib,
-  pkgs,
-  home-manager,
+  system,
+  hostname,
   nixpkgs,
+  home-manager,
   pkgs-stable,
+  pkgs,
+  lib,
   ...
 }: {
   imports = [
     home-manager.nixosModules.home-manager
   ];
+
+  networking.hostName = hostname;
 
   home-manager = {
     useGlobalPkgs = true;
@@ -34,7 +38,10 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    hostPlatform = system;
+  };
 
   time.timeZone = "Europe/Warsaw";
 

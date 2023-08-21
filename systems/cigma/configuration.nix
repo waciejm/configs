@@ -3,10 +3,6 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  networking.hostName = "cigma";
-
-  nixpkgs.hostPlatform = "x86_64-linux";
-
   system.stateVersion = "22.11";
 
   boot = {
