@@ -3,8 +3,8 @@
   configs-private,
   ...
 }: let
-  private-fonts = configs-private.waciejm.mkFonts pkgs;
-  random-wallpaper = (configs-private.waciejm.mkWallpapers pkgs).random-wallpaper;
+  private-fonts = configs-private.mkFonts pkgs;
+  random-wallpaper = (configs-private.mkWallpapers pkgs).random-wallpaper;
 in {
   environment.systemPackages = builtins.attrValues {
     inherit
@@ -89,19 +89,17 @@ in {
   fonts = {
     packages = [
       private-fonts.comic-code-ligatures
+      private-fonts.comic-code-ligatures-nerd-font
       private-fonts.symbols-nerd-font
     ];
     fontconfig = {
       localConf = ''
         <alias>
-          <family>ComicCodeLigatures Nerd Font Fallback</family>
-          <prefer>
-            <family>ComicCodeLigatures</family>
-            <family>Symbols Nerd Font Mono</family>
-          </prefer>
+          <family>ComicCodeLigatures</family>
+          <prefer><family>Symbols Nerd Font Mono</family></prefer>
         </alias>
       '';
-      defaultFonts.monospace = ["ComicCodeLigatures Nerd Font Fallback"];
+      defaultFonts.monospace = ["ComicCodeLigatures"];
     };
   };
 

@@ -2,11 +2,11 @@
   "nodes": {
     "configs-private": {
       "locked": {
-        "lastModified": 1692606856,
-        "narHash": "sha256-yvMmwBv/B3Srb1qluO5uNcmcfgQ0Zq6lyO/iWZ9hfp4=",
+        "lastModified": 1692610494,
+        "narHash": "sha256-GxtaJgyQbKXFQ4tMYxyQgVbxx+jdeXEsqTk6mcTxQ14=",
         "owner": "waciejm",
         "repo": "configs-private",
-        "rev": "5335ee97abe1e6a55a84f0ac2a078ec4bdd8fa36",
+        "rev": "988b253d2cce483f994bc78ebb3b90d2b6a36256",
         "type": "github"
       },
       "original": {
