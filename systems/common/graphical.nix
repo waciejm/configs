@@ -94,14 +94,11 @@ in {
     fontconfig = {
       localConf = ''
         <alias>
-          <family>ComicCodeLigatures Nerd Font</family>
--         <prefer>
-            <family>Symbols Nerd Font Mono</family>
--           <family>ComicCodeLigatures</family>
-          </prefer>
+          <family>ComicCodeLigatures</family>
+          <prefer><family>Symbols Nerd Font</family></prefer>
         </alias>
       '';
-      defaultFonts.monospace = ["ComicCodeLigatures Nerd Font"];
+      defaultFonts.monospace = ["ComicCodeLigatures"];
     };
   };
 

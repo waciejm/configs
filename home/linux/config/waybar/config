@@ -28,7 +28,7 @@
     "pulseaudio": {
         "scroll-step": 10,
         "format": "{volume}% {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": "󰝟 {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -40,25 +40,25 @@
 
 	"network": {
         "format-wifi": "",
-        "format-ethernet": "{ifname}",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "⚠",
+        "format-ethernet": "󰈀",
+        "format-linked": "No IP",
+        "format-disconnected": "󰈂",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%) / {ipaddr} on {ifname} via {gwaddr}/{cidr}",
 		"tooltip-format-ethernet": "{ipaddr} on {ifname} via {gwaddr}/{cidr}"
 	},
 
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% 󰻠",
 		"on-click": "alacritty -e htop"
     },
 
     "memory": {
-        "format": "{}% ",
+        "format": "{}% 󰘚",
 		"on-click": "alacritty -e htop"
     },
 
 	"disk": {
-		"format": "{percentage_used}% "
+		"format": "{percentage_used}% 󰉋"
 	},
 	
     "backlight": {
@@ -68,7 +68,7 @@
 
 	"battery": {
 		"format": "{capacity} {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
         "format-icons": ["", "", "", "", ""]
 	},
