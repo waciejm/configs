@@ -3,7 +3,7 @@
   configs-private,
   ...
 }: let
-  private-fonts = configs-private.mkFonts pkgs;
+  #private-fonts = configs-private.mkFonts pkgs;
   random-wallpaper = (configs-private.mkWallpapers pkgs).random-wallpaper;
 in {
   environment.systemPackages = builtins.attrValues {
@@ -30,6 +30,7 @@ in {
       mako
       mpv
       nextcloud-client
+      obs-studio
       obsidian
       openscad
       pamixer
@@ -88,17 +89,10 @@ in {
 
   fonts = {
     packages = [
-      private-fonts.comic-code-ligatures
-      private-fonts.symbols-nerd-font
+      (pkgs.nerdfonts.override {fonts = ["IosevkaTerm"];})
     ];
     fontconfig = {
-      localConf = ''
-        <alias>
-          <family>ComicCodeLigatures</family>
-          <prefer><family>Symbols Nerd Font</family></prefer>
-        </alias>
-      '';
-      defaultFonts.monospace = ["ComicCodeLigatures"];
+      defaultFonts.monospace = ["IosevkaTerm Nerd Font"];
     };
   };
 

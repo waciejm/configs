@@ -28,49 +28,49 @@
     "pulseaudio": {
         "scroll-step": 10,
         "format": "{volume}% {icon} {format_source}",
-        "format-muted": "󰝟 {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-muted": "󰝟  {format_source}",
+        "format-source": "{volume}%  ",
+        "format-source-muted": " ",
         "format-icons": {
-            "default": ["", "", ""]
+            "default": [" ", " ", " "]
         },
         "on-click": "pavucontrol",
 		"ignored-sinks": ["Easy Effects Sink"]
     },
 
 	"network": {
-        "format-wifi": "",
-        "format-ethernet": "󰈀",
+        "format-wifi": " ",
+        "format-ethernet": "󰈀 ",
         "format-linked": "No IP",
-        "format-disconnected": "󰈂",
+        "format-disconnected": "󰈂 ",
 		"tooltip-format-wifi": "{essid} ({signalStrength}%) / {ipaddr} on {ifname} via {gwaddr}/{cidr}",
 		"tooltip-format-ethernet": "{ipaddr} on {ifname} via {gwaddr}/{cidr}"
 	},
 
     "cpu": {
-        "format": "{usage}% 󰻠",
+        "format": "{usage}% 󰻠 ",
 		"on-click": "alacritty -e htop"
     },
 
     "memory": {
-        "format": "{}% 󰘚",
+        "format": "{}% 󰘚 ",
 		"on-click": "alacritty -e htop"
     },
 
 	"disk": {
-		"format": "{percentage_used}% 󰉋"
+		"format": "{percentage_used}% 󰉋 "
 	},
 	
     "backlight": {
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     },
 
 	"battery": {
 		"format": "{capacity} {icon}",
         "format-charging": "{capacity}% 󰂄",
-        "format-plugged": "{capacity}% ",
-        "format-icons": ["", "", "", "", ""]
+        "format-plugged": "{capacity}%  ",
+        "format-icons": [" ", " ", " ", " ", " "]
 	},
 
     "battery#bat0": {
@@ -99,13 +99,13 @@
 			"3": [],
 			"4": [],
 		},
-		"format": "{name} {icon}",
+		"format": "{icon}",
 		"format-icons": {
-			"1": "",
-			"2": "",
-			"3": "",
-			"4": "",
-			"default": ""
+			"1": " ",
+			"2": " ",
+			"3": " ",
+			"4": " ",
+			"default": " "
 		},
 		"sort-by-name": false,
 		"sort-by-number": true
