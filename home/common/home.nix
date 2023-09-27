@@ -31,6 +31,7 @@ in {
       jless
       just
       lsd
+      mdcat
       ncspot
       neovim
       nil

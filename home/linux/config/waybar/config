@@ -5,7 +5,6 @@
 
 	"modules-left": [
 		"user",
-		"wlr/workspaces"
 	],
 
 	"modules-center": [
@@ -89,25 +88,5 @@
 		"spacing": 10,
 		"reverse-direction": true,
 		"show-passive-items": true
-	},
-
-	"wlr/workspaces": {
-		"on-click": "activate",
-		"persistent_workspaces": {
-			"1": [],
-			"2": [],
-			"3": [],
-			"4": [],
-		},
-		"format": "{icon}",
-		"format-icons": {
-			"1": " ",
-			"2": " ",
-			"3": " ",
-			"4": " ",
-			"default": " "
-		},
-		"sort-by-name": false,
-		"sort-by-number": true
 	}
 }

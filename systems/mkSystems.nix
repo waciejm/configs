@@ -38,6 +38,7 @@ in {
       ./common/virtualisation.nix
       ./common/android.nix
       ./common/dev-networking.nix
+      ./common/embedded.nix
       ./common/gaming.nix
     ];
   };
@@ -50,6 +51,8 @@ in {
       ./common/tailscale.nix
       ./common/virtualisation.nix
       ./common/android.nix
+      ./common/dev-networking.nix
+      ./common/embedded.nix
     ];
   };
 }

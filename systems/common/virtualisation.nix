@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   virtualisation = {
     docker.enable = true;
     podman = {
@@ -8,6 +8,8 @@
       };
     };
   };
+
+  environment.systemPackages = [pkgs.dive];
 
   users.users.waciejm.extraGroups = ["docker"];
 }

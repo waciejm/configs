@@ -71,7 +71,7 @@
 
   users.users.waciejm = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "disk"];
     shell = pkgs.zsh;
   };
 
@@ -81,8 +81,10 @@
     avahi = {
       enable = true;
       nssmdns = true;
+      openFirewall = true;
     };
     fstrim.enable = true;
+    printing.enable = true;
   };
 
   hardware.keyboard.zsa.enable = true;

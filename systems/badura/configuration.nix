@@ -38,5 +38,5 @@
 
   hardware.cpu.amd.updateMicrocode = true;
 
-  fonts.fontconfig.subpixel.rgba = "none";
+  fonts.fontconfig.subpixel.rgba = "rgb";
 }

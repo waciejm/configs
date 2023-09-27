@@ -46,6 +46,7 @@ in {
       swww
       thunderbird
       vscode-fhs
+      waybar
       webcord
       wl-clipboard
       zathura
@@ -53,9 +54,6 @@ in {
     inherit random-wallpaper;
     inherit (pkgs.gnome) seahorse;
     inherit (pkgs.xfce) thunar;
-    waybar = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-    });
   };
 
   programs = {
@@ -103,7 +101,16 @@ in {
     };
   };
 
+  gtk.iconCache.enable = true;
+
+  qt = {
+    enable = true;
+    style = "adwaita-dark";
+    platformTheme = "gnome";
+  };
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
   };
 }

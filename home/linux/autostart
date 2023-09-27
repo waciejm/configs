@@ -1,9 +1,9 @@
 #!/usr/bin/env zsh
 
 if [ "$HOST" = "badura" ]; then
-	easyeffects --gapplication-service &
+
 	waybar &
-	swww init & 
+	swww init &
 	blueman-applet &
 	pasystray &
 	nextcloud --background &
@@ -11,6 +11,10 @@ if [ "$HOST" = "badura" ]; then
 	sleep 1
 
 	swww img $(random-wallpaper) &
+	easyeffects --gapplication-service &
+
+	sleep 1
+
 	google-chrome-stable &
 	firefox &
 
@@ -23,4 +27,5 @@ if [ "$HOST" = "badura" ]; then
 
 	obsidian &
 	signal-desktop &
+
 fi

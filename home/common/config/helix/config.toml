@@ -2,3 +2,7 @@ theme = "gruvbox-tweaked"
 
 [editor.lsp]
 auto-signature-help = false
+
+[editor.indent-guides]
+render = true
+character = "│"
