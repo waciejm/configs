@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-if [ "$HOST" = "badura" ]; then
+if [ "$HOST" = "badura" ] || [ "$HOST" = "cigma" ]; then
 
 	waybar &
 	swww init &
