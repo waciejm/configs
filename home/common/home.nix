@@ -28,6 +28,7 @@ in {
       gitui
       gzip
       htop
+      imagemagick
       jless
       just
       lsd

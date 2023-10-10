@@ -71,7 +71,7 @@
 
   users.users.waciejm = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "disk"];
+    extraGroups = ["networkmanager" "wheel" "disk" "scanner" "lp"];
     shell = pkgs.zsh;
   };
 
@@ -87,5 +87,8 @@
     printing.enable = true;
   };
 
-  hardware.keyboard.zsa.enable = true;
+  hardware = {
+    keyboard.zsa.enable = true;
+    sane.enable = true;
+  };
 }

@@ -33,6 +33,7 @@ in {
       obs-studio
       obsidian
       openscad
+      okular
       pamixer
       pavucontrol
       pasystray
