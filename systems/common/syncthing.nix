@@ -14,30 +14,19 @@
       devices = {
         badura = {
           id = "5IBUJSP-DYTG3ZR-OTG67BT-VOIHMLB-VW5T262-TSXJ6QL-KER2VZQ-IC56RQS";
-          addresses = [
-            "tcp://badura:22000"
-            "quic://badura:22000"
-          ];
+          addresses = ["tcp://badura:22000"];
         };
-        cigma = {
-          id = "5VKW33K-SDJ37JI-WFULCDG-4GDBRJW-O4DFLMM-BECZ7HU-XPOKTLK-YAUN5AU";
-          addresses = [
-            "tcp://cigma:22000"
-            "quic://cigma:22000"
-          ];
+        mmmmmm = {
+          id = "FAQ3MPE-HBQXTHR-RZ6HNRI-YLLZ3KM-PG6QU2G-KS4BYK4-YQ4NBNF-6YYZYAB";
+          addresses = ["tcp://mmmmmm:22000"];
         };
       };
       folders = {
         syncthingtest = {
           path = "~/syncthingtest";
-          devices = ["badura" "cigma"];
+          devices = ["badura" "mmmmmm"];
         };
       };
     };
-  };
-
-  networking.firewall = {
-    allowedUDPPorts = [22000];
-    allowedTCPPorts = [22000];
   };
 }

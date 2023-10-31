@@ -42,8 +42,5 @@
 
   fonts.fontconfig.subpixel.rgba = "rgb";
 
-  services.syncthing.settings.options.listenAddresses = [
-    "tcp://100.87.166.128:22000"
-    "quic://100.87.166.128:22000"
-  ];
+  services.syncthing.settings.options.listenAddresses = ["tcp://100.87.166.128:22000"];
 }

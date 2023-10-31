@@ -50,7 +50,6 @@ in {
       ./common/graphical.nix
       ./common/bluetooth.nix
       ./common/tailscale.nix
-      ./common/syncthing.nix
       ./common/virtualisation.nix
       ./common/android.nix
       ./common/dev-networking.nix
