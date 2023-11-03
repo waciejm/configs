@@ -25,7 +25,6 @@ if [ "$HOST" = "badura" ] || [ "$HOST" = "cigma" ]; then
 
 	sleep 2
 
-	obsidian &
 	signal-desktop &
 
 fi
