@@ -6,7 +6,7 @@ in
     pkgs = nixpkgs.legacyPackages."${platform}";
   in {
     switch-home = pkgs.writeShellApplication {
-      name = "home-switch";
+      name = "switch-home";
       runtimeInputs = [pkgs.coreutils home-manager.packages."${platform}".home-manager];
       text = ''
         export NIX_CONFIG="experimental-features = nix-command flakes"
