@@ -43,17 +43,4 @@ in {
       ./common/gaming.nix
     ];
   };
-  cigma = mkSystem {
-    hostname = "cigma";
-    system = "x86_64-linux";
-    extraModules = [
-      ./common/graphical.nix
-      ./common/bluetooth.nix
-      ./common/tailscale.nix
-      ./common/virtualisation.nix
-      ./common/android.nix
-      ./common/dev-networking.nix
-      ./common/embedded.nix
-    ];
-  };
 }

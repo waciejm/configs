@@ -52,10 +52,13 @@ in {
       wl-clipboard
       zathura
       ;
-    inherit random-wallpaper;
-    inherit (pkgs.gnome) seahorse;
-    inherit (pkgs.xfce) thunar;
-  };
+  } ++ [
+    random-wallpaper
+    pkgs.gnome.seahorse
+    pkgs.xfce.thunar
+    pkgs.qt6.qtwayland
+    pkgs.libsForQt5.qt5.qtwayland
+  ];
 
   programs = {
     hyprland = {
