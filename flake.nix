@@ -19,10 +19,7 @@
   }: let
     utils = import ./utils.nix;
   in {
-    packages = import ./mkScripts.nix home-manager;
-
     homeConfigurations = import ./home/mkHomes.nix inputs;
-
     nixosConfigurations = import ./systems/mkSystems.nix inputs;
 
     formatter = utils.forEachPlatform (
