@@ -12,8 +12,6 @@
     home-manager.nixosModules.home-manager
   ];
 
-  networking.hostName = hostname;
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -43,6 +41,11 @@
     hostPlatform = system;
   };
 
+  networking = {
+    hostName = hostname;
+    useDHCP = lib.mkDefault true;
+  };
+
   time.timeZone = "Europe/Warsaw";
 
   i18n = {
@@ -64,14 +67,9 @@
 
   boot.supportedFilesystems = ["ntfs"];
 
-  networking = {
-    useDHCP = lib.mkDefault true;
-    networkmanager.enable = true;
-  };
-
   users.users.waciejm = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "disk" "scanner" "lp"];
+    extraGroups = ["wheel" "disk"];
     shell = pkgs.zsh;
   };
 
@@ -89,6 +87,5 @@
 
   hardware = {
     keyboard.zsa.enable = true;
-    sane.enable = true;
   };
 }

@@ -41,6 +41,15 @@ in {
       ./common/dev-networking.nix
       ./common/embedded.nix
       ./common/gaming.nix
+      ./common/scanning.nix
+    ];
+  };
+  cube = mkSystem {
+    hostname = "cube";
+    system = "x86_64-linux";
+    extraModules = [
+      ./common/tailscale.nix
+      ./common/syncthing.nix
     ];
   };
 }

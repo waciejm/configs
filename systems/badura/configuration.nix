@@ -39,6 +39,4 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   fonts.fontconfig.subpixel.rgba = "rgb";
-
-  services.syncthing.settings.options.listenAddresses = ["tcp://100.82.104.49:22000"];
 }

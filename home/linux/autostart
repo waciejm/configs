@@ -6,6 +6,7 @@ if [ "$HOST" = "badura" ] || [ "$HOST" = "cigma" ]; then
 	swww init &
 	blueman-applet &
 	pasystray &
+	syncthingtray &
 	nextcloud --background &
 
 	sleep 1

@@ -1,4 +1,9 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../common/home.nix
   ];
@@ -12,23 +17,23 @@
       ;
   };
 
-  home.file = {
+  home.file = lib.mkIf config.waciejm.graphical {
     ".autostart".source = ./autostart;
   };
 
-  xdg.configFile = {
+  xdg.configFile = lib.mkIf config.waciejm.graphical {
     "hypr".source = config/hypr;
     "swaylock".source = config/swaylock;
     "rofi".source = config/rofi;
     "waybar".source = config/waybar;
   };
 
-  xdg.systemDirs.data = [
+  xdg.systemDirs.data = lib.mkIf config.waciejm.graphical [
     "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
     "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
   ];
 
-  gtk = {
+  gtk = lib.mkIf config.waciejm.graphical {
     enable = true;
     theme.name = "Gruvbox-Dark-BL";
     theme.package = pkgs.gruvbox-gtk-theme;
