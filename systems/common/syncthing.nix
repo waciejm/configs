@@ -34,6 +34,12 @@
       folders = {
         waciejm = {
           path = "~/.syncthing";
+          type = "sendreceive";
+          devices = ["bolek"];
+        };
+        waciejm-crypt = {
+          path = "~/.syncthing-crypt";
+          type = "sendreceive";
           devices = ["bolek"];
         };
       };
