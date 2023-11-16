@@ -1,4 +1,6 @@
 {
+  home-manager.sharedModules = [{waciejm.linkSyncthing = true;}];
+
   services.syncthing = {
     enable = true;
     user = "waciejm";
@@ -33,12 +35,12 @@
       overrideFolders = true;
       folders = {
         waciejm = {
-          path = "~/.syncthing";
+          path = "~/.st";
           type = "sendreceive";
           devices = ["bolek"];
         };
         waciejm-crypt = {
-          path = "~/.syncthing-crypt";
+          path = "~/.stc";
           type = "sendreceive";
           devices = ["bolek"];
         };

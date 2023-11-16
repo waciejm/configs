@@ -13,6 +13,10 @@ in {
       type = lib.types.bool;
       default = false;
     };
+    waciejm.linkSyncthing = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
   };
   config = {
     programs.home-manager.enable = true;
@@ -77,18 +81,16 @@ in {
         source = ./ssh;
         recursive = true;
       };
-      # ssh keys
-      ".ssh/ssh_waciejm".source = mkLink "Keys/ssh_waciejm";
-      ".ssh/ssh_waciejm.pub".source = mkLink "Keys/ssh_waciejm.pub";
-      ".ssh/ssh_mac1".source = mkLink "Keys/ssh_mac1";
-      ".ssh/ssh_mac1.pub".source = mkLink "Keys/ssh_mac1.pub";
       # syncthing
-      "Desktop".source = mkLink ".syncthing/Desktop";
-      "Documents".source = mkLink ".syncthing/Documents";
-      "Music".source = mkLink ".syncthing/Music";
-      "Pictures".source = mkLink ".syncthing/Pictures";
-      "Projects".source = mkLink ".syncthing/Projects";
-      "Sync".source = mkLink ".syncthing/Sync";
+      "Desktop" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Desktop";};
+      "Documents" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Documents";};
+      "Music" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Music";};
+      "Pictures" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Pictures";};
+      "Projects" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Projects";};
+      "Sync" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Sync";};
+      # syncthing crypt
+      "Keys" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".stc/Keys";};
+      "qed" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".stc/qed";};
     };
 
     xdg.configFile = {
