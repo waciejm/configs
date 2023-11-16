@@ -8,6 +8,9 @@
     dataDir = "/home/waciejm";
     openDefaultPorts = false;
 
+    # required for setting up waciejm-crypt
+    overrideFolders = false;
+
     settings = {
       options = {
         listenAddresses = ["tcp://0.0.0.0:22000"];
@@ -32,13 +35,18 @@
         };
       };
 
-      overrideFolders = false;
       folders = {
         waciejm = {
           path = "~/.st";
           type = "sendreceive";
           devices = ["bolek"];
         };
+        # can't be declarative, overwrites encryption password to blank
+        # waciejm-crypt = {
+        #   path = "~/.stc";
+        #   type = "sendreceive";
+        #   devices = ["bolek"];
+        # };
       };
     };
   };
