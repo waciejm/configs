@@ -32,15 +32,10 @@
         };
       };
 
-      overrideFolders = true;
+      overrideFolders = false;
       folders = {
         waciejm = {
           path = "~/.st";
-          type = "sendreceive";
-          devices = ["bolek"];
-        };
-        waciejm-crypt = {
-          path = "~/.stc";
           type = "sendreceive";
           devices = ["bolek"];
         };
