@@ -7,7 +7,6 @@ if [ "$HOST" = "badura" ] || [ "$HOST" = "cigma" ]; then
 	blueman-applet &
 	pasystray &
 	syncthingtray --wait &
-	nextcloud --background &
 
 	sleep 1
 

@@ -68,17 +68,27 @@ in {
     };
 
     home.file = {
+      # zsh
       ".zshrc".source = ./zshrc;
       ".zshenv".source = ./zshenv;
       ".zfunc".source = ./zfunc;
+      # ssh
       ".ssh" = {
         source = ./ssh;
         recursive = true;
       };
+      # ssh keys
       ".ssh/ssh_waciejm".source = mkLink "Keys/ssh_waciejm";
       ".ssh/ssh_waciejm.pub".source = mkLink "Keys/ssh_waciejm.pub";
       ".ssh/ssh_mac1".source = mkLink "Keys/ssh_mac1";
       ".ssh/ssh_mac1.pub".source = mkLink "Keys/ssh_mac1.pub";
+      # syncthing
+      "Desktop".source = mkLink ".syncthing/Desktop";
+      "Documents".source = mkLink ".syncthing/Documents";
+      "Music".source = mkLink ".syncthing/Music";
+      "Pictures".source = mkLink ".syncthing/Pictures";
+      "Projects".source = mkLink ".syncthing/Projects";
+      "Sync".source = mkLink ".syncthing/Sync";
     };
 
     xdg.configFile = {

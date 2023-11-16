@@ -32,7 +32,6 @@ in {
         libreoffice
         mako
         mpv
-        nextcloud-client
         obs-studio
         obsidian
         openscad
