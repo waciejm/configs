@@ -81,6 +81,10 @@ in {
         source = ./ssh;
         recursive = true;
       };
+      ".ssh/ssh_waciejm".source = mkLink "Keys/ssh_waciejm";
+      ".ssh/ssh_waciejm.pub".source = mkLink "Keys/ssh_waciejm.pub";
+      ".ssh/ssh_mac1".source = mkLink "Keys/ssh_mac1";
+      ".ssh/ssh_mac1.pub".source = mkLink "Keys/ssh_mac1.pub";
       # syncthing
       "Desktop" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Desktop";};
       "Documents" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Documents";};
