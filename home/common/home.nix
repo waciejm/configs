@@ -86,6 +86,7 @@ in {
       ".ssh/ssh_mac1".source = mkLink "Keys/ssh_mac1";
       ".ssh/ssh_mac1.pub".source = mkLink "Keys/ssh_mac1.pub";
       # syncthing
+      "Archive" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Archive";};
       "Desktop" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Desktop";};
       "Documents" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Documents";};
       "Music" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Music";};
