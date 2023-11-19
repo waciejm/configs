@@ -47,7 +47,6 @@ in {
         slurp
         swaylock
         swww
-        syncthingtray
         thunderbird
         vscode-fhs
         waybar

@@ -6,7 +6,6 @@ if [ "$HOST" = "badura" ] || [ "$HOST" = "cigma" ]; then
 	swww init &
 	blueman-applet &
 	pasystray &
-	syncthingtray --wait &
 
 	sleep 1
 
