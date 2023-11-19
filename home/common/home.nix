@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-stable,
   lib,
   nixpkgs,
   ...
@@ -38,6 +37,7 @@ in {
         git-review
         gitui
         gzip
+        helix
         htop
         imagemagick
         jless
@@ -67,7 +67,6 @@ in {
         zoxide
         zsh-completions
         ;
-      helix = pkgs-stable.helix;
       python310 = lib.hiPrio pkgs.python310;
     };
 

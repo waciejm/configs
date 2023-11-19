@@ -1,7 +1,6 @@
 {
   home-manager,
   nixpkgs,
-  nixpkgs-stable,
   ...
 }: let
   utils = import ../utils.nix;
@@ -16,7 +15,6 @@ in
       pkgs = nixpkgs.legacyPackages."${platform}";
       extraSpecialArgs = {
         inherit nixpkgs;
-        pkgs-stable = nixpkgs-stable.legacyPackages."${platform}";
       };
       modules = [
         ./${system}/home.nix

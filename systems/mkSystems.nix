@@ -1,6 +1,5 @@
 {
   nixpkgs,
-  nixpkgs-stable,
   home-manager,
   configs-private,
   ...
@@ -18,7 +17,6 @@
         inherit nixpkgs;
         inherit home-manager;
         inherit configs-private;
-        pkgs-stable = nixpkgs-stable.legacyPackages."${system}";
       };
       modules =
         [
@@ -42,14 +40,6 @@ in {
       ./common/embedded.nix
       ./common/gaming.nix
       ./common/scanning.nix
-    ];
-  };
-  cube = mkSystem {
-    hostname = "cube";
-    system = "x86_64-linux";
-    extraModules = [
-      ./common/tailscale.nix
-      ./common/syncthing.nix
     ];
   };
 }
