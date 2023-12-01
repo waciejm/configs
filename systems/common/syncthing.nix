@@ -5,7 +5,8 @@
     enable = true;
     user = "waciejm";
     group = "users";
-    dataDir = "/home/waciejm";
+    configDir = "/home/waciejm/.config/syncthing";
+    dataDir = "/home/waciejm/.local/state/syncthing";
     openDefaultPorts = false;
 
     # required for setting up waciejm-crypt
