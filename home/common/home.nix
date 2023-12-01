@@ -80,21 +80,6 @@ in {
         source = ./ssh;
         recursive = true;
       };
-      ".ssh/ssh_waciejm".source = mkLink "Keys/ssh_waciejm";
-      ".ssh/ssh_waciejm.pub".source = mkLink "Keys/ssh_waciejm.pub";
-      ".ssh/ssh_mac1".source = mkLink "Keys/ssh_mac1";
-      ".ssh/ssh_mac1.pub".source = mkLink "Keys/ssh_mac1.pub";
-      # syncthing
-      "Archive" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Archive";};
-      "Desktop" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Desktop";};
-      "Documents" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Documents";};
-      "Music" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Music";};
-      "Pictures" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Pictures";};
-      "Projects" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Projects";};
-      "Sync" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".st/Sync";};
-      # syncthing crypt
-      "Keys" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".stc/Keys";};
-      "qed" = lib.mkIf config.waciejm.linkSyncthing {source = mkLink ".stc/qed";};
     };
 
     xdg.configFile = {
