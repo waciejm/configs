@@ -1,18 +1,11 @@
 {
-  config,
   pkgs,
   lib,
   nixpkgs,
   ...
-}: let
-  mkLink = target: config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${target}";
-in {
+}: {
   options = {
     waciejm.graphical = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
-    waciejm.linkSyncthing = lib.mkOption {
       type = lib.types.bool;
       default = false;
     };

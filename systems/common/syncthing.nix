@@ -1,6 +1,4 @@
 {
-  home-manager.sharedModules = [{waciejm.linkSyncthing = true;}];
-
   services.syncthing = {
     enable = true;
     user = "waciejm";
@@ -8,8 +6,6 @@
     configDir = "/home/waciejm/.config/syncthing";
     dataDir = "/home/waciejm/.local/state/syncthing";
     openDefaultPorts = false;
-
-    # required for setting up waciejm-crypt
     overrideFolders = false;
 
     settings = {
@@ -26,10 +22,6 @@
       };
 
       devices = {
-        badura = {
-          id = "5IBUJSP-DYTG3ZR-OTG67BT-VOIHMLB-VW5T262-TSXJ6QL-KER2VZQ-IC56RQS";
-          addresses = ["tcp://100.82.104.49:22000"];
-        };
         bolek = {
           id = "HH2QXX6-O3K2MOB-RTWFDIQ-ZEDUULA-XEMX5WC-TVPGNPR-UPN5VYL-4RJC6A2";
           addresses = ["tcp://100.90.188.151:22000"];
@@ -37,14 +29,44 @@
       };
 
       folders = {
-        waciejm = {
-          path = "~/.st";
+        Archive = {
+          path = "/home/waciejm/Archive";
+          type = "sendreceive";
+          devices = ["bolek"];
+        };
+        Desktop = {
+          path = "/home/waciejm/Desktop";
+          type = "sendreceive";
+          devices = ["bolek"];
+        };
+        Documents = {
+          path = "/home/waciejm/Documents";
+          type = "sendreceive";
+          devices = ["bolek"];
+        };
+        Music = {
+          path = "/home/waciejm/Music";
+          type = "sendreceive";
+          devices = ["bolek"];
+        };
+        Pictures = {
+          path = "/home/waciejm/Pictures";
+          type = "sendreceive";
+          devices = ["bolek"];
+        };
+        Projects = {
+          path = "/home/waciejm/Projects";
           type = "sendreceive";
           devices = ["bolek"];
         };
         # can't be declarative, overwrites encryption password to blank
-        # waciejm-crypt = {
-        #   path = "~/.stc";
+        # Keys = {
+        #   path = "/home/waciejm/Keys";
+        #   type = "sendreceive";
+        #   devices = ["bolek"];
+        # };
+        # qed = {
+        #   path = "/home/waciejm/qed";
         #   type = "sendreceive";
         #   devices = ["bolek"];
         # };
