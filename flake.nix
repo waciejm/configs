@@ -10,10 +10,7 @@
     configs-private.url = "github:waciejm/configs-private";
   };
 
-  outputs = inputs @ {
-    nixpkgs,
-    ...
-  }: let
+  outputs = inputs @ {nixpkgs, ...}: let
     utils = import ./utils.nix;
   in {
     homeConfigurations = import ./home/mkHomes.nix inputs;
