@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  modulesPath,
+  ...
+}: {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
   system.stateVersion = "23.11";
 
   boot = {
@@ -8,8 +16,10 @@
     };
     initrd = {
       availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid"];
+      kernelModules = [];
     };
     kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -64,6 +74,8 @@
   swapDevices = [];
 
   hardware.cpu.amd.updateMicrocode = true;
+
+  powerManagement.cpuFreqGovernor = "powersave";
 
   fonts.fontconfig.subpixel.rgba = "rgb";
 }

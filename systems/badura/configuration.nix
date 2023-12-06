@@ -1,4 +1,8 @@
-{modulesPath, ...}: {
+{
+  pkgs,
+  modulesPath,
+  ...
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -21,6 +25,7 @@
     };
     kernelModules = ["kvm-amd"];
     extraModulePackages = [];
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   fileSystems = {
@@ -37,6 +42,8 @@
   swapDevices = [];
 
   hardware.cpu.amd.updateMicrocode = true;
+
+  powerManagement.cpuFreqGovernor = "ondemand";
 
   fonts.fontconfig.subpixel.rgba = "rgb";
 }
