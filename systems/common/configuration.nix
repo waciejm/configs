@@ -75,6 +75,8 @@
     hashedPassword = configs-private.hashedUserPassword;
   };
 
+  security.sudo.execWheelOnly = true;
+
   programs.zsh.enable = true;
 
   services = {

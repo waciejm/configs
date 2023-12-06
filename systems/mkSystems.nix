@@ -31,10 +31,11 @@ in {
     hostname = "badura";
     system = "x86_64-linux";
     extraModules = [
-      ./common/graphical.nix
-      ./common/bluetooth.nix
+      ./common/sshd.nix
       ./common/tailscale.nix
       ./common/syncthing.nix
+      ./common/graphical.nix
+      ./common/bluetooth.nix
       ./common/virtualisation.nix
       ./common/android.nix
       ./common/dev-networking.nix
@@ -48,10 +49,11 @@ in {
     system = "x86_64-linux";
     extraModules = [
       disko.nixosModules.disko
-      ./common/graphical.nix
-      ./common/bluetooth.nix
+      ./common/sshd.nix
       ./common/tailscale.nix
       ./common/syncthing.nix
+      ./common/graphical.nix
+      ./common/bluetooth.nix
       ./common/virtualisation.nix
       ./common/android.nix
       ./common/dev-networking.nix

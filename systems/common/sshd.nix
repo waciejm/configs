@@ -1,13 +1,10 @@
 {
   services.openssh = {
-    enabled = true;
-    permitRootLogin = "prohibit-password";
-    passwordAuthentication = false;
-  };
-
-  security.sudo = {
-    execWheelOnly = true;
-    wheelNeedsPasswrod = false;
+    enable = true;
+    settings = {
+      AuthenticationMethods = "publickey";
+      PermitRootLogin = "prohibit-password";
+    };
   };
 
   users.users.waciejm.openssh.authorizedKeys.keyFiles = [
