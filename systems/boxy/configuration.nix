@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   system.stateVersion = "23.11";
 
   boot = {
@@ -10,6 +10,7 @@
       availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid"];
     };
     kernelModules = ["kvm-amd"];
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   disko.devices.disk.ssd1 = {
