@@ -6,6 +6,7 @@
   pkgs-stable,
   pkgs,
   lib,
+  configs-private,
   ...
 }: {
   imports = [
@@ -71,6 +72,7 @@
     isNormalUser = true;
     extraGroups = ["wheel" "disk"];
     shell = pkgs.zsh;
+    hashedPassword = configs-private.hashedUserPassword;
   };
 
   programs.zsh.enable = true;

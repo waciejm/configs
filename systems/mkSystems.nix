@@ -1,6 +1,7 @@
 {
   nixpkgs,
   home-manager,
+  disko,
   configs-private,
   ...
 }: let
@@ -39,6 +40,22 @@ in {
       ./common/dev-networking.nix
       ./common/embedded.nix
       ./common/gaming.nix
+      ./common/scanning.nix
+    ];
+  };
+  boxy = mkSystem {
+    hostname = "boxy";
+    system = "x86_64-linux";
+    extraModules = [
+      disko.nixosModules.disko
+      ./common/graphical.nix
+      ./common/bluetooth.nix
+      ./common/tailscale.nix
+      ./common/syncthing.nix
+      ./common/virtualisation.nix
+      ./common/android.nix
+      ./common/dev-networking.nix
+      ./common/embedded.nix
       ./common/scanning.nix
     ];
   };

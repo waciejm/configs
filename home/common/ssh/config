@@ -9,7 +9,7 @@ Host gitlab.com
     IdentityFile ~/.ssh/ssh_waciejm
 
 Host arnold
-    HostName 100.74.24.42
+    HostName 100.85.10.12
     User waciejm
     IdentityFile ~/.ssh/ssh_waciejm
     ForwardAgent yes

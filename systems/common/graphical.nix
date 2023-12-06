@@ -3,7 +3,6 @@
   configs-private,
   ...
 }: let
-  #private-fonts = configs-private.mkFonts pkgs;
   random-wallpaper = (configs-private.mkWallpapers pkgs).random-wallpaper;
 in {
   home-manager.sharedModules = [{waciejm.graphical = true;}];
