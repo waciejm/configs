@@ -46,7 +46,13 @@
             type = "luks";
             name = "luks-root";
             passwordFile = "/tmp/luks.key";
-            settings.allowDiscards = true;
+            settings = {
+              allowDiscards = true;
+              keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_3.0_1C1B0D6579FCE261A9653008-0:0";
+              keyFileSize = 4096;
+              keyFileOffset = 0;
+              fallbackToPassword = true;
+            };
             content = {
               type = "btrfs";
               extraArgs = ["-f"];

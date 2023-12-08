@@ -49,6 +49,7 @@ in {
     system = "x86_64-linux";
     extraModules = [
       disko.nixosModules.disko
+      ./common/wifi.nix
       ./common/sshd.nix
       ./common/tailscale.nix
       ./common/syncthing.nix
