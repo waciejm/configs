@@ -1,29 +1,21 @@
 #!/usr/bin/env zsh
 
 if [ "$HOST" = "badura" ] || [ "$HOST" = "boxy" ]; then
-
 	waybar &
 	swww init &
-	blueman-applet &
-	pasystray &
 
-	sleep 1
+	sleep 2
 
 	swww img $(random-wallpaper) &
 	easyeffects --gapplication-service &
 
-	sleep 1
-
-	google-chrome-stable &
 	firefox &
 
 	sleep 2
 
-	slack &
 	alacritty --class ncspot --command ncspot &
 
 	sleep 2
 
 	signal-desktop &
-
 fi

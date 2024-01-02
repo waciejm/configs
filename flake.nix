@@ -21,8 +21,7 @@
     nixosConfigurations = import ./systems/mkSystems.nix inputs;
 
     formatter = utils.forEachPlatform (
-      platform:
-        nixpkgs.legacyPackages."${platform}".alejandra
+      platform: nixpkgs.legacyPackages."${platform}".alejandra
     );
   };
 }

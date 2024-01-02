@@ -37,7 +37,6 @@ in {
         okular
         pamixer
         pavucontrol
-        pasystray
         playerctl
         prusa-slicer
         rofi-wayland
@@ -60,6 +59,9 @@ in {
       pkgs.qt6.qtwayland
       pkgs.libsForQt5.qt5.qtwayland
     ];
+
+  # remove after obsidian updates electron
+  nixpkgs.config.permittedInsecurePackages = ["electron-25.9.0"];
 
   programs = {
     hyprland = {
