@@ -82,6 +82,4 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   powerManagement.cpuFreqGovernor = "powersave";
-
-  fonts.fontconfig.subpixel.rgba = "rgb";
 }

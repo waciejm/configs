@@ -2,6 +2,7 @@
   nixpkgs,
   home-manager,
   disko,
+  lanzaboote,
   configs-private,
   ...
 }: let
@@ -23,6 +24,8 @@
         [
           ./${hostname}/configuration.nix
           ./common/configuration.nix
+          disko.nixosModules.disko
+          lanzaboote.nixosModules.lanzaboote
         ]
         ++ extraModules;
     };
@@ -40,15 +43,15 @@ in {
       ./common/android.nix
       ./common/dev-networking.nix
       ./common/embedded.nix
-      ./common/gaming.nix
       ./common/scanning.nix
+      ./common/gaming.nix
     ];
   };
   boxy = mkSystem {
     hostname = "boxy";
     system = "x86_64-linux";
     extraModules = [
-      disko.nixosModules.disko
+      ./common/secureboot.nix
       ./common/wifi.nix
       ./common/sshd.nix
       ./common/tailscale.nix

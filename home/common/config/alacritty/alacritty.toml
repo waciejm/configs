@@ -43,7 +43,7 @@ family = "IosevkaTerm Nerd Font"
 [window]
 decorations = "full"
 dynamic_padding = true
-opacity = 0.95
+opacity = 1.0
 startup_mode = "Windowed"
 
 [window.dimensions]
@@ -51,5 +51,5 @@ columns = 160
 lines = 50
 
 [window.padding]
-x = 4
-y = 4
+x = 0
+y = 0

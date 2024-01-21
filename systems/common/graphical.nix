@@ -44,7 +44,6 @@ in {
         slack
         slurp
         swaylock
-        swww
         thunderbird
         vscode-fhs
         waybar
