@@ -43,6 +43,7 @@ in {
         signal-desktop
         slack
         slurp
+        swaybg
         swaylock
         thunderbird
         vscode-fhs
