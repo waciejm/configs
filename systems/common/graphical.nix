@@ -1,10 +1,8 @@
 {
   pkgs,
-  configs-private,
+  selfPkgs,
   ...
-}: let
-  random-wallpaper = (configs-private.mkWallpapers pkgs).random-wallpaper;
-in {
+}: {
   home-manager.sharedModules = [{waciejm.graphical = true;}];
 
   environment.systemPackages =
@@ -53,11 +51,11 @@ in {
         ;
     }
     ++ [
-      random-wallpaper
       pkgs.gnome.seahorse
       pkgs.xfce.thunar
       pkgs.qt6.qtwayland
       pkgs.libsForQt5.qt5.qtwayland
+      selfPkgs.wl-screenrec
     ];
 
   # remove after obsidian updates electron

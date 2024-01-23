@@ -1,4 +1,5 @@
 {
+  self,
   nixpkgs,
   home-manager,
   disko,
@@ -14,11 +15,13 @@
     nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = {
+        inherit self;
         inherit system;
         inherit hostname;
         inherit nixpkgs;
         inherit home-manager;
         inherit configs-private;
+        selfPkgs = self.packages."${system}";
       };
       modules =
         [

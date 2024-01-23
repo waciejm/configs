@@ -45,9 +45,6 @@ in {
         nil
         nix-zsh-completions
         nushell
-        poetry
-        python39
-        python311
         ripgrep
         rm-improved
         rsync
@@ -63,7 +60,6 @@ in {
         zoxide
         zsh-completions
         ;
-      python310 = lib.hiPrio pkgs.python310;
     };
 
     home.file = {

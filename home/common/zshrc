@@ -1,3 +1,10 @@
+## exec Hyprland if in TTY1
+
+if [[ "$TTY" = "/dev/tty1" ]] then
+	exec Hyprland
+fi
+
+
 ## setup nix
 
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
@@ -10,27 +17,11 @@ fi
 
 ## setup PATH
 
-# Android Studio
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	export PATH="/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin:$PATH"
-fi
-
 # homebrew
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	export PATH="/opt/homebrew/bin:$PATH"
 fi
-
-# cargo
-
-if [[ -d "$HOME/.cargo/bin" ]]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
-fi
-
-# bin
-
-export PATH="$HOME/.bin:$PATH"
 
 
 ## setup zsh
@@ -75,42 +66,23 @@ fi
 ## setup aliases
 
 # ls
-alias l="ls -l"
+alias l="lsd -l"
 alias ls=lsd
-alias la="ls -lA"
-
-# python
-alias py="python3"
+alias la="lsd -lA"
 
 # git
-alias gitsnap="git add . && git commit -m "snapshot" && git push"
 alias glog="git log --all --oneline --graph"
 alias gca="git commit --amend"
 alias gc="git commit"
-alias gch="git checkout"
 alias gaa="git add ."
 alias gr="git review"
-alias grb="git rebase"
 alias gs="git status"
 alias gd="git diff"
-alias gp="git push"
-
-# cargo
-alias cr="cargo run"
-alias crr="cargo run --release"
-alias cb="cargo build"
-alias cbr="cargo build --release"
-alias cf="cargo fmt"
-
-# android
-alias gcheck="./gradlew ktlintFormat ktlintCheck"
 
 # sops
 alias homesops="SOPS_AGE_KEY=\$(age -d ~/Keys/homeops.age) sops"
 
 # rip
 alias rip="rip --graveyard ~/.graveyard"
-alias ripu="rip --unbury"
-
-# neovim
-alias nv=nvim
+alias ripu="rip --graveyard ~/.graveyard --unbury"
+alias ripd="rip --graveyard ~/.graveyard --decompose"

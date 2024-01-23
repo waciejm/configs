@@ -1,13 +1,5 @@
 rec {
-  mkPlatformName = arch: system: "${arch}-${system}";
-
   forEachPlatform = block: (forEachPlatformImpl mkPlatformName ({platform, ...}: block platform));
-
-  forEachLinuxPlatform = block: (forEachLinuxPlatformImpl mkPlatformName ({platform, ...}: block platform));
-
-  forEachPlatformRich = block: (forEachPlatformImpl mkPlatformName block);
-
-  forEachLinuxPlatformRich = block: (forEachLinuxPlatformImpl mkPlatformName block);
 
   forEachPlatformImpl = prefixFn: block:
     (forEachLinuxPlatformImpl prefixFn block)
@@ -38,4 +30,6 @@ rec {
       platform = "aarch64-darwin";
     };
   };
+
+  mkPlatformName = arch: system: "${arch}-${system}";
 }

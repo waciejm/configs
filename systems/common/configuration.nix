@@ -1,4 +1,5 @@
 {
+  self,
   system,
   hostname,
   nixpkgs,
@@ -24,12 +25,21 @@
   };
 
   nix = {
-    registry.nixpkgs = {
-      from = {
-        type = "indirect";
-        id = "nixpkgs";
+    registry = {
+      nixpkgs = {
+        from = {
+          type = "indirect";
+          id = "nixpkgs";
+        };
+        flake = nixpkgs;
       };
-      flake = nixpkgs;
+      config = {
+        from = {
+          type = "indirect";
+          id = "config";
+        };
+        flake = self;
+      };
     };
     settings = {
       experimental-features = ["nix-command" "flakes"];
