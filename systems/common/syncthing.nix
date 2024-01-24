@@ -26,6 +26,22 @@
           id = "HH2QXX6-O3K2MOB-RTWFDIQ-ZEDUULA-XEMX5WC-TVPGNPR-UPN5VYL-4RJC6A2";
           addresses = ["tcp://100.90.188.151:22000"];
         };
+        badura = {
+          id = "5IBUJSP-DYTG3ZR-OTG67BT-VOIHMLB-VW5T262-TSXJ6QL-KER2VZQ-IC56RQS";
+          addresses = ["tcp://100.82.104.49:22000"];
+        };
+        boxy = {
+          id = "GWR427B-IRJQUWH-UNE4WYF-GYFEN67-K2OGQWE-436QY5X-6HI3CV7-JJ77GQU";
+          addresses = ["tcp://100.73.138.82:22000"];
+        };
+        michair = {
+          id = "XHPAYPN-PS5HS6U-5DPNZ5K-OANCGEO-ZB5Q2RA-QTWR5RM-LVX3GLX-YLYHMA5";
+          addresses = ["tcp://100.79.82.99:22000"];
+        };
+        foldy = {
+          id = "S7HDYYO-4GIT2Y4-ALK6FBM-IJOGPVC-KJIHCFV-B6MDEQ2-EUB2GIA-EC5ALAM";
+          addresses = ["tcp://100.123.209.38:22000"];
+        };
       };
 
       folders = {
