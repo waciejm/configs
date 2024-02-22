@@ -1,12 +1,10 @@
 {
-  config,
+  self,
   pkgs,
   lib,
   nixpkgs,
   ...
-}: let
-  mkLink = target: config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/${target}";
-in {
+}: {
   options = {
     waciejm.graphical = lib.mkOption {
       type = lib.types.bool;
@@ -72,10 +70,6 @@ in {
         source = ./ssh;
         recursive = true;
       };
-      ".ssh/ssh_waciejm".source = mkLink "Keys/ssh_waciejm";
-      ".ssh/ssh_waciejm.pub".source = mkLink "Keys/ssh_waciejm.pub";
-      ".ssh/ssh_mac1".source = mkLink "Keys/ssh_mac1";
-      ".ssh/ssh_mac1.pub".source = mkLink "Keys/ssh_mac1.pub";
     };
 
     xdg.configFile = {
@@ -89,12 +83,21 @@ in {
       "helix".source = ./config/helix;
     };
 
-    nix.registry.nixpkgs = {
-      from = {
-        type = "indirect";
-        id = "nixpkgs";
+    nix.registry = {
+      nixpkgs = {
+        from = {
+          type = "indirect";
+          id = "n";
+        };
+        flake = nixpkgs;
       };
-      flake = nixpkgs;
+      config = {
+        from = {
+          type = "indirect";
+          id = "c";
+        };
+        flake = self;
+      };
     };
 
     nixpkgs.config.allowUnfree = true;

@@ -6,8 +6,12 @@
 }: let
   shells = [
     {
-      suffix = "";
+      suffix = "Stable";
       toolchain = "stable";
+    }
+    {
+      suffix = "Beta";
+      toolchain = "beta";
     }
     {
       suffix = "Nightly";
@@ -29,4 +33,3 @@ in
     };
   })
   shells
-

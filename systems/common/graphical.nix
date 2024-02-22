@@ -1,8 +1,4 @@
-{
-  pkgs,
-  selfPkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home-manager.sharedModules = [{waciejm.graphical = true;}];
 
   environment.systemPackages =
@@ -22,6 +18,7 @@
         grim
         gsettings-qt
         gsettings-desktop-schemas
+        gthumb
         gtk-engine-murrine
         handbrake
         kdenlive
@@ -37,6 +34,7 @@
         pavucontrol
         playerctl
         prusa-slicer
+        pulsemixer
         rofi-wayland
         signal-desktop
         slack
@@ -47,15 +45,14 @@
         vscode-fhs
         waybar
         webcord
+        wf-recorder
         wl-clipboard
         ;
     }
     ++ [
-      pkgs.gnome.seahorse
       pkgs.xfce.thunar
       pkgs.qt6.qtwayland
       pkgs.libsForQt5.qt5.qtwayland
-      selfPkgs.wl-screenrec
     ];
 
   # remove after obsidian updates electron
@@ -74,10 +71,6 @@
       layout = "pl";
       xkbVariant = "";
     };
-    gnome = {
-      gnome-keyring.enable = true;
-      at-spi2-core.enable = true;
-    };
     pipewire = {
       enable = true;
       alsa = {
@@ -87,6 +80,7 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
+    flatpak.enable = true;
   };
 
   fonts = {

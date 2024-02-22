@@ -55,11 +55,6 @@ eval "$(zoxide init --cmd cd zsh)"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	ssh-add --apple-load-keychain 2> /dev/null
-elif [[ "$OSTYPE" == "linux"* ]]; then
-	if [[ -z "$SSH_AUTH_SOCK" ]]; then
-		eval $(/run/wrappers/bin/gnome-keyring-daemon --start --daemonize 2>/dev/null)
-		export SSH_AUTH_SOCK
-	fi
 fi
 
 
@@ -72,8 +67,9 @@ alias la="lsd -lA"
 
 # git
 alias glog="git log --all --oneline --graph"
-alias gca="git commit --amend"
 alias gc="git commit"
+alias gca="git commit --amend"
+alias gch="git checkout"
 alias gaa="git add ."
 alias gr="git review"
 alias gs="git status"

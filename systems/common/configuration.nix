@@ -4,7 +4,6 @@
   hostname,
   nixpkgs,
   home-manager,
-  pkgs-stable,
   pkgs,
   lib,
   configs-private,
@@ -19,27 +18,17 @@
     useUserPackages = true;
     users.waciejm = ../../home/linux/home.nix;
     extraSpecialArgs = {
-      inherit nixpkgs;
-      inherit pkgs-stable;
+      inherit self nixpkgs;
     };
   };
 
   nix = {
-    registry = {
-      nixpkgs = {
-        from = {
-          type = "indirect";
-          id = "nixpkgs";
-        };
-        flake = nixpkgs;
+    registry.nixpkgs = {
+      from = {
+        type = "indirect";
+        id = "nixpkgs";
       };
-      config = {
-        from = {
-          type = "indirect";
-          id = "config";
-        };
-        flake = self;
-      };
+      flake = nixpkgs;
     };
     settings = {
       experimental-features = ["nix-command" "flakes"];
@@ -87,7 +76,10 @@
 
   security.sudo.execWheelOnly = true;
 
-  programs.zsh.enable = true;
+  programs = {
+    zsh.enable = true;
+    ssh.startAgent = true;
+  };
 
   services = {
     avahi = {
