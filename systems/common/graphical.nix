@@ -26,7 +26,6 @@
         libreoffice
         mako
         mpv
-        obs-studio
         obsidian
         openscad
         okular
@@ -67,9 +66,9 @@
   };
 
   services = {
-    xserver = {
+    xserver.xkb = {
       layout = "pl";
-      xkbVariant = "";
+      variant = "";
     };
     pipewire = {
       enable = true;

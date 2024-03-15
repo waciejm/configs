@@ -34,10 +34,6 @@
         #   id = "GWR427B-IRJQUWH-UNE4WYF-GYFEN67-K2OGQWE-436QY5X-6HI3CV7-JJ77GQU";
         #   addresses = ["tcp://100.73.138.82:22000"];
         # };
-        # michair = {
-        #   id = "XHPAYPN-PS5HS6U-5DPNZ5K-OANCGEO-ZB5Q2RA-QTWR5RM-LVX3GLX-YLYHMA5";
-        #   addresses = ["tcp://100.79.82.99:22000"];
-        # };
         # foldy = {
         #   id = "S7HDYYO-4GIT2Y4-ALK6FBM-IJOGPVC-KJIHCFV-B6MDEQ2-EUB2GIA-EC5ALAM";
         #   addresses = ["tcp://100.123.209.38:22000"];

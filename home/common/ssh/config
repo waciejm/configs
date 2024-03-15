@@ -1,41 +1,26 @@
 AddKeysToAgent yes
+IdentityFile ~/.ssh/ssh_waciejm
 
 Host *.qed.ai
     User mac1
-    IdentityFile ~/Keys/ssh_mac1
-
-Host github.com
-    IdentityFile ~/Keys/ssh_waciejm
-
-Host gitlab.com
-    IdentityFile ~/Keys/ssh_waciejm
+    IdentityFile ~/.ssh/ssh_mac1
 
 Host arnold
     HostName 100.85.10.12
     User waciejm
-    IdentityFile ~/Keys/ssh_waciejm
     ForwardAgent yes
 
 Host arnold-luks
     HostName 192.168.0.64
     Port 2222
     User root
-    IdentityFile ~/Keys/ssh_waciejm
 
 Host bolek
     HostName 100.90.188.151
     User waciejm
-    IdentityFile ~/Keys/ssh_waciejm
     ForwardAgent yes
 
 Host bolek-luks
     HostName 192.168.0.65
     Port 2222
     User root
-    IdentityFile ~/Keys/ssh_waciejm
-
-Host *.rat-interval.ts.net
-    IdentityFile ~/Keys/ssh_waciejm
-
-Host *.bearded-pangolin.ts.net
-    IdentityFile ~/Keys/ssh_waciejm
