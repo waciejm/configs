@@ -1,12 +1,13 @@
 {
   fenixPkgs,
   selfPkgs,
+  pkgs,
   mkShell,
   ...
 }: let
   shells = [
     {
-      suffix = "Stable";
+      suffix = "";
       toolchain = "stable";
     }
     {
@@ -27,8 +28,8 @@ in
     value = mkShell {
       packages = [
         fenixPkgs."${toolchain}".toolchain
-        fenixPkgs.rust-analyzer
         selfPkgs.clippy-watch
+        pkgs.rust-analyzer
       ];
     };
   })
