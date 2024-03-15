@@ -65,6 +65,7 @@ in {
       ./common/android.nix
       ./common/dev-networking.nix
       ./common/embedded.nix
+      ./common/gaming.nix
     ];
   };
 }
