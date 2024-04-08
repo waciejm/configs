@@ -7,6 +7,7 @@
         (pkgs)
         alacritty
         audacity
+        blender
         brightnessctl
         chatterino2
         discord
@@ -14,6 +15,7 @@
         feh
         firefox
         gimp
+        godot_4
         google-chrome
         grim
         gsettings-qt
