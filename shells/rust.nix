@@ -24,7 +24,7 @@ in
     suffix,
     toolchain,
   }: {
-    name = "shellRust${suffix}";
+    name = "shell-rust${suffix}";
     value = mkShell {
       packages = [
         fenixPkgs."${toolchain}".toolchain

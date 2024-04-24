@@ -82,3 +82,8 @@ alias homesops="SOPS_AGE_KEY=\$(age -d ~/Keys/homeops.age) sops"
 alias rip="rip --graveyard ~/.graveyard"
 alias ripu="rip --graveyard ~/.graveyard --unbury"
 alias ripd="rip --graveyard ~/.graveyard --decompose"
+
+# dev shells
+ds() {
+	nix develop "c#shell-$1" -c zsh
+}
