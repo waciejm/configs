@@ -16,7 +16,6 @@
         firefox
         gimp
         godot_4
-        google-chrome
         grim
         gsettings-qt
         gsettings-desktop-schemas
@@ -54,6 +53,13 @@
       pkgs.xfce.thunar
       pkgs.qt6.qtwayland
       pkgs.libsForQt5.qt5.qtwayland
+      # chrome rendering issue workaround
+      (pkgs.google-chrome.override {
+        commandLineArgs = [
+          "--enable-features=UseOzonePlatform"
+          "--ozone-platform=wayland"
+        ];
+      })
     ];
 
   # remove after obsidian updates electron
