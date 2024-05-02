@@ -54,6 +54,7 @@
       pkgs.qt6.qtwayland
       pkgs.libsForQt5.qt5.qtwayland
       # chrome rendering issue workaround
+      # https://github.com/NixOS/nixpkgs/issues/306010
       (pkgs.google-chrome.override {
         commandLineArgs = [
           "--enable-features=UseOzonePlatform"
@@ -61,9 +62,6 @@
         ];
       })
     ];
-
-  # remove after obsidian updates electron
-  nixpkgs.config.permittedInsecurePackages = ["electron-25.9.0"];
 
   programs = {
     hyprland = {
@@ -116,6 +114,5 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    QT_QPA_PLATFORM = "xcb";
   };
 }
