@@ -17,6 +17,8 @@
       ;
   };
 
+  home.file.".icons".source = ./icons;
+
   xdg.configFile = lib.mkIf config.waciejm.graphical {
     "hypr".source = config/hypr;
     "swaylock".source = config/swaylock;

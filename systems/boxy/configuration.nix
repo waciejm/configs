@@ -1,8 +1,4 @@
-{
-  pkgs,
-  modulesPath,
-  ...
-}: {
+{modulesPath, ...}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -20,7 +16,6 @@
     };
     kernelModules = ["kvm-amd"];
     extraModulePackages = [];
-    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   disko.devices.disk.ssd1 = {
