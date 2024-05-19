@@ -63,13 +63,7 @@
       })
     ];
 
-  programs = {
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
-    dconf.enable = true;
-  };
+  programs.hyprland.enable = true;
 
   services = {
     xserver.xkb = {
@@ -85,7 +79,6 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
-    flatpak.enable = true;
   };
 
   fonts = {
@@ -101,6 +94,7 @@
     rtkit.enable = true;
     pam.services = {
       swaylock = {};
+      hyprlock = {};
     };
   };
 

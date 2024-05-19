@@ -25,14 +25,23 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    home-manager,
     fenix,
     ...
   }: let
     utils = import ./utils.nix;
     lib = nixpkgs.lib;
   in {
-    homeConfigurations = import ./home/mkHomes.nix inputs;
     nixosConfigurations = import ./systems/mkSystems.nix inputs;
+
+    homeConfigurations = utils.forEachPlatform (
+      platform:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."${platform}";
+          extraSpecialArgs = {inherit self nixpkgs;};
+          modules = [./home/default.nix];
+        }
+    );
 
     packages = utils.forEachPlatform (
       platform: let

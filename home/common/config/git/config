@@ -1,5 +1,0 @@
-[include]
-  path = config_personal
-
-[includeIf "gitdir:~/qed/"]
-  path = config_qed

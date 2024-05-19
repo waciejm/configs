@@ -16,10 +16,11 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.waciejm = ../../home/linux/home.nix;
+    users.waciejm = ../../home/default.nix;
     extraSpecialArgs = {
       inherit self nixpkgs;
     };
+    backupFileExtension = "hm-backup";
   };
 
   nix = {
@@ -80,6 +81,8 @@
     zsh.enable = true;
     ssh.startAgent = true;
   };
+
+  environment.pathsToLink = ["/share/zsh"];
 
   services = {
     avahi = {
