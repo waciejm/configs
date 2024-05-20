@@ -46,7 +46,7 @@
         waybar
         webcord
         wf-recorder
-        wl-clipboard
+        wl-clipboard-rs
         ;
     }
     ++ [
@@ -92,10 +92,7 @@
 
   security = {
     rtkit.enable = true;
-    pam.services = {
-      swaylock = {};
-      hyprlock = {};
-    };
+    pam.services.hyprlock = {};
   };
 
   gtk.iconCache.enable = true;
