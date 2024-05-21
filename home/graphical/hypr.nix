@@ -23,7 +23,6 @@
         "col.inactive_border" = "rgb(000000)";
         "col.active_border" = "rgb(5F1A82)";
         layout = "master";
-        cursor_inactive_timeout = 10;
       };
       decoration = {
         drop_shadow = false;
@@ -98,6 +97,9 @@
         orientation = "left";
         inherit_fullscreen = false;
         always_center_master = true;
+      };
+      cursor = {
+        inactive_timeout = 10;
       };
       bind = [
         "SUPER SHIFT ALT, Z, exec, systemctl --user start hyprland-exit.target"
