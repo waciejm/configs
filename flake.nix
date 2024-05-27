@@ -27,6 +27,7 @@
     nixpkgs,
     home-manager,
     fenix,
+    configs-private,
     ...
   }: let
     utils = import ./utils.nix;
@@ -38,7 +39,7 @@
       platform:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."${platform}";
-          extraSpecialArgs = {inherit self nixpkgs;};
+          extraSpecialArgs = {inherit self nixpkgs configs-private;};
           modules = [./home/default.nix];
         }
     );

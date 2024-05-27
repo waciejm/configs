@@ -19,7 +19,7 @@
       luks.devices."luks-766679bc-35c4-4f4b-91d5-1e4dbb964ae5" = {
         device = "/dev/disk/by-uuid/766679bc-35c4-4f4b-91d5-1e4dbb964ae5";
         allowDiscards = true;
-        keyFile = "/dev/disk/by-id/usb-Kingston_DataTraveler_3.0_1C1B0D6579FCE261A9653008-0:0";
+        keyFile = "/dev/disk/by-partuuid/e76ecf41-a737-4172-bc1a-78f45ebca103";
         keyFileSize = 4096;
         keyFileOffset = 0;
         fallbackToPassword = true;

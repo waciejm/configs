@@ -73,26 +73,26 @@
     style = ''
       * {
         font-family: IosevkaTerm Nerd Font;
-        font-size: 14px;
-        font-weight: 500;
-        color: #ebdbb2;
+        font-size: 15px;
+        font-weight: 600;
+        color: rgb(240, 210, 240);
         min-height: 0;
       }
 
       window#waybar {
-        background-color: rgb(0, 0, 0);
+        background-color: rgba(48, 36, 52, 0.75);
       }
 
       .modules-left {
         padding-left: 12px;
-        padding-top: 3px;
-        padding-bottom: 2px;
+        padding-top: 5px;
+        padding-bottom: 4px;
       }
 
       .modules-right {
         padding-right: 12px;
-        padding-top: 3px;
-        padding-bottom: 2px;
+        padding-top: 5px;
+        padding-bottom: 4px;
       }
     '';
   };

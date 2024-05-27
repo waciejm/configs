@@ -1,8 +1,26 @@
 {
   config,
+  configs-private,
+  pkgs,
   lib,
   ...
-}: {
+}: let
+  random-wallpaper = (configs-private.mkWallpapers pkgs).random-wallpaper;
+  hypr-random-wallpaper = pkgs.writeShellApplication {
+    name = "hypr-random-wallpaper";
+    runtimeInputs = [
+      pkgs.hyprland
+      random-wallpaper
+    ];
+    text = ''
+      WALLPAPER="$(random-wallpaper)"
+      readonly WALLPAPER
+      hyprctl hyprpaper preload "$WALLPAPER"
+      hyprctl hyprpaper wallpaper ",$WALLPAPER"
+      hyprctl hyprpaper unload unused
+    '';
+  };
+in {
   wayland.windowManager.hyprland = lib.mkIf config.waciejm.graphical {
     enable = true;
     settings = {
@@ -18,28 +36,31 @@
       ];
       general = {
         border_size = 2;
-        gaps_in = 0;
-        gaps_out = 0;
+        gaps_in = 10;
+        gaps_out = 20;
+        "col.active_border" = "rgb(8B689E)";
         "col.inactive_border" = "rgb(000000)";
-        "col.active_border" = "rgb(5F1A82)";
         layout = "master";
       };
       decoration = {
-        drop_shadow = false;
+        rounding = 20;
+        inactive_opacity = 0.8;
+        "col.shadow" = "rgb(634A70)";
+        "col.shadow_inactive" = "rgb(000000)";
         dim_inactive = true;
         dim_strength = 0.15;
         dim_special = 0.3;
         blur = {
-          enabled = false;
-          size = 9;
+          enabled = true;
+          size = 8;
           passes = 2;
           ignore_opacity = true;
           xray = true;
-          noise = 0.03;
-          contrast = 1.5;
-          brightness = 0.75;
         };
       };
+      layerrule = [
+        "blur, waybar"
+      ];
       animations = {
         enabled = true;
         bezier = [
@@ -89,7 +110,7 @@
       };
       master = {
         allow_small_split = false;
-        special_scale_factor = 0.98;
+        special_scale_factor = 0.925;
         mfact = 0.50;
         new_is_master = false;
         new_on_top = false;
@@ -104,12 +125,14 @@
       bind = [
         "SUPER SHIFT ALT, Z, exec, systemctl --user start hyprland-exit.target"
         "SUPER SHIFT ALT, Z, exit"
-        "SUPER SHIFT, L, exec, loginctl lock-session"
-        "SUPER SHIFT ALT, L, exec, systemctl suspend"
+        "SUPER SHIFT ALT, L, exec, loginctl lock-session"
+        "SUPER SHIFT ALT, right, exec, loginctl lock-session && systemctl suspend"
 
         "SUPER, B, exec, pkill -USR1 waybar"
         "SUPER, SPACE, exec, rofi -show drun"
         "SUPER, R, exec, rofi -show run"
+
+        "SUPER SHIFT, W, exec, ${hypr-random-wallpaper}/bin/hypr-random-wallpaper"
 
         "SUPER, C, killactive"
         "SUPER, V, togglefloating"
@@ -204,12 +227,8 @@
       background = {
         monitor = "";
         path = "screenshot";
-        blur_passes = 2;
-        blur_size = 7;
-        noise = 0.03;
-        contrast = 0.7;
-        brightness = 0.7;
-        vibrancy = 1.5;
+        blur_size = 10;
+        blur_passes = 3;
       };
       input-field = {
         monitor = "";
@@ -229,10 +248,34 @@
     };
   };
 
-  systemd.user.targets.hyprland-exit = {
-    Unit.Conflicts = [
-      "graphical-session.target"
-      "graphical-session-pre.target"
-    ];
+  services.hyprpaper = lib.mkIf config.waciejm.graphical {
+    enable = true;
+    settings = {
+      splash = false;
+      ipc = true;
+    };
   };
+
+  systemd.user = lib.mkIf config.waciejm.graphical {
+    services.hyprpaper-init = {
+      Install.WantedBy = ["hyprpaper.service"];
+      Unit = {
+        After = ["hyprpaper.service"];
+        Description = "hyprpaper init wallpaper";
+      };
+      Service = {
+        Type = "oneshot";
+        ExecStartPre = "${pkgs.coreutils}/bin/sleep 1";
+        ExecStart = "${hypr-random-wallpaper}/bin/hypr-random-wallpaper";
+      };
+    };
+    
+    targets.hyprland-exit = {
+      Unit.Conflicts = [
+        "graphical-session.target"
+        "graphical-session-pre.target"
+      ];
+    };
+  };
+
 }

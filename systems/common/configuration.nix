@@ -18,7 +18,7 @@
     useUserPackages = true;
     users.waciejm = ../../home/default.nix;
     extraSpecialArgs = {
-      inherit self nixpkgs;
+      inherit self nixpkgs configs-private;
     };
     backupFileExtension = "hm-backup";
   };

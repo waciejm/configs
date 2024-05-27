@@ -53,7 +53,7 @@
       window = {
         startup_mode = "Windowed";
         decorations = "full";
-        opacity = 1.0;
+        opacity = 0.95;
         dimensions = {
           columns = 160;
           lines = 50;
