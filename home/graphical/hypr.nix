@@ -32,30 +32,34 @@ in {
       monitor = [
         "desc:LG Electronics LG TV SSCR2 0x01010101, 3840x2160@120, 0x0, 1.0"
         "desc:Philips Consumer Electronics Company PHL27M1F5500P UHB2304005838, 2560x1440@144, 0x0, 1.0"
+        "desc:LG Electronics LG Ultra HD 0x00049402, 1920x1080@60, 0x0, 1.0"
         ",preferred,auto,1"
       ];
       general = {
-        border_size = 2;
-        gaps_in = 10;
-        gaps_out = 20;
+        border_size = 4;
+        gaps_in = 8;
+        gaps_out = 16;
         "col.active_border" = "rgb(8B689E)";
-        "col.inactive_border" = "rgb(000000)";
+        "col.inactive_border" = "rgba(00000000)";
         layout = "master";
+        cursor_inactive_timeout = 10;
       };
       decoration = {
         rounding = 20;
-        inactive_opacity = 0.8;
+        inactive_opacity = 0.75;
         "col.shadow" = "rgb(634A70)";
-        "col.shadow_inactive" = "rgb(000000)";
-        dim_inactive = true;
-        dim_strength = 0.15;
-        dim_special = 0.3;
+        "col.shadow_inactive" = "rgba(00000000)";
+        dim_special = 0.4;
         blur = {
           enabled = true;
-          size = 8;
+          size = 7;
           passes = 2;
           ignore_opacity = true;
-          xray = true;
+          noise = 0.02;
+          contrast = 0.8;
+          brightness = 0.25;
+          vibrancy = 0.6;
+          vibrancy_darkness = 0.6;
         };
       };
       layerrule = [
@@ -88,7 +92,8 @@ in {
           natural_scroll = true;
           scroll_factor = 0.25;
           clickfinger_behavior = true;
-          tap-to-click = false;
+          tap-to-click = true;
+          tap-and-drag = true;
         };
       };
       group = {
@@ -110,7 +115,7 @@ in {
       };
       master = {
         allow_small_split = false;
-        special_scale_factor = 0.925;
+        special_scale_factor = 0.97;
         mfact = 0.50;
         new_is_master = false;
         new_on_top = false;
@@ -119,14 +124,10 @@ in {
         inherit_fullscreen = false;
         always_center_master = true;
       };
-      cursor = {
-        inactive_timeout = 10;
-      };
       bind = [
         "SUPER SHIFT ALT, Z, exec, systemctl --user start hyprland-exit.target"
         "SUPER SHIFT ALT, Z, exit"
         "SUPER SHIFT ALT, L, exec, loginctl lock-session"
-        "SUPER SHIFT ALT, right, exec, loginctl lock-session && systemctl suspend"
 
         "SUPER, B, exec, pkill -USR1 waybar"
         "SUPER, SPACE, exec, rofi -show drun"
@@ -187,7 +188,10 @@ in {
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
         ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
-      ];
+      ]
+      ++ lib.optional (!config.waciejm.laptop) "SUPER SHIFT ALT, right, exec, systemctl suspend"
+      ++ lib.optional (config.waciejm.laptop) "SUPER SHIFT ALT, right, exec, systemctl suspend-then-hibernate"
+      ;
       bindm = [
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
@@ -213,7 +217,10 @@ in {
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyptctl dispatch dpms on";
         }
-      ];
+      ] ++ lib.optional config.waciejm.laptop {
+          timeout = 1800;
+          on-timeout = "systemctl suspend-then-hibernate";
+      };
     };
   };
 
@@ -227,7 +234,7 @@ in {
       background = {
         monitor = "";
         path = "screenshot";
-        blur_size = 10;
+        blur_size = 5;
         blur_passes = 3;
       };
       input-field = {
@@ -277,5 +284,4 @@ in {
       ];
     };
   };
-
 }

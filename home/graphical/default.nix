@@ -10,13 +10,6 @@
     ./alacritty.nix
   ];
 
-  options = {
-    waciejm.graphical = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
-  };
-
   config = lib.mkIf config.waciejm.graphical {
     home.file.".icons".source = ./icons;
 

@@ -20,6 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     configs-private.url = "github:waciejm/configs-private";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
   outputs = inputs @ {

@@ -13,17 +13,40 @@
       modules-left = ["user"];
       modules-center = [];
       modules-right = [
+        "systemd-failed-units"
         "tray"
-        "pulseaudio"
+        "idle_inhibitor"
         "network"
+        "pulseaudio"
         "cpu"
         "memory"
         "disk"
         "backlight"
-        "battery#bat0"
-        "battery#bat1"
+        "battery"
+        "power-profiles-daemon"
         "clock"
       ];
+      systemd-failed-units = {
+        hide-on-ok = true;
+        format = "✗ {nr_failed}";
+        system = true;
+        user = true;
+      };
+      idle_inhibitor = {
+        format = "{icon}";
+        format-icons = {
+            activated = " ";
+            deactivated = " ";
+        };
+      };
+      network = {
+        format-wifi = " ";
+        format-ethernet = "󰈀 ";
+        format-linked = "No IP";
+        format-disconnected = "󰈂 ";
+        tooltip-format-wifi = "{essid} ({signalStrength}%) / {ipaddr} on {ifname} via {gwaddr}/{cidr}";
+        tooltip-format-ethernet = "{ipaddr} on {ifname} via {gwaddr}/{cidr}";
+      };
       pulseaudio = {
         scroll-step = 10;
         format = "{volume}% {icon} {format_source}";
@@ -33,14 +56,6 @@
         format-icons.default = [" " " " " "];
         on-click = "pavucontrol";
         ignored-sinks = ["Easy Effects Sink"];
-      };
-      network = {
-        format-wifi = " ";
-        format-ethernet = "󰈀 ";
-        format-linked = "No IP";
-        format-disconnected = "󰈂 ";
-        tooltip-format-wifi = "{essid} ({signalStrength}%) / {ipaddr} on {ifname} via {gwaddr}/{cidr}";
-        tooltip-format-ethernet = "{ipaddr} on {ifname} via {gwaddr}/{cidr}";
       };
       cpu = {
         format = "{usage}% 󰻠 ";
@@ -56,13 +71,22 @@
         format-icons = [" " " " " " " " " " " " " " " " " "];
       };
       battery = {
-        format = "{capacity} {icon}";
+        format = "{capacity}% {icon}";
         format-charging = "{capacity}% 󰂄";
         format-plugged = "{capacity}%  ";
         format-icons = [" " " " " " " " " "];
       };
-      "battery#bat0".bat = "BAT0";
-      "battery#bat1".bat = "BAT1";
+      power-profiles-daemon = {
+        format = "{icon}";
+        tooltip-format = "Power profile: {profile}\nDriver: {driver}";
+        tooltip = true;
+        format-icons = {
+          default = " ";
+          performance = " ";
+          balanced = " ";
+          power-saver = " ";
+        };
+      };
       clock.format = "{:%Y-%m-%d %H:%M}";
       tray = {
         spacing = 10;
@@ -93,6 +117,14 @@
         padding-right: 12px;
         padding-top: 5px;
         padding-bottom: 4px;
+      }
+
+      #systemd-failed-units.degraded {
+        color: rgb(255, 50, 50);
+      }
+
+      #idle_inhibitor.activated {
+        color: rgb(255, 50, 50);
       }
     '';
   };

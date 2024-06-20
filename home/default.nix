@@ -9,6 +9,7 @@
     ./git.nix
     ./graphical
     ./helix.nix
+    ./options.nix
     ./programs.nix
     ./shell.nix
     ./ssh.nix

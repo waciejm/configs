@@ -38,6 +38,10 @@
         #   id = "S7HDYYO-4GIT2Y4-ALK6FBM-IJOGPVC-KJIHCFV-B6MDEQ2-EUB2GIA-EC5ALAM";
         #   addresses = ["tcp://100.123.209.38:22000"];
         # };
+        # frork = {
+        #   id = "3DPNCRL-NI7CEXE-UT2ZXMW-ZSOVUFP-LKJN4PX-6OL2PAU-PLUBY4Q-DBGKEQP";
+        #   addresses = ["tcp://100.92.136.116:22000"];
+        # };
       };
 
       folders = {
