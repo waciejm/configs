@@ -2,6 +2,7 @@
   config,
   configs-private,
   pkgs,
+  selfPkgs,
   lib,
   ...
 }: let
@@ -42,7 +43,9 @@ in {
         "col.active_border" = "rgb(8B689E)";
         "col.inactive_border" = "rgba(00000000)";
         layout = "master";
-        cursor_inactive_timeout = 10;
+      };
+      cursor = {
+        inactive_timeout = 10;
       };
       decoration = {
         rounding = 20;
@@ -71,12 +74,12 @@ in {
           "myBezier, 0.1, 1.0, 0.5, 1.0"
         ];
         animation = [
-          "windows, 1, 2, myBezier, popin"
-          "border, 1, 2, default"
-          "borderangle, 1, 2, default"
-          "fade, 1, 2, default"
-          "workspaces, 1, 2, default, slidefadevert 30%"
-          "specialWorkspace, 1, 2, default, fade"
+          "windows, 1, 1, myBezier, popin"
+          "border, 1, 1, default"
+          "borderangle, 1, 1, default"
+          "fade, 1, 1, default"
+          "workspaces, 1, 1, default, slidefade 30%"
+          "specialWorkspace, 1, 1, default, fade"
         ];
       };
       input = {
@@ -95,6 +98,14 @@ in {
           tap-to-click = true;
           tap-and-drag = true;
         };
+      };
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_distance = 500;
+        workspace_swipe_min_speed_to_force = 10;
+        workspace_swipe_cancel_ratio = 0.33;
+        workspace_swipe_forever = true;
+        workspace_swipe_use_r = true;
       };
       group = {
         "col.border_active" = "rgba(00000000)";
@@ -153,13 +164,18 @@ in {
         "SUPER SHIFT, down, movetoworkspace, +1"
         "SUPER SHIFT, up, movetoworkspace, -1"
 
-        "SUPER, 7, togglespecialworkspace, special:one"
-        "SUPER, 8, togglespecialworkspace, special:two"
-        "SUPER, 9, togglespecialworkspace, special:tre"
-        "SUPER SHIFT, 7, movetoworkspace, special:one"
-        "SUPER SHIFT, 8, movetoworkspace, special:two"
-        "SUPER SHIFT, 9, movetoworkspace, special:tre"
-        "SUPER SHIFT, T, movetoworkspace, e+0"
+        "SUPER, 2, workspace, 1"
+        "SUPER, 3, workspace, 2"
+        "SUPER, 4, workspace, 3"
+        "SUPER, 7, workspace, 4"
+        "SUPER, 8, workspace, 5"
+        "SUPER, 9, workspace, 6"
+        "SUPER SHIFT, 2, movetoworkspace, 1"
+        "SUPER SHIFT, 3, movetoworkspace, 2"
+        "SUPER SHIFT, 4, movetoworkspace, 3"
+        "SUPER SHIFT, 7, movetoworkspace, 4"
+        "SUPER SHIFT, 8, movetoworkspace, 5"
+        "SUPER SHIFT, 9, movetoworkspace, 6"
 
         "SUPER, J, layoutmsg, cyclenext"
         "SUPER, K, layoutmsg, cycleprev"
@@ -196,6 +212,9 @@ in {
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
       ];
+      bindl = lib.mkIf config.waciejm.laptop [
+        ", switch:Lid Switch, exec, ${selfPkgs.hyprland_lid_switch}/bin/hyprland_lid_switch"
+      ];
     };
   };
 
@@ -209,16 +228,16 @@ in {
       };
       listener = [
         {
-          timeout = 300;
+          timeout = 150;
           on-timeout = "loginctl lock-session";
         }
         {
-          timeout = 330;
+          timeout = 160;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyptctl dispatch dpms on";
         }
       ] ++ lib.optional config.waciejm.laptop {
-          timeout = 1800;
+          timeout = 900;
           on-timeout = "systemctl suspend-then-hibernate";
       };
     };
@@ -229,7 +248,8 @@ in {
     settings = {
       general = {
         hide_cursor = true;
-        ignore_empty_input = true;
+        no_fade_in = true;
+        ignore_empty_input = false;
       };
       background = {
         monitor = "";

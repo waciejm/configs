@@ -10,7 +10,10 @@
       layer = "top";
       position = "top";
       spacing = 20;
-      modules-left = ["user"];
+      modules-left = [
+        "hyprland/workspaces"
+        "hyprland/window"
+      ];
       modules-center = [];
       modules-right = [
         "systemd-failed-units"
@@ -26,6 +29,11 @@
         "power-profiles-daemon"
         "clock"
       ];
+      "hyprland/workspaces" = {
+        active-only = false;
+        all-outputs = true;
+        move-to-monitor = true;
+      };
       systemd-failed-units = {
         hide-on-ok = true;
         format = "✗ {nr_failed}";
@@ -117,6 +125,16 @@
         padding-right: 12px;
         padding-top: 5px;
         padding-bottom: 4px;
+      }
+
+      #workspaces button.urgent {
+        color: rgb(255, 50, 50);
+      }
+      #workspaces button.visible {
+        box-shadow: inset 0 -3px rgba(240, 210, 240, 0.3);
+      }
+      #workspaces button.active {
+        box-shadow: inset 0 -3px rgb(240, 210, 240);
       }
 
       #systemd-failed-units.degraded {

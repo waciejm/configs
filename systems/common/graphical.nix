@@ -79,6 +79,7 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
+    printing.enable = true;
   };
 
   fonts = {
@@ -93,14 +94,6 @@
   security = {
     rtkit.enable = true;
     pam.services.hyprlock = {};
-  };
-
-  gtk.iconCache.enable = true;
-
-  qt = {
-    enable = true;
-    style = "adwaita-dark";
-    platformTheme = "gnome";
   };
 
   environment.sessionVariables = {
