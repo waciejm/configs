@@ -64,6 +64,9 @@
           y = 4;
         };
       };
+      scrolling = {
+        multiplier = 10;
+      };
     };
   };
 }

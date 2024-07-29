@@ -130,6 +130,8 @@
     services.udev.extraRules = ''
       ACTION=="add", SUBSYSTEM=="usb", DRIVER=="usb", ATTR{power/wakeup}="disabled"
       ACTION=="add", SUBSYSTEM=="i2c", DRIVER=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
+
+      ACTION=="add", KERNEL=="0000:03:00.0", SUBSYSTEM=="pci", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
     '';
   };
 }

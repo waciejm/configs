@@ -21,7 +21,7 @@
     qt = {
       enable = true;
       style.name = "adwaita-dark";
-      platformTheme.name = "gnome";
+      # platformTheme.name = "gnome";
     };
 
     gtk = {

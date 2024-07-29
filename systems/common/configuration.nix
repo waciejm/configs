@@ -79,7 +79,10 @@
   security.sudo.execWheelOnly = true;
 
   programs = {
-    zsh.enable = true;
+    zsh = {
+      enable = true;
+      enableGlobalCompInit = false;
+    };
     ssh.startAgent = true;
   };
 

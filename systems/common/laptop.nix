@@ -8,6 +8,6 @@
   };
 
   systemd.sleep.extraConfig = ''
-    HibernateDelaySec=4h
+    HibernateDelaySec=12h
   '';
 }

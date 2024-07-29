@@ -83,6 +83,7 @@
         format-charging = "{capacity}% 󰂄";
         format-plugged = "{capacity}%  ";
         format-icons = [" " " " " " " " " "];
+        interval = 5;
       };
       power-profiles-daemon = {
         format = "{icon}";

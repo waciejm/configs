@@ -93,15 +93,25 @@ in {
         float_switch_override_focus = 0;
         touchpad = {
           natural_scroll = true;
-          scroll_factor = 0.25;
+          scroll_factor = 0.2;
           clickfinger_behavior = true;
           tap-to-click = true;
           tap-and-drag = true;
         };
       };
+      device = [
+        {
+          name = "pixa3854:00-093a:0274-mouse";
+          sensitivity = 0.25;
+        }
+        {
+          name = "pixa3854:00-093a:0274-touchpad";
+          sensitivity = 0.25;
+        }
+      ];
       gestures = {
         workspace_swipe = true;
-        workspace_swipe_distance = 500;
+        workspace_swipe_distance = 1000;
         workspace_swipe_min_speed_to_force = 10;
         workspace_swipe_cancel_ratio = 0.33;
         workspace_swipe_forever = true;
@@ -128,7 +138,7 @@ in {
         allow_small_split = false;
         special_scale_factor = 0.97;
         mfact = 0.50;
-        new_is_master = false;
+        new_status = "slave";
         new_on_top = false;
         no_gaps_when_only = 0;
         orientation = "left";
@@ -187,8 +197,8 @@ in {
         "SUPER SHIFT, L, layoutmsg, removemaster"
         "SUPER SHIFT, RETURN, layoutmsg, swapwithmaster"
 
-        "SUPER, 4, layoutmsg, orientationleft"
-        "SUPER, 5, layoutmsg, orientationcenter"
+        "SUPER SHIFT ALT, 4, layoutmsg, orientationleft"
+        "SUPER SHIFT ALT, 5, layoutmsg, orientationcenter"
 
         "SUPER, left, focusmonitor, -1"
         "SUPER, right, focusmonitor, +1"
@@ -228,16 +238,16 @@ in {
       };
       listener = [
         {
-          timeout = 150;
+          timeout = 180;
           on-timeout = "loginctl lock-session";
         }
         {
-          timeout = 160;
+          timeout = 190;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyptctl dispatch dpms on";
         }
       ] ++ lib.optional config.waciejm.laptop {
-          timeout = 900;
+          timeout = 1800;
           on-timeout = "systemctl suspend-then-hibernate";
       };
     };
