@@ -260,28 +260,37 @@ in {
         hide_cursor = true;
         no_fade_in = true;
         ignore_empty_input = false;
+        immediate_render = true;
       };
-      background = {
-        monitor = "";
-        path = "screenshot";
-        blur_size = 5;
-        blur_passes = 3;
-      };
-      input-field = {
-        monitor = "";
-        size = "250, 80";
-        outline_thickness = 3;
-        rounding = -1;
-        outer_color = "rgb(100, 100, 100)";
-        inner_color = "rgb(0, 0, 0)";
-        font_color = "rgb(150, 150, 150)";
-        check_color = "rgb(0, 0, 150)";
-        fail_color = "rgb(150, 0, 0)";
-        placeholder_text = "";
-        fail_text = "(⩺︷⩹)";
-        halign = "center";
-        valing = "center";
-      };
+      background = [
+        {
+          monitor = "";
+          color = "rgb(0, 0, 0)";
+        }
+        {
+          monitor = "";
+          path = "screenshot";
+          blur_size = 5;
+          blur_passes = 3;
+        }
+      ];
+      input-field = [
+        {
+          monitor = "";
+          size = "250, 80";
+          outline_thickness = 3;
+          rounding = -1;
+          outer_color = "rgb(100, 100, 100)";
+          inner_color = "rgb(0, 0, 0)";
+          font_color = "rgb(150, 150, 150)";
+          check_color = "rgb(0, 0, 150)";
+          fail_color = "rgb(150, 0, 0)";
+          placeholder_text = "";
+          fail_text = "(⩺︷⩹)";
+          halign = "center";
+          valign = "center";
+        }
+      ];
     };
   };
 
