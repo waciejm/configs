@@ -28,16 +28,17 @@
         homesops = "SOPS_AGE_KEY=$(age -d ~/Keys/homeops.age) sops";
         # rip
         rip = "rip --graveyard ~/.graveyard";
-        ripu = "rip --graveyard ~/.graveyard --unbury";
-        ripd = "rip --graveyard ~/.graveyard --decompose";
         # joshuto
         jo = "joshuto";
+        # nix
+        ns = "nix shell";
+        nd = "nix develop";
       };
       initExtraBeforeCompInit = ''
-        # exec Hyprland if in TTY1
-        if [[ "$TTY" = "/dev/tty1" ]] then
-        	exec Hyprland
-        fi
+        # # exec Hyprland if in TTY1
+        # if [[ "$TTY" = "/dev/tty1" ]] then
+        # 	exec Hyprland
+        # fi
 
         # setup .zfunc
         fpath+=~/.zfunc

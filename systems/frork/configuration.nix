@@ -40,8 +40,8 @@
         efi.canTouchEfiVariables = true;
       };
       initrd = {
+        systemd.enable = true;
         availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod"];
-        kernelModules = ["amdgpu"];
       };
       kernelModules = ["kvm-amd"];
       extraModulePackages = [];
@@ -76,7 +76,7 @@
                 keyFile = "/dev/disk/by-partuuid/e76ecf41-a737-4172-bc1a-78f45ebca103";
                 keyFileSize = 4096;
                 keyFileOffset = 0;
-                fallbackToPassword = true;
+                keyFileTimeout = 5;
               };
               content = {
                 type = "btrfs";
@@ -110,7 +110,7 @@
                 keyFile = "/dev/disk/by-partuuid/e76ecf41-a737-4172-bc1a-78f45ebca103";
                 keyFileSize = 4096;
                 keyFileOffset = 0;
-                fallbackToPassword = true;
+                keyFileTimeout = 5;
               };
               content = {
                 type = "swap";

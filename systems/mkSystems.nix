@@ -6,6 +6,7 @@
   lanzaboote,
   configs-private,
   nixos-hardware,
+  nixos-cosmic,
   ...
 }: let
   mkSystem = {
@@ -16,13 +17,15 @@
     nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = {
-        inherit self;
-        inherit system;
-        inherit hostname;
-        inherit nixpkgs;
-        inherit home-manager;
-        inherit configs-private;
-        inherit nixos-hardware;
+        inherit
+          self
+          system
+          hostname
+          nixpkgs
+          home-manager
+          configs-private
+          nixos-hardware
+          ;
         selfPkgs = self.packages."${system}";
       };
       modules =
@@ -31,6 +34,7 @@
           ./common/configuration.nix
           disko.nixosModules.disko
           lanzaboote.nixosModules.lanzaboote
+          nixos-cosmic.nixosModules.default
         ]
         ++ extraModules;
     };
@@ -87,6 +91,7 @@ in {
       ./common/dev-networking.nix
       ./common/embedded.nix
       ./common/gaming.nix
+      ./common/cosmic.nix
     ];
   };
 }

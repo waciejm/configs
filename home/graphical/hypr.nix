@@ -159,7 +159,7 @@ in {
         "SUPER, C, killactive"
         "SUPER, V, togglefloating"
         "SUPER, F, fullscreen, 0"
-        "SUPER SHIFT, F, fakefullscreen"
+        "SUPER SHIFT, F, fullscreenstate, 0 3"
 
         "SUPER, RETURN, exec, alacritty"
         "SUPER, W, exec, swww img $(random-wallpaper)"

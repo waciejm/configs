@@ -21,6 +21,10 @@
     };
     configs-private.url = "github:waciejm/configs-private";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
