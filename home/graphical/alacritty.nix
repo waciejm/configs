@@ -33,7 +33,7 @@
         };
       };
       font = {
-        size = 13.0;
+        size = 12.0;
         normal = {
           family = "IosevkaTerm Nerd Font";
         };
@@ -53,7 +53,7 @@
       window = {
         startup_mode = "Windowed";
         decorations = "full";
-        opacity = 0.95;
+        opacity = 1.0;
         dimensions = {
           columns = 160;
           lines = 50;

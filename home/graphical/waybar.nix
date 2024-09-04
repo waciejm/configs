@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  programs.waybar = lib.mkIf config.waciejm.graphical {
+  programs.waybar = lib.mkIf config.waciejm.hypr {
     enable = true;
     systemd.enable = true;
     settings.main-bar = {
@@ -43,8 +43,8 @@
       idle_inhibitor = {
         format = "{icon}";
         format-icons = {
-            activated = " ";
-            deactivated = " ";
+          activated = " ";
+          deactivated = " ";
         };
       };
       network = {

@@ -1,20 +1,17 @@
 {pkgs, ...}: {
   virtualisation = {
     docker.enable = true;
-    # podman = {
+    # virtualbox.host = {
     #   enable = true;
-    #   # dockerCompat = true;
-    #   defaultNetwork.settings = {
-    #     dns_enabled = true;
-    #   };
     # };
   };
 
-  users.users.waciejm.extraGroups = ["docker"];
+  users.users.waciejm.extraGroups = [
+    "docker"      
+    # "vboxusers"
+  ];
 
   environment.systemPackages = [
     pkgs.dive
-    # pkgs.podman-tui
-    # pkgs.podman-compose
   ];
 }

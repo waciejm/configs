@@ -22,7 +22,7 @@
     '';
   };
 in {
-  wayland.windowManager.hyprland = lib.mkIf config.waciejm.graphical {
+  wayland.windowManager.hyprland = lib.mkIf config.waciejm.hypr {
     enable = true;
     settings = {
       env = [
@@ -145,79 +145,79 @@ in {
         inherit_fullscreen = false;
         always_center_master = true;
       };
-      bind = [
-        "SUPER SHIFT ALT, Z, exec, systemctl --user start hyprland-exit.target"
-        "SUPER SHIFT ALT, Z, exit"
-        "SUPER SHIFT ALT, L, exec, loginctl lock-session"
+      bind =
+        [
+          "SUPER SHIFT ALT, Z, exec, systemctl --user start hyprland-exit.target"
+          "SUPER SHIFT ALT, Z, exit"
+          "SUPER SHIFT ALT, L, exec, loginctl lock-session"
 
-        "SUPER, B, exec, pkill -USR1 waybar"
-        "SUPER, SPACE, exec, rofi -show drun"
-        "SUPER, R, exec, rofi -show run"
+          "SUPER, B, exec, pkill -USR1 waybar"
+          "SUPER, SPACE, exec, rofi -show drun"
+          "SUPER, R, exec, rofi -show run"
 
-        "SUPER SHIFT, W, exec, ${hypr-random-wallpaper}/bin/hypr-random-wallpaper"
+          "SUPER SHIFT, W, exec, ${hypr-random-wallpaper}/bin/hypr-random-wallpaper"
 
-        "SUPER, C, killactive"
-        "SUPER, V, togglefloating"
-        "SUPER, F, fullscreen, 0"
-        "SUPER SHIFT, F, fullscreenstate, 0 3"
+          "SUPER, C, killactive"
+          "SUPER, V, togglefloating"
+          "SUPER, F, fullscreen, 0"
+          "SUPER SHIFT, F, fullscreenstate, 0 3"
 
-        "SUPER, RETURN, exec, alacritty"
-        "SUPER, W, exec, swww img $(random-wallpaper)"
-        "SUPER, D, exec, makoctl dismiss"
-        "SUPER SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy -t \"image/png\""
-        "SUPER SHIFT ALT, S, exec, grim -g \"$(slurp)\" \"/home/waciejm/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png\""
-        "SUPER SHIFT, V, exec, wf-recorder -g \"$(slurp)\"  --file=\"/home/waciejm/Pictures/Screenrecs/$(date +%Y%m%d_%H%M%S).mp4\""
-        "SUPER SHIFT ALT, V, exec, pkill -INT wf-recorder"
+          "SUPER, RETURN, exec, alacritty"
+          "SUPER, W, exec, swww img $(random-wallpaper)"
+          "SUPER, D, exec, makoctl dismiss"
+          "SUPER SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy -t \"image/png\""
+          "SUPER SHIFT ALT, S, exec, grim -g \"$(slurp)\" \"/home/waciejm/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png\""
+          "SUPER SHIFT, V, exec, wf-recorder -g \"$(slurp)\"  --file=\"/home/waciejm/Pictures/Screenrecs/$(date +%Y%m%d_%H%M%S).mp4\""
+          "SUPER SHIFT ALT, V, exec, pkill -INT wf-recorder"
 
-        "SUPER, down, workspace, +1"
-        "SUPER, up, workspace, -1"
-        "SUPER SHIFT, down, movetoworkspace, +1"
-        "SUPER SHIFT, up, movetoworkspace, -1"
+          "SUPER, down, workspace, +1"
+          "SUPER, up, workspace, -1"
+          "SUPER SHIFT, down, movetoworkspace, +1"
+          "SUPER SHIFT, up, movetoworkspace, -1"
 
-        "SUPER, 2, workspace, 1"
-        "SUPER, 3, workspace, 2"
-        "SUPER, 4, workspace, 3"
-        "SUPER, 7, workspace, 4"
-        "SUPER, 8, workspace, 5"
-        "SUPER, 9, workspace, 6"
-        "SUPER SHIFT, 2, movetoworkspace, 1"
-        "SUPER SHIFT, 3, movetoworkspace, 2"
-        "SUPER SHIFT, 4, movetoworkspace, 3"
-        "SUPER SHIFT, 7, movetoworkspace, 4"
-        "SUPER SHIFT, 8, movetoworkspace, 5"
-        "SUPER SHIFT, 9, movetoworkspace, 6"
+          "SUPER, 2, workspace, 1"
+          "SUPER, 3, workspace, 2"
+          "SUPER, 4, workspace, 3"
+          "SUPER, 7, workspace, 4"
+          "SUPER, 8, workspace, 5"
+          "SUPER, 9, workspace, 6"
+          "SUPER SHIFT, 2, movetoworkspace, 1"
+          "SUPER SHIFT, 3, movetoworkspace, 2"
+          "SUPER SHIFT, 4, movetoworkspace, 3"
+          "SUPER SHIFT, 7, movetoworkspace, 4"
+          "SUPER SHIFT, 8, movetoworkspace, 5"
+          "SUPER SHIFT, 9, movetoworkspace, 6"
 
-        "SUPER, J, layoutmsg, cyclenext"
-        "SUPER, K, layoutmsg, cycleprev"
-        "SUPER, H, splitratio, -0.05"
-        "SUPER, L, splitratio, +0.05"
-        "SUPER SHIFT, J, layoutmsg, swapnext"
-        "SUPER SHIFT, K, layoutmsg, swapprev"
-        "SUPER SHIFT, H, layoutmsg, addmaster"
-        "SUPER SHIFT, L, layoutmsg, removemaster"
-        "SUPER SHIFT, RETURN, layoutmsg, swapwithmaster"
+          "SUPER, J, layoutmsg, cyclenext"
+          "SUPER, K, layoutmsg, cycleprev"
+          "SUPER, H, splitratio, -0.05"
+          "SUPER, L, splitratio, +0.05"
+          "SUPER SHIFT, J, layoutmsg, swapnext"
+          "SUPER SHIFT, K, layoutmsg, swapprev"
+          "SUPER SHIFT, H, layoutmsg, addmaster"
+          "SUPER SHIFT, L, layoutmsg, removemaster"
+          "SUPER SHIFT, RETURN, layoutmsg, swapwithmaster"
 
-        "SUPER SHIFT ALT, 4, layoutmsg, orientationleft"
-        "SUPER SHIFT ALT, 5, layoutmsg, orientationcenter"
+          "SUPER SHIFT ALT, 4, layoutmsg, orientationleft"
+          "SUPER SHIFT ALT, 5, layoutmsg, orientationcenter"
 
-        "SUPER, left, focusmonitor, -1"
-        "SUPER, right, focusmonitor, +1"
-        "SUPER SHIFT, left, movewindow, win:-1"
-        "SUPER SHIFT, right, movewindow, win:+1"
+          "SUPER, left, focusmonitor, -1"
+          "SUPER, right, focusmonitor, +1"
+          "SUPER SHIFT, left, movewindow, win:-1"
+          "SUPER SHIFT, right, movewindow, win:+1"
 
-        ", XF86AudioMute, exec, pamixer --toggle-mute"
-        ", XF86AudioLowerVolume, exec, pamixer --decrease 10"
-        ", XF86AudioRaiseVolume, exec, pamixer --increase 10"
-        ", XF86AudioMicMute, exec, pamixer --source 0 --toggle-mute"
-        ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
-        ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
-      ]
-      ++ lib.optional (!config.waciejm.laptop) "SUPER SHIFT ALT, right, exec, systemctl suspend"
-      ++ lib.optional (config.waciejm.laptop) "SUPER SHIFT ALT, right, exec, systemctl suspend-then-hibernate"
-      ;
+          ", XF86AudioMute, exec, pamixer --toggle-mute"
+          ", XF86AudioLowerVolume, exec, pamixer --decrease 10"
+          ", XF86AudioRaiseVolume, exec, pamixer --increase 10"
+          ", XF86AudioMicMute, exec, pamixer --source 0 --toggle-mute"
+          ", XF86AudioPrev, exec, playerctl previous"
+          ", XF86AudioNext, exec, playerctl next"
+          ", XF86AudioPlay, exec, playerctl play-pause"
+          ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+          ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+        ]
+        ++ lib.optional (!config.waciejm.laptop) "SUPER SHIFT ALT, right, exec, systemctl suspend"
+        ++ lib.optional (config.waciejm.laptop) "SUPER SHIFT ALT, right, exec, systemctl suspend-then-hibernate";
       bindm = [
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
@@ -228,7 +228,7 @@ in {
     };
   };
 
-  services.hypridle = lib.mkIf config.waciejm.graphical {
+  services.hypridle = lib.mkIf config.waciejm.hypr {
     enable = true;
     settings = {
       general = {
@@ -236,24 +236,26 @@ in {
         before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = "hyprctl dispatch dpms on";
       };
-      listener = [
-        {
-          timeout = 180;
-          on-timeout = "loginctl lock-session";
-        }
-        {
-          timeout = 190;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyptctl dispatch dpms on";
-        }
-      ] ++ lib.optional config.waciejm.laptop {
+      listener =
+        [
+          {
+            timeout = 180;
+            on-timeout = "loginctl lock-session";
+          }
+          {
+            timeout = 190;
+            on-timeout = "hyprctl dispatch dpms off";
+            on-resume = "hyptctl dispatch dpms on";
+          }
+        ]
+        ++ lib.optional config.waciejm.laptop {
           timeout = 1800;
           on-timeout = "systemctl suspend-then-hibernate";
-      };
+        };
     };
   };
 
-  programs.hyprlock = lib.mkIf config.waciejm.graphical {
+  programs.hyprlock = lib.mkIf config.waciejm.hypr {
     enable = true;
     settings = {
       general = {
@@ -294,7 +296,7 @@ in {
     };
   };
 
-  services.hyprpaper = lib.mkIf config.waciejm.graphical {
+  services.hyprpaper = lib.mkIf config.waciejm.hypr {
     enable = true;
     settings = {
       splash = false;
@@ -302,7 +304,7 @@ in {
     };
   };
 
-  systemd.user = lib.mkIf config.waciejm.graphical {
+  systemd.user = lib.mkIf config.waciejm.hypr {
     services.hyprpaper-init = {
       Install.WantedBy = ["hyprpaper.service"];
       Unit = {
@@ -315,7 +317,7 @@ in {
         ExecStart = "${hypr-random-wallpaper}/bin/hypr-random-wallpaper";
       };
     };
-    
+
     targets.hyprland-exit = {
       Unit.Conflicts = [
         "graphical-session.target"

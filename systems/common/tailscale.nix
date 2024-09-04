@@ -1,9 +1,9 @@
-{pkgs, ...}: let 
+{pkgs, ...}: let
   tailscale-restart = pkgs.writeShellApplication {
     name = "tailscale-restart";
     runtimeInputs = [pkgs.tailscale];
     text = "tailscale down && tailscale up";
-    };
+  };
 in {
   services.tailscale = {
     enable = true;

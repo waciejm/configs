@@ -14,7 +14,7 @@
     };
     themes.gruvbox-tweaked = {
       inherits = "gruvbox_dark_hard";
-      "ui.background" = {};
+      # "ui.background" = {};
     };
   };
 }
