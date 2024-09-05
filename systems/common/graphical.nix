@@ -8,14 +8,14 @@
         alacritty
         audacity
         blender
-        brightnessctl
-        chatterino2
+        # brightnessctl
+        # chatterino2
         discord
         feh
         firefox
         gimp
         godot_4
-        grim
+        # grim
         gsettings-qt
         gsettings-desktop-schemas
         gthumb
@@ -24,28 +24,28 @@
         kdenlive
         keepassxc
         libreoffice
-        mako
+        # mako
         mpv
-        obsidian
+        # obsidian
         openscad-unstable
-        okular
+        # okular
         pamixer
-        pavucontrol
-        playerctl
+        # pavucontrol
+        # playerctl
         prusa-slicer
         pulsemixer
-        rofi-wayland
+        # rofi-wayland
         signal-desktop
         slack
-        slurp
-        swaybg
-        swaylock
-        thunderbird
+        # slurp
+        # swaybg
+        # swaylock
+        # thunderbird
         vscode-fhs
-        waybar
+        # waybar
         webcord
-        wf-recorder
-        wl-clipboard-rs
+        # wf-recorder
+        # wl-clipboard-rs
         ;
     }
     ++ [
@@ -62,7 +62,7 @@
       })
     ];
 
-  programs.hyprland.enable = true;
+  # programs.hyprland.enable = true;
 
   services = {
     xserver.xkb = {
