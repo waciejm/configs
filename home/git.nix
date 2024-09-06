@@ -8,6 +8,9 @@
       pull = {
         rebase = true;
       };
+      safe = {
+        directory = ["*"];
+      };
     };
     includes = [
       {
