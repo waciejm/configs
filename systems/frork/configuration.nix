@@ -44,7 +44,6 @@
         availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod"];
       };
       kernelModules = ["kvm-amd"];
-      extraModulePackages = [];
       kernelPackages = pkgs.linuxPackages_latest;
     };
 
@@ -84,11 +83,11 @@
                 subvolumes = {
                   "root" = {
                     mountpoint = "/";
-                    mountOptions = ["compress=zstd" "noatime"];
+                    mountOptions = ["compress=zstd" "relatime"];
                   };
                   "home" = {
                     mountpoint = "/home";
-                    mountOptions = ["compress=zstd" "noatime"];
+                    mountOptions = ["compress=zstd" "relatime"];
                   };
                   "nix" = {
                     mountpoint = "/nix";
@@ -133,5 +132,7 @@
 
       ACTION=="add", KERNEL=="0000:03:00.0", SUBSYSTEM=="pci", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
     '';
+
+    fonts.fontconfig.subpixel.rgba = "rgb";
   };
 }

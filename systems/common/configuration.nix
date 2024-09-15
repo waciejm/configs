@@ -16,7 +16,7 @@
 
   home-manager = {
     useGlobalPkgs = true;
-    # useUserPackages = true;
+    useUserPackages = true;
     users.waciejm = ../../home/default.nix;
     extraSpecialArgs = {
       inherit self selfPkgs nixpkgs configs-private;

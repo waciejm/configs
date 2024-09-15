@@ -43,6 +43,7 @@ in {
     hostname = "badura";
     system = "x86_64-linux";
     extraModules = [
+      ./common/secureboot.nix
       ./common/sshd.nix
       ./common/tailscale.nix
       ./common/syncthing.nix
@@ -54,24 +55,7 @@ in {
       ./common/embedded.nix
       ./common/scanning.nix
       ./common/gaming.nix
-    ];
-  };
-  boxy = mkSystem {
-    hostname = "boxy";
-    system = "x86_64-linux";
-    extraModules = [
-      ./common/secureboot.nix
-      ./common/wifi.nix
-      ./common/sshd.nix
-      ./common/tailscale.nix
-      ./common/syncthing.nix
-      ./common/graphical.nix
-      ./common/bluetooth.nix
-      ./common/virtualisation.nix
-      ./common/android.nix
-      ./common/dev-networking.nix
-      ./common/embedded.nix
-      ./common/gaming.nix
+      ./common/cosmic.nix
     ];
   };
   frork = mkSystem {
@@ -79,8 +63,8 @@ in {
     system = "x86_64-linux";
     extraModules = [
       ./common/laptop.nix
-      ./common/secureboot.nix
       ./common/wifi.nix
+      ./common/secureboot.nix
       ./common/sshd.nix
       ./common/tailscale.nix
       ./common/syncthing.nix
@@ -90,6 +74,7 @@ in {
       ./common/android.nix
       ./common/dev-networking.nix
       ./common/embedded.nix
+      ./common/scanning.nix
       ./common/gaming.nix
       ./common/cosmic.nix
     ];

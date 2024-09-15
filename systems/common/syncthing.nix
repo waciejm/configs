@@ -27,12 +27,8 @@
           addresses = ["tcp://100.90.188.151:22000"];
         };
         # badura = {
-        #   id = "5IBUJSP-DYTG3ZR-OTG67BT-VOIHMLB-VW5T262-TSXJ6QL-KER2VZQ-IC56RQS";
-        #   addresses = ["tcp://100.82.104.49:22000"];
-        # };
-        # boxy = {
-        #   id = "GWR427B-IRJQUWH-UNE4WYF-GYFEN67-K2OGQWE-436QY5X-6HI3CV7-JJ77GQU";
-        #   addresses = ["tcp://100.73.138.82:22000"];
+        #   id = "KQFXNZF-OQXAZCM-7UPK65V-HKHXXUH-LZFTY2Q-OG3DVEO-HBTNBIG-QINT6AA";
+        #   addresses = ["tcp://100.112.8.82:22000"];
         # };
         # foldy = {
         #   id = "S7HDYYO-4GIT2Y4-ALK6FBM-IJOGPVC-KJIHCFV-B6MDEQ2-EUB2GIA-EC5ALAM";
