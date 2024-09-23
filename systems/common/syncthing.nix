@@ -81,6 +81,11 @@
           type = "sendreceive";
           devices = ["bolek"];
         };
+        cosmic-config = {
+          path = "/home/waciejm/.config/cosmic";
+          type = "sendreceive";
+          devices = ["bolek"];
+        };
       };
     };
   };
