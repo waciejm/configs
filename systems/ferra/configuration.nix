@@ -19,7 +19,8 @@
       availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
     };
     kernelModules = ["kvm-amd"];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_10;
+    # kernelPackages = pkgs.linuxPackages_latest;
   };
 
   disko.devices.disk.ssd1 = {
