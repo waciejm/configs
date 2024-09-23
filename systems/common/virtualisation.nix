@@ -7,7 +7,7 @@
   };
 
   users.users.waciejm.extraGroups = [
-    "docker"      
+    "docker"
     # "vboxusers"
   ];
 

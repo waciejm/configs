@@ -9,13 +9,16 @@
         audacity
         blender
         # brightnessctl
+        
         # chatterino2
+        
         discord
         feh
         firefox
         gimp
         godot_4
         # grim
+        
         gsettings-qt
         gsettings-desktop-schemas
         gthumb
@@ -25,27 +28,41 @@
         keepassxc
         libreoffice
         # mako
+        
         mpv
         # obsidian
+        
         # openscad-unstable
+        
         # okular
+        
         pamixer
         # pavucontrol
+        
         # playerctl
+        
         prusa-slicer
         pulsemixer
         # rofi-wayland
+        
         signal-desktop
         slack
         # slurp
+        
         # swaybg
+        
         # swaylock
+        
         # thunderbird
+        
         vscode-fhs
         # waybar
+        
         webcord
         # wf-recorder
+        
         # wl-clipboard-rs
+        
         ;
     }
     ++ [
