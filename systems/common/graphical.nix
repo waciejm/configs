@@ -27,7 +27,7 @@
         # mako
         mpv
         # obsidian
-        openscad-unstable
+        # openscad-unstable
         # okular
         pamixer
         # pavucontrol
