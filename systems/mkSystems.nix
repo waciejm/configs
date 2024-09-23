@@ -39,8 +39,8 @@
         ++ extraModules;
     };
 in {
-  badura = mkSystem {
-    hostname = "badura";
+  ferra = mkSystem {
+    hostname = "ferra";
     system = "x86_64-linux";
     extraModules = [
       ./common/secureboot.nix

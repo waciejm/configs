@@ -35,10 +35,10 @@
         nd = "nix develop";
       };
       initExtraBeforeCompInit = ''
-        # # exec Hyprland if in TTY1
-        # if [[ "$TTY" = "/dev/tty1" ]] then
-        # 	exec Hyprland
-        # fi
+        # exec cosmic-session if in TTY1
+        if [[ "$TTY" = "/dev/tty1" ]]; then
+        	command -v cosmic-session && exec cosmic-session
+        fi
 
         # setup .zfunc
         fpath+=~/.zfunc

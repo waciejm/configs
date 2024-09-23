@@ -26,7 +26,7 @@
           id = "HH2QXX6-O3K2MOB-RTWFDIQ-ZEDUULA-XEMX5WC-TVPGNPR-UPN5VYL-4RJC6A2";
           addresses = ["tcp://100.90.188.151:22000"];
         };
-        # badura = {
+        # ferra = {
         #   id = "KQFXNZF-OQXAZCM-7UPK65V-HKHXXUH-LZFTY2Q-OG3DVEO-HBTNBIG-QINT6AA";
         #   addresses = ["tcp://100.112.8.82:22000"];
         # };
