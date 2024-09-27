@@ -99,6 +99,9 @@
     printing.enable = true;
   };
 
+  # disable cups-browsed until vuln patch arrives
+  systemd.services.cups-browsed.enable = false;
+
   fonts = {
     packages = [
       (pkgs.nerdfonts.override {fonts = ["IosevkaTerm"];})

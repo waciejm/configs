@@ -78,5 +78,7 @@
     formatter = utils.forEachPlatform (
       platform: nixpkgs.legacyPackages."${platform}".alejandra
     );
+
+    templates = import ./templates/mkTemplates.nix;
   };
 }
