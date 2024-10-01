@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, selfPkgs, ...}: {
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
@@ -33,5 +33,7 @@
       yt-dlp
       zip
       ;
-  };
+  } ++ [
+    selfPkgs.fix-cosmic-keymap
+  ];
 }
