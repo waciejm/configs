@@ -51,7 +51,6 @@ in {
       ./common/bluetooth.nix
       ./common/virtualisation.nix
       ./common/android.nix
-      ./common/dev-networking.nix
       ./common/embedded.nix
       ./common/scanning.nix
       ./common/gaming.nix
@@ -72,7 +71,6 @@ in {
       ./common/bluetooth.nix
       ./common/virtualisation.nix
       ./common/android.nix
-      ./common/dev-networking.nix
       ./common/embedded.nix
       ./common/scanning.nix
       ./common/gaming.nix

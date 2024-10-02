@@ -10,6 +10,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.framework-16-7040-amd
+    ./assertions.nix
   ];
 
   options = let

@@ -5,6 +5,7 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    ./assertions.nix
   ];
 
   system.stateVersion = "24.05";

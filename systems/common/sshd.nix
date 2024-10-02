@@ -1,6 +1,7 @@
 {
   services.openssh = {
     enable = true;
+    openFirewall = false;
     settings = {
       AuthenticationMethods = "publickey";
       PermitRootLogin = "prohibit-password";
