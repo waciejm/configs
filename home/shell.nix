@@ -37,7 +37,7 @@
       initExtraBeforeCompInit = ''
         # exec cosmic-session if in TTY1
         if [[ "$TTY" = "/dev/tty1" ]]; then
-        	command -v cosmic-session && exec cosmic-session
+        	command -v start-cosmic && exec start-cosmic
         fi
 
         # setup .zfunc
