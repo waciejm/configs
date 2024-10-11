@@ -7,7 +7,7 @@
         (pkgs)
         alacritty
         audacity
-        # blender
+        blender
         discord
         feh
         firefox
@@ -22,8 +22,8 @@
         keepassxc
         libreoffice
         mpv
-        # obsidian
-        # openscad-unstable
+        obsidian
+        openscad-unstable
         pamixer
         prusa-slicer
         pulsemixer
