@@ -5,14 +5,10 @@
   ...
 }: {
   imports = [
-    ./hypr.nix
-    ./waybar.nix
     ./alacritty.nix
   ];
 
   config = lib.mkIf config.waciejm.graphical {
-    home.file.".icons".source = ./icons;
-
     xdg.systemDirs.data = [
       "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
@@ -48,7 +44,7 @@
       color-scheme = "prefer-dark";
     };
 
-    programs.rofi = lib.mkIf config.waciejm.graphical {
+    programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
       theme = "purple";

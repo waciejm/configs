@@ -15,8 +15,6 @@
     ./ssh.nix
   ];
 
-  waciejm.graphical = true;
-
   home = {
     stateVersion = "22.11";
     username = "waciejm";

@@ -41,12 +41,10 @@
     nixosConfigurations = import ./systems/mkSystems.nix inputs;
 
     homeConfigurations = utils.forEachPlatform (
-      platform: let
-        selfPkgs = self.packages."${platform}";
-      in
+      platform:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."${platform}";
-          extraSpecialArgs = {inherit self selfPkgs nixpkgs configs-private;};
+          extraSpecialArgs = {inherit self nixpkgs configs-private;};
           modules = [./home/default.nix];
         }
     );

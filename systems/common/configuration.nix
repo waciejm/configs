@@ -5,7 +5,6 @@
   nixpkgs,
   home-manager,
   pkgs,
-  selfPkgs,
   lib,
   configs-private,
   ...
@@ -19,7 +18,7 @@
     useUserPackages = true;
     users.waciejm = ../../home/default.nix;
     extraSpecialArgs = {
-      inherit self selfPkgs nixpkgs configs-private;
+      inherit self nixpkgs configs-private;
     };
     backupFileExtension = "hm-backup";
   };
