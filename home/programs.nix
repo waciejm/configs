@@ -6,6 +6,7 @@
       alejandra
       amber
       bat
+      cyme
       du-dust
       fd
       ffmpeg

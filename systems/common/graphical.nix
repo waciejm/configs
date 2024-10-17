@@ -31,7 +31,6 @@
         slack
         vscode-fhs
         webcord
-        wl-clipboard-rs
         ;
     }
     ++ [
