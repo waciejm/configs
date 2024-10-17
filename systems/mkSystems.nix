@@ -49,6 +49,7 @@ in {
       ./common/syncthing.nix
       ./common/graphical.nix
       ./common/bluetooth.nix
+      ./common/containerisation.nix
       ./common/virtualisation.nix
       ./common/android.nix
       ./common/embedded.nix
@@ -69,12 +70,21 @@ in {
       ./common/syncthing.nix
       ./common/graphical.nix
       ./common/bluetooth.nix
+      ./common/containerisation.nix
       ./common/virtualisation.nix
       ./common/android.nix
       ./common/embedded.nix
       ./common/scanning.nix
       ./common/gaming.nix
       ./common/cosmic.nix
+    ];
+  };
+  vium = mkSystem {
+    hostname = "vium";
+    system = "x86_64-linux";
+    extraModules = [
+      ./common/sshd.nix
+      ./common/containerisation.nix
     ];
   };
 }
