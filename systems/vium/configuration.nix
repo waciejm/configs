@@ -20,7 +20,6 @@
       systemd.enable = true;
       availableKernelModules = ["ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod"];
     };
-    kernelPackages = pkgs.linuxPackages_6_1;
   };
 
   disko.devices.disk.vdi = {
