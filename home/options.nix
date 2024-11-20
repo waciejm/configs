@@ -4,10 +4,6 @@
       type = lib.types.bool;
       default = false;
     };
-    waciejm.hypr = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
     waciejm.laptop = lib.mkOption {
       type = lib.types.bool;
       default = false;
