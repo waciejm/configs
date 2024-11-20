@@ -52,11 +52,12 @@
     packages = utils.forEachPlatform (
       platform: let
         pkgs = nixpkgs.legacyPackages."${platform}";
-      in
-        lib.packagesFromDirectoryRecursive {
+        selfPkgs = lib.packagesFromDirectoryRecursive {
           inherit (pkgs) callPackage;
           directory = ./packages;
-        }
+        };
+        privatePkgs = configs-private.mkPackages pkgs;
+      in selfPkgs // privatePkgs
     );
 
     devShells = utils.forEachPlatform (

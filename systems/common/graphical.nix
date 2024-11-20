@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, selfPkgs, ...}: {
   home-manager.sharedModules = [{waciejm.graphical = true;}];
 
   environment.systemPackages =
@@ -44,6 +44,7 @@
           "--ozone-platform=wayland"
         ];
       })
+      selfPkgs.picocad
     ];
 
   programs.dconf.enable = true;
