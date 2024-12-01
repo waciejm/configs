@@ -68,7 +68,7 @@
 
   fonts = {
     packages = [
-      (pkgs.nerdfonts.override {fonts = ["IosevkaTerm"];})
+      pkgs.nerd-fonts.iosevka-term
     ];
     fontconfig = {
       defaultFonts.monospace = ["IosevkaTerm Nerd Font"];
