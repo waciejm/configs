@@ -23,6 +23,7 @@
       ncspot
       neovim
       nil
+      nix-output-monitor
       ripgrep
       rm-improved
       rsync
