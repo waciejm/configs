@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    ./alacritty.nix
+    ./kitty.nix
   ];
 
   config = lib.mkIf config.waciejm.graphical {

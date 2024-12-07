@@ -1,11 +1,14 @@
-{pkgs, selfPkgs, ...}: {
+{
+  pkgs,
+  selfPkgs,
+  ...
+}: {
   home-manager.sharedModules = [{waciejm.graphical = true;}];
 
   environment.systemPackages =
     builtins.attrValues {
       inherit
         (pkgs)
-        alacritty
         audacity
         blender
         discord
@@ -20,9 +23,7 @@
         handbrake
         kdenlive
         keepassxc
-        kitty
         libreoffice
-        mpv
         obsidian
         openscad-unstable
         pamixer

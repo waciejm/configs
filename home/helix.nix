@@ -3,7 +3,7 @@
     enable = true;
     defaultEditor = true;
     settings = {
-      theme = "gruvbox-tweaked";
+      theme = "gruvbox_dark_hard";
       editor = {
         lsp.auto-signature-help = false;
         indent-guides = {
@@ -11,10 +11,6 @@
           character = "│";
         };
       };
-    };
-    themes.gruvbox-tweaked = {
-      inherits = "gruvbox_dark_hard";
-      # "ui.background" = {};
     };
   };
 }

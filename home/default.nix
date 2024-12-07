@@ -13,6 +13,7 @@
     ./programs.nix
     ./shell.nix
     ./ssh.nix
+    ./yazi.nix
   ];
 
   home = {

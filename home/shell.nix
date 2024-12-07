@@ -26,10 +26,6 @@
         gd = "git diff";
         # sops
         homesops = "SOPS_AGE_KEY=$(age -d ~/Keys/homeops.age) sops";
-        # rip
-        rip = "rip --graveyard ~/.graveyard";
-        # joshuto
-        jo = "joshuto";
         # nix
         ns = "nix shell";
         nd = "nix develop";
