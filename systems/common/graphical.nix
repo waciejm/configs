@@ -20,6 +20,7 @@
         handbrake
         kdenlive
         keepassxc
+        kitty
         libreoffice
         mpv
         obsidian
