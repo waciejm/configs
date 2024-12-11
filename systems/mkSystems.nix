@@ -50,7 +50,7 @@ in {
       ./common/graphical.nix
       ./common/bluetooth.nix
       ./common/containerisation.nix
-      ./common/virtualisation.nix
+      # ./common/virtualisation.nix
       ./common/android.nix
       ./common/embedded.nix
       ./common/scanning.nix
@@ -71,7 +71,7 @@ in {
       ./common/graphical.nix
       ./common/bluetooth.nix
       ./common/containerisation.nix
-      ./common/virtualisation.nix
+      # ./common/virtualisation.nix
       ./common/android.nix
       ./common/embedded.nix
       ./common/scanning.nix
