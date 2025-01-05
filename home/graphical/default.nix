@@ -52,10 +52,5 @@
         show-icons = true;
       };
     };
-
-    services.easyeffects = {
-      enable = true;
-      preset = "";
-    };
   };
 }
