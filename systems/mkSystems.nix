@@ -56,6 +56,7 @@ in {
       ./common/scanning.nix
       ./common/gaming.nix
       ./common/cosmic.nix
+      ./common/nix-ld.nix
     ];
   };
   frork = mkSystem {
@@ -77,6 +78,7 @@ in {
       ./common/scanning.nix
       ./common/gaming.nix
       ./common/cosmic.nix
+      ./common/nix-ld.nix
     ];
   };
   vium = mkSystem {
