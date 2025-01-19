@@ -21,7 +21,6 @@
         htop
         imagemagick
         jless
-        jujutsu
         just
         lsd
         mdcat

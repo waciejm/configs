@@ -9,6 +9,7 @@
     ./git.nix
     ./graphical
     ./helix.nix
+    ./jujutsu.nix
     ./options.nix
     ./programs.nix
     ./shell.nix
