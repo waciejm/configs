@@ -81,12 +81,4 @@ in {
       ./common/nix-ld.nix
     ];
   };
-  vium = mkSystem {
-    hostname = "vium";
-    system = "x86_64-linux";
-    extraModules = [
-      ./common/sshd.nix
-      ./common/containerisation.nix
-    ];
-  };
 }
