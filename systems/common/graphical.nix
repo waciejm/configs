@@ -21,7 +21,6 @@
         gthumb
         gtk-engine-murrine
         handbrake
-        kdenlive
         keepassxc
         libreoffice
         obsidian
