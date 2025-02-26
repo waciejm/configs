@@ -16,6 +16,7 @@
         firefox
         gimp
         godot_4
+        google-chrome
         gsettings-qt
         gsettings-desktop-schemas
         gthumb
@@ -37,14 +38,6 @@
     ++ [
       pkgs.qt6.qtwayland
       pkgs.libsForQt5.qt5.qtwayland
-      # chrome rendering issue workaround
-      # https://github.com/NixOS/nixpkgs/issues/306010
-      (pkgs.google-chrome.override {
-        commandLineArgs = [
-          "--enable-features=UseOzonePlatform"
-          "--ozone-platform=wayland"
-        ];
-      })
       selfPkgs.picocad
     ];
 
