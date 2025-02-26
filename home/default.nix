@@ -3,6 +3,8 @@
   nixpkgs,
   pkgs,
   lib,
+  config,
+  osConfig ? null,
   ...
 }: {
   imports = [
@@ -21,21 +23,24 @@
     stateVersion = "22.11";
     username = "waciejm";
     homeDirectory = "/home/waciejm";
+    sessionVariables = {
+      NIX_USER_CONF_FILES = lib.concatStringsSep ":" [
+          (config.xdg.configHome + "/nix/nix.conf")
+          (config.home.homeDirectory + "/Keys/nix-github-access.conf")
+        ];
+    };
   };
 
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = lib.mkIf (osConfig == null) { allowUnfree = true; };
 
   nix = {
-    package = lib.mkDefault pkgs.nix;
+    package = lib.mkDefault pkgs.lix;
     checkConfig = false;
     settings = {
       experimental-features = ["nix-command" "flakes"];
     };
-    extraOptions = ''
-      include ../../Keys/nix-github-access.conf
-    '';
     registry = {
       nixpkgs = {
         flake = nixpkgs;

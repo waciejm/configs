@@ -25,10 +25,11 @@
   };
 
   nix = {
+    package = pkgs.lix;
     registry.nixpkgs = {
       from = {
-        type = "indirect";
         id = "nixpkgs";
+        type = "indirect";
       };
       flake = nixpkgs;
     };
