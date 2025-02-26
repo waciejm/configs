@@ -25,6 +25,7 @@
   };
 
   nix = {
+    package = pkgs.lix;
     registry.nixpkgs = {
       from = {
         type = "indirect";
