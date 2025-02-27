@@ -2,7 +2,7 @@
   description = "Home and systems configurations for waciejm";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,10 +21,7 @@
     };
     configs-private.url = "github:waciejm/configs-private";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
   outputs = inputs @ {
