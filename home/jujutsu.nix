@@ -4,7 +4,7 @@
     settings = {
       user = {
         name = "Maciej Wojno";
-        email = "jj@mwojno.me";
+        email = "git@mwojno.me";
       };
       ui = {
         default-command = "log";
