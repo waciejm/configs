@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./kitty.nix
+    ./wezterm.nix
   ];
 
   config = lib.mkIf config.waciejm.graphical {
