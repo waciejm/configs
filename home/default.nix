@@ -25,15 +25,15 @@
     homeDirectory = "/home/waciejm";
     sessionVariables = {
       NIX_USER_CONF_FILES = lib.concatStringsSep ":" [
-          (config.xdg.configHome + "/nix/nix.conf")
-          (config.home.homeDirectory + "/Keys/nix-github-access.conf")
-        ];
+        (config.xdg.configHome + "/nix/nix.conf")
+        (config.home.homeDirectory + "/Keys/nix-github-access.conf")
+      ];
     };
   };
 
   programs.home-manager.enable = true;
 
-  nixpkgs.config = lib.mkIf (osConfig == null) { allowUnfree = true; };
+  nixpkgs.config = lib.mkIf (osConfig == null) {allowUnfree = true;};
 
   nix = {
     package = lib.mkDefault pkgs.lix;
