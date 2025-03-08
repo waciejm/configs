@@ -35,9 +35,6 @@
         if [[ "$TTY" = "/dev/tty1" ]]; then
         	command -v start-cosmic && exec start-cosmic
         fi
-
-        # setup .zfunc
-        fpath+=~/.zfunc
       '';
       initExtra = ''
         # dev shells
@@ -112,11 +109,7 @@
     };
   };
 
-  home = {
-    file.".zfunc".source = ./zfunc;
-
-    packages = [
-      pkgs.zsh-completions
-    ];
-  };
+  home.packages = [
+    pkgs.zsh-completions
+  ];
 }
