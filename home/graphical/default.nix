@@ -6,7 +6,9 @@
 }: {
   imports = [
     ./kitty.nix
+    ./rofi.nix
     ./wezterm.nix
+    ./syncthingtray.nix
   ];
 
   config = lib.mkIf config.waciejm.graphical {
@@ -43,15 +45,6 @@
     dconf.settings."org/gnome/desktop/interface" = {
       gtk-theme = "Adwaita-dark";
       color-scheme = "prefer-dark";
-    };
-
-    programs.rofi = {
-      enable = true;
-      package = pkgs.rofi-wayland;
-      theme = "purple";
-      extraConfig = {
-        show-icons = true;
-      };
     };
   };
 }
