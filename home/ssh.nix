@@ -1,7 +1,6 @@
 {
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
     matchBlocks = {
       "*" = {
         host = "*";
@@ -14,6 +13,7 @@
       };
       "arnold" = {
         host = "arnold";
+        hostname = "arnold.bearded-pangolin.ts.net";
         forwardAgent = true;
       };
       "arnold-luks" = {
