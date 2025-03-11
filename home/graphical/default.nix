@@ -8,7 +8,6 @@
     ./kitty.nix
     ./rofi.nix
     ./wezterm.nix
-    ./syncthingtray.nix
   ];
 
   config = lib.mkIf config.waciejm.graphical {
