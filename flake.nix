@@ -2,26 +2,39 @@
   description = "Home and systems configurations for waciejm";
 
   inputs = {
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    arion = {
+      url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    configs-private.url = "github:waciejm/configs-private";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-analyzer-src.follows = "";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fenix = {
-      url = "github:nix-community/fenix";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    configs-private.url = "github:waciejm/configs-private";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
   outputs = inputs @ {
@@ -30,12 +43,19 @@
     home-manager,
     fenix,
     configs-private,
+    deploy-rs,
     ...
   }: let
     utils = import ./utils.nix;
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = import ./systems/mkSystems.nix inputs;
+
+    deploy.nodes.bolek = {
+      hostname = self.nixosConfigurations.bolek.config.networking.fqdn;
+      user = "root";
+      profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.bolek;
+    };
 
     homeConfigurations = utils.forEachPlatform (
       platform: let
@@ -60,6 +80,12 @@
         selfPkgs // privatePkgs
     );
 
+    apps = utils.forEachPlatform (
+      platform: {
+        deploy = deploy-rs.apps.${platform}.default;
+      }
+    );
+
     devShells = utils.forEachPlatform (
       platform: let
         pkgs = nixpkgs.legacyPackages."${platform}";
@@ -78,6 +104,8 @@
       platform: nixpkgs.legacyPackages."${platform}".alejandra
     );
 
-    templates = import ./templates/mkTemplates.nix;
+    checks = utils.forEachPlatform (
+      platform: deploy-rs.lib.${platform}.deployChecks self.deploy
+    );
   };
 }

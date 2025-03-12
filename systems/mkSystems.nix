@@ -7,6 +7,8 @@
   configs-private,
   nixos-hardware,
   nixos-cosmic,
+  sops-nix,
+  arion,
   ...
 }: let
   mkSystem = {
@@ -35,6 +37,8 @@
           disko.nixosModules.disko
           lanzaboote.nixosModules.lanzaboote
           nixos-cosmic.nixosModules.default
+          sops-nix.nixosModules.sops
+          arion.nixosModules.arion
         ]
         ++ extraModules;
     };
@@ -50,7 +54,6 @@ in {
       ./common/graphical.nix
       ./common/bluetooth.nix
       ./common/containerisation.nix
-      # ./common/virtualisation.nix
       ./common/android.nix
       ./common/embedded.nix
       ./common/scanning.nix
@@ -72,7 +75,6 @@ in {
       ./common/graphical.nix
       ./common/bluetooth.nix
       ./common/containerisation.nix
-      # ./common/virtualisation.nix
       ./common/android.nix
       ./common/embedded.nix
       ./common/scanning.nix
@@ -80,5 +82,10 @@ in {
       ./common/cosmic.nix
       ./common/nix-ld.nix
     ];
+  };
+  bolek = mkSystem {
+    hostname = "bolek";
+    system = "x86_64-linux";
+    extraModules = [];
   };
 }

@@ -1,11 +1,17 @@
 {
   services.syncthing = {
     enable = true;
+
     user = "waciejm";
     group = "users";
+
     configDir = "/home/waciejm/.config/syncthing";
     dataDir = "/home/waciejm/.local/state/syncthing";
+
     openDefaultPorts = false;
+    guiAddress = "0.0.0.0:8384";
+
+    overrideDevices = true;
     overrideFolders = false;
 
     settings = {
@@ -15,9 +21,13 @@
         localAnnounceEnabled = false;
         relaysEnabled = false;
         natEnabled = false;
-        urAccepted = -1;
+        urAccepted = -1; # no usage reporting
+        minHomeDiskFree = {
+          value = 1;
+          unit = "%";
+        };
         crashReportingEnabled = false;
-        stunKeepaliveStartS = 0;
+        stunKeepaliveStartS = 0; # disable contacting STUN servers
         announceLANAdderss = false;
       };
 
@@ -46,6 +56,16 @@
           type = "sendreceive";
           devices = ["bolek"];
         };
+        cosmic-config = {
+          path = "/home/waciejm/.config/cosmic";
+          type = "sendreceive";
+          devices = ["bolek"];
+        };
+        # DCIM = {
+        #   path = "/data/syncthing/DCIM";
+        #   type = "sendreceive";
+        #   devices = ["foldy"];
+        # };
         Desktop = {
           path = "/home/waciejm/Desktop";
           type = "sendreceive";
@@ -66,6 +86,11 @@
           type = "sendreceive";
           devices = ["bolek"];
         };
+        # pad = {
+        #   path = "/data/syncthing/pad";
+        #   type = "sendreceive";
+        #   devices = ["bolek"];
+        # };
         Pictures = {
           path = "/home/waciejm/Pictures";
           type = "sendreceive";
@@ -78,11 +103,6 @@
         };
         qed = {
           path = "/home/waciejm/qed";
-          type = "sendreceive";
-          devices = ["bolek"];
-        };
-        cosmic-config = {
-          path = "/home/waciejm/.config/cosmic";
           type = "sendreceive";
           devices = ["bolek"];
         };

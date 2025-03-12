@@ -68,16 +68,20 @@
 
   console.keyMap = "pl2";
 
-  boot.supportedFilesystems = ["ntfs"];
-
-  users.users.waciejm = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "disk"];
-    shell = pkgs.zsh;
-    hashedPassword = configs-private.hashedUserPassword;
+  users = {
+    mutableUsers = false;
+    users.waciejm = {
+      isNormalUser = true;
+      extraGroups = ["wheel" "disk"];
+      shell = pkgs.zsh;
+      hashedPassword = configs-private.hashedUserPassword;
+    };
   };
 
-  security.sudo.execWheelOnly = true;
+  security = {
+    sudo.execWheelOnly = true;
+    polkit.enable = true;
+  };
 
   programs = {
     zsh = {
@@ -96,9 +100,5 @@
       openFirewall = false;
     };
     fstrim.enable = true;
-  };
-
-  hardware = {
-    keyboard.zsa.enable = true;
   };
 }
