@@ -5,17 +5,26 @@
 }: {
   services.tailscale.permitCertUid = "caddy";
 
+  users.users.caddy.extraGroups = ["users"];
+
   services.caddy = {
     enable = true;
     email = "caddy+bolek@mwojno.me";
-    resume = false;
-    # logFormat = "level DEBUG"; # useful for debugging, NixOS sets it to ERROR by default
+
     globalConfig = ''
       default_bind 100.90.188.151
     '';
+
     # `get_certificate tailscale` should not be needed for `.ts.net` domains, but it is...
     virtualHosts."${config.networking.fqdn}:443".extraConfig = ''
-      reverse_proxy "127.0.0.1:8451"
+
+      handle /ydls/* {
+        uri strip_prefix /ydls/
+        reverse_proxy "127.0.0.1:8451"
+      }
+
+      file_server /data* browse
+      
       tls {
         get_certificate tailscale
       }
