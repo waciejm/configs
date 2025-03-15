@@ -4,22 +4,12 @@
   pkgs,
   mkShell,
   ...
-}: let
-  shells = [
-    {
-      suffix = "";
-      toolchain = "stable";
-    }
-  ];
-in
-  builtins.map ({
-    suffix,
-    toolchain,
-  }: {
-    name = "shell-macroquad${suffix}";
+}: [
+  {
+    name = "shell-macroquad";
     value = mkShell {
       packages = [
-        fenixPkgs."${toolchain}".toolchain
+        fenixPkgs.stable.toolchain
         selfPkgs.clippy-watch
         pkgs.rust-analyzer
       ];
@@ -38,5 +28,5 @@ in
         "${pkgs.libxkbcommon}/lib"
       ];
     };
-  })
-  shells
+  }
+]

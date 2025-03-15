@@ -24,7 +24,7 @@
       }
 
       file_server /data* browse
-      
+
       tls {
         get_certificate tailscale
       }
