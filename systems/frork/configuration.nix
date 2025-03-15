@@ -69,13 +69,7 @@
               type = "luks";
               name = "luks-root";
               passwordFile = "/tmp/luks.key";
-              settings = {
-                allowDiscards = true;
-                keyFile = "/dev/disk/by-partuuid/e76ecf41-a737-4172-bc1a-78f45ebca103";
-                keyFileSize = 4096;
-                keyFileOffset = 0;
-                keyFileTimeout = 5;
-              };
+              settings.allowDiscards = true;
               content = {
                 type = "btrfs";
                 extraArgs = ["-f"];
@@ -103,13 +97,7 @@
               type = "luks";
               name = "luks-swap";
               passwordFile = "/tmp/luks.key";
-              settings = {
-                allowDiscards = true;
-                keyFile = "/dev/disk/by-partuuid/e76ecf41-a737-4172-bc1a-78f45ebca103";
-                keyFileSize = 4096;
-                keyFileOffset = 0;
-                keyFileTimeout = 5;
-              };
+              settings.allowDiscards = true;
               content = {
                 type = "swap";
                 discardPolicy = "both";
