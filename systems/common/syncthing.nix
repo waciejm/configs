@@ -48,6 +48,10 @@
         #   id = "3DPNCRL-NI7CEXE-UT2ZXMW-ZSOVUFP-LKJN4PX-6OL2PAU-PLUBY4Q-DBGKEQP";
         #   addresses = ["tcp://100.92.136.116:22000"];
         # };
+        # pineo = {
+        #   id = "WQ6EGDG-OKMHJSI-5CNMEWY-ETT6IAB-KHGARZH-KK56AF3-JGJXVNY-ZTHCJQU";
+        #   addresses = ["tcp://100.114.165.49:22000"];
+        # };
       };
 
       folders = {
@@ -61,11 +65,6 @@
           type = "sendreceive";
           devices = ["bolek"];
         };
-        # DCIM = {
-        #   path = "/data/syncthing/DCIM";
-        #   type = "sendreceive";
-        #   devices = ["foldy"];
-        # };
         Desktop = {
           path = "/home/waciejm/Desktop";
           type = "sendreceive";
@@ -86,11 +85,6 @@
           type = "sendreceive";
           devices = ["bolek"];
         };
-        # pad = {
-        #   path = "/data/syncthing/pad";
-        #   type = "sendreceive";
-        #   devices = ["bolek"];
-        # };
         Pictures = {
           path = "/home/waciejm/Pictures";
           type = "sendreceive";
