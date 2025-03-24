@@ -48,6 +48,10 @@
         #   id = "3DPNCRL-NI7CEXE-UT2ZXMW-ZSOVUFP-LKJN4PX-6OL2PAU-PLUBY4Q-DBGKEQP";
         #   addresses = ["tcp://100.92.136.116:22000"];
         # };
+        # gablet = {
+        #   id = "FBQQIYY-Q02V3DE-6NWKG2Y-PWVW4A5-CNG5S2G-5EMQ3XB-T7YEDK3-CRSVWAA";
+        #   addresses = ["tcp://100.68.220.48:22000"];
+        # };
         # pineo = {
         #   id = "WQ6EGDG-OKMHJSI-5CNMEWY-ETT6IAB-KHGARZH-KK56AF3-JGJXVNY-ZTHCJQU";
         #   addresses = ["tcp://100.114.165.49:22000"];

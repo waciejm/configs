@@ -52,6 +52,10 @@
           id = "S7HDYYO-4GIT2Y4-ALK6FBM-IJOGPVC-KJIHCFV-B6MDEQ2-EUB2GIA-EC5ALAM";
           addresses = ["tcp://100.123.209.38:22000"];
         };
+        gablet = {
+          id = "FBQQIYY-QO2V3DE-6NWKG2Y-PWVW4A5-CNG5S2G-5EMQ3XB-T7YEDK3-CRSVWAA";
+          addresses = ["tcp://100.68.220.48:22000"];
+        };
         pineo = {
           id = "WQ6EGDG-OKMHJSI-5CNMEWY-ETT6IAB-KHGARZH-KK56AF3-JGJXVNY-ZTHCJQU";
           addresses = ["tcp://100.114.165.49:22000"];
@@ -72,7 +76,7 @@
         DCIM = {
           path = "/data/syncthing/DCIM";
           type = "sendreceive";
-          devices = ["foldy" "pineo"];
+          devices = ["foldy" "gablet" "pineo"];
         };
         Desktop = {
           path = "/data/syncthing/Desktop";
@@ -82,12 +86,12 @@
         Documents = {
           path = "/data/syncthing/Documents";
           type = "sendreceive";
-          devices = ["ferra" "frork" "foldy" "pineo"];
+          devices = ["ferra" "frork" "foldy" "gablet" "pineo"];
         };
         Keys = {
           path = "/data/syncthing/Keys";
           type = "sendreceive";
-          devices = ["ferra" "frork" "foldy" "pineo"];
+          devices = ["ferra" "frork" "foldy" "gablet" "pineo"];
         };
         Music = {
           path = "/data/syncthing/Music";
@@ -97,12 +101,12 @@
         pad = {
           path = "/data/syncthing/pad";
           type = "sendreceive";
-          devices = ["foldy" "pineo"];
+          devices = ["foldy" "gablet"];
         };
         Pictures = {
           path = "/data/syncthing/Pictures";
           type = "sendreceive";
-          devices = ["ferra" "frork" "foldy" "pineo"];
+          devices = ["ferra" "frork" "foldy" "gablet" "pineo"];
         };
         Projects = {
           path = "/data/syncthing/Projects";
