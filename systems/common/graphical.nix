@@ -15,24 +15,19 @@
         feh
         firefox
         gimp
-        godot_4
         google-chrome
         gsettings-qt
         gsettings-desktop-schemas
         gthumb
         gtk-engine-murrine
-        handbrake
         keepassxc
         libreoffice
         obsidian
         openscad-unstable
-        pamixer
         prusa-slicer
-        pulsemixer
         signal-desktop
         slack
         vscode-fhs
-        webcord
         ;
     }
     ++ [
