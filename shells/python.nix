@@ -7,7 +7,11 @@
   shells = [
     {
       suffix = "";
-      version = "312";
+      version = "313";
+    }
+    {
+      suffix = "313";
+      version = "313";
     }
     {
       suffix = "312";
@@ -20,10 +24,6 @@
     {
       suffix = "310";
       version = "310";
-    }
-    {
-      suffix = "39";
-      version = "39";
     }
   ];
 in
