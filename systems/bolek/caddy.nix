@@ -38,10 +38,10 @@
     # `cannot assign requested address`, so we try restarting a few times
     serviceConfig = {
       Restart = "on-failure";
-      RestartSec = lib.mkForce "1s";
+      RestartSec = lib.mkForce "3s";
       RestartPreventExitStatus = lib.mkForce "";
     };
     startLimitIntervalSec = lib.mkForce 60;
-    startLimitBurst = 10;
+    startLimitBurst = lib.mkForce 20;
   };
 }
