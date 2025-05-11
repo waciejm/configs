@@ -5,6 +5,11 @@
 }: {
   home-manager.sharedModules = [{waciejm.graphical = true;}];
 
+  services = {
+    desktopManager.cosmic.enable = true;
+    # displayManager.cosmic-greeter.enable = true;
+  };
+
   environment.systemPackages =
     builtins.attrValues {
       inherit

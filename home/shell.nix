@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs = {
     zsh = {
       enable = true;
@@ -30,22 +34,24 @@
         ns = "nix shell";
         nd = "nix develop";
       };
-      initExtraBeforeCompInit = ''
-        # exec cosmic-session if in TTY1
-        if [[ "$TTY" = "/dev/tty1" ]]; then
-        	command -v start-cosmic && exec start-cosmic
-        fi
-      '';
-      initExtra = ''
-        # dev shells
-        ds() {
-        	nix develop "c#shell-$1" -c zsh
-        }
+      initContent = lib.mkMerge [
+        (lib.mkOrder 550 ''
+          # exec cosmic-session if in TTY1
+          if [[ "$TTY" = "/dev/tty1" ]]; then
+          	command -v start-cosmic && exec start-cosmic
+          fi
+        '')
+        ''
+          # dev shells
+          ds() {
+          	nix develop "c#shell-$1" -c zsh
+          }
 
-        # Disable terminal controls bound by default to ^Q ^S ^U ^O ^V ^R ^W
-        stty start undef stop undef kill undef
-        stty discard undef lnext undef rprnt undef werase undef
-      '';
+          # Disable terminal controls bound by default to ^Q ^S ^U ^O ^V ^R ^W
+          stty start undef stop undef kill undef
+          stty discard undef lnext undef rprnt undef werase undef
+        ''
+      ];
     };
 
     nushell = {

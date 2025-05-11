@@ -6,7 +6,6 @@
   lanzaboote,
   configs-private,
   nixos-hardware,
-  nixos-cosmic,
   sops-nix,
   arion,
   ...
@@ -36,7 +35,6 @@
           ./common/configuration.nix
           disko.nixosModules.disko
           lanzaboote.nixosModules.lanzaboote
-          nixos-cosmic.nixosModules.default
           sops-nix.nixosModules.sops
           arion.nixosModules.arion
         ]
@@ -58,7 +56,6 @@ in {
       ./common/embedded.nix
       ./common/scanning.nix
       ./common/gaming.nix
-      ./common/cosmic.nix
       ./common/nix-ld.nix
     ];
   };
@@ -79,7 +76,6 @@ in {
       ./common/embedded.nix
       ./common/scanning.nix
       ./common/gaming.nix
-      ./common/cosmic.nix
       ./common/nix-ld.nix
     ];
   };
