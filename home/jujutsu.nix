@@ -11,6 +11,7 @@
         pager = "less -FRX";
         diff-editor = ":builtin";
       };
+      git.write-change-id-header = true;
     };
   };
 }
