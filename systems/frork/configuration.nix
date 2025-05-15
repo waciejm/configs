@@ -111,6 +111,9 @@
 
     services.fwupd.enable = true;
 
+    # pam_check_lid shenanigans break cosmic-greeter
+    services.displayManager.cosmic-greeter.enable = lib.mkForce false;
+
     hardware.cpu.amd.updateMicrocode = true;
 
     services.udev.extraRules = ''
