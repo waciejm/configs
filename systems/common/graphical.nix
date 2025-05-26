@@ -28,7 +28,7 @@
         keepassxc
         libreoffice
         obsidian
-        openscad-unstable
+        # openscad-unstable (2025-05-26) build fails
         prusa-slicer
         signal-desktop
         slack
