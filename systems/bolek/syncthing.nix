@@ -48,6 +48,10 @@
           id = "IYRL3AO-RCMCJRV-LMRV3D4-KCKOLES-X6F5CQK-LE6HJXY-GDG4BBL-BE6HSQI";
           addresses = ["tcp://100.104.91.71:22000"];
         };
+        lovo = {
+          id = "RGT6TQN-MDORPYU-XPBE7UK-HC22IMV-GEYOBZO-7AWI26V-RQLBC7L-O3YNCQM";
+          addresses = ["tcp://100.110.126.17:22000"];
+        };
         foldy = {
           id = "S7HDYYO-4GIT2Y4-ALK6FBM-IJOGPVC-KJIHCFV-B6MDEQ2-EUB2GIA-EC5ALAM";
           addresses = ["tcp://100.123.209.38:22000"];
@@ -66,12 +70,12 @@
         Archive = {
           path = "/data/syncthing/Archive";
           type = "sendreceive";
-          devices = ["ferra" "frork"];
+          devices = ["ferra" "frork" "lovo"];
         };
         cosmic-config = {
           path = "/data/syncthing/cosmic-config";
           type = "sendreceive";
-          devices = ["ferra" "frork"];
+          devices = ["ferra" "frork" "lovo"];
         };
         DCIM = {
           path = "/data/syncthing/DCIM";
@@ -81,22 +85,22 @@
         Desktop = {
           path = "/data/syncthing/Desktop";
           type = "sendreceive";
-          devices = ["ferra" "frork"];
+          devices = ["ferra" "frork" "lovo"];
         };
         Documents = {
           path = "/data/syncthing/Documents";
           type = "sendreceive";
-          devices = ["ferra" "frork" "foldy" "gablet" "pineo"];
+          devices = ["ferra" "frork" "lovo" "foldy" "gablet" "pineo"];
         };
         Keys = {
           path = "/data/syncthing/Keys";
           type = "sendreceive";
-          devices = ["ferra" "frork" "foldy" "gablet" "pineo"];
+          devices = ["ferra" "frork" "lovo" "foldy" "gablet" "pineo"];
         };
         Music = {
           path = "/data/syncthing/Music";
           type = "sendreceive";
-          devices = ["ferra" "frork"];
+          devices = ["ferra" "frork" "lovo"];
         };
         pad = {
           path = "/data/syncthing/pad";
@@ -106,17 +110,17 @@
         Pictures = {
           path = "/data/syncthing/Pictures";
           type = "sendreceive";
-          devices = ["ferra" "frork" "foldy" "gablet" "pineo"];
+          devices = ["ferra" "frork" "lovo" "foldy" "gablet" "pineo"];
         };
         Projects = {
           path = "/data/syncthing/Projects";
           type = "sendreceive";
-          devices = ["ferra" "frork"];
+          devices = ["ferra" "frork" "lovo"];
         };
         qed = {
           path = "/data/syncthing/qed";
           type = "sendreceive";
-          devices = ["ferra" "frork"];
+          devices = ["ferra" "frork" "lovo"];
         };
       };
     };

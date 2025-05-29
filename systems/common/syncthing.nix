@@ -48,6 +48,10 @@
         #   id = "3DPNCRL-NI7CEXE-UT2ZXMW-ZSOVUFP-LKJN4PX-6OL2PAU-PLUBY4Q-DBGKEQP";
         #   addresses = ["tcp://100.92.136.116:22000"];
         # };
+        # lovo = {
+        #   id = "RGT6TQN-MDORPYU-XPBE7UK-HC22IMV-GEYOBZO-7AWI26V-RQLBC7L-O3YNCQM";
+        #   addresses = ["tcp://100.110.126.17:22000"];
+        # };
         # gablet = {
         #   id = "FBQQIYY-Q02V3DE-6NWKG2Y-PWVW4A5-CNG5S2G-5EMQ3XB-T7YEDK3-CRSVWAA";
         #   addresses = ["tcp://100.68.220.48:22000"];

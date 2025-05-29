@@ -79,6 +79,26 @@ in {
       ./common/nix-ld.nix
     ];
   };
+  lovo = mkSystem {
+    hostname = "lovo";
+    system = "x86_64-linux";
+    extraModules = [
+      ./common/laptop.nix
+      ./common/wifi.nix
+      ./common/secureboot.nix
+      ./common/sshd.nix
+      ./common/tailscale.nix
+      ./common/syncthing.nix
+      ./common/graphical.nix
+      ./common/bluetooth.nix
+      ./common/containerisation.nix
+      ./common/android.nix
+      # ./common/embedded.nix
+      # ./common/scanning.nix
+      ./common/gaming.nix
+      ./common/nix-ld.nix
+    ];
+  };
   bolek = mkSystem {
     hostname = "bolek";
     system = "x86_64-linux";

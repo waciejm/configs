@@ -1,18 +1,13 @@
 {
-  selfPkgs,
   modulesPath,
-  nixos-hardware,
-  lib,
-  config,
   ...
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    nixos-hardware.nixosModules.framework-16-7040-amd
     ./assertions.nix
   ];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 
   boot = {
     loader = {
@@ -24,11 +19,12 @@
       availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod"];
     };
     kernelModules = ["kvm-amd"];
+    kernelParams = ["amd_pstate=active"];
   };
 
   disko.devices.disk.ssd1 = {
     type = "disk";
-    device = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_2TB_S736NJ0X100968L";
+    device = "/dev/disk/by-id/nvme-Micron_MTFDKCD1T0TGE-1BK1AABLA_241247B1981F";
     content = {
       type = "gpt";
       partitions = {
@@ -44,7 +40,7 @@
         };
         root = {
           type = "8309"; # Linux LUKS
-          end = "-65G"; # leave 65G for swap
+          end = "-33G"; # leave 33G for swap
           content = {
             type = "luks";
             name = "luks-root";
@@ -88,28 +84,18 @@
       };
     };
   };
-  services.logind = {
-    lidSwitch = "suspend-then-hibernate";
-    lidSwitchDocked = "ignore";
-    lidSwitchExternalPower = "suspend-then-hibernate";
-  };
-
-  systemd.sleep.extraConfig = ''
-    HibernateDelaySec=12h
-  '';
+  services.logind.powerKey = "ignore";
 
   services.fwupd.enable = true;
 
-  services.fprintd.enable = false;
+  services.power-profiles-daemon.enable = true;
 
   hardware.cpu.amd.updateMicrocode = true;
 
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="usb", DRIVER=="usb", ATTR{power/wakeup}="disabled"
-    ACTION=="add", SUBSYSTEM=="i2c", DRIVER=="i2c_hid_acpi", ATTR{power/wakeup}="disabled"
+  hardware.amdgpu.initrd.enable = true;
 
-    ACTION=="add", KERNEL=="0000:03:00.0", SUBSYSTEM=="pci", ATTR{class}=="0x03[0-9]*", ATTR{power/control}="auto", ATTR{remove}="1"
-  '';
-
-  fonts.fontconfig.subpixel.rgba = "rgb";
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 }
