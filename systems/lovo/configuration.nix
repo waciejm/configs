@@ -1,5 +1,6 @@
 {
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -20,6 +21,7 @@
     };
     kernelModules = ["kvm-amd"];
     kernelParams = ["amd_pstate=active"];
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   disko.devices.disk.ssd1 = {
