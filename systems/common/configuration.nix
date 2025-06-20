@@ -83,12 +83,9 @@
     polkit.enable = true;
   };
 
-  programs = {
-    zsh = {
-      enable = true;
-      enableGlobalCompInit = false;
-    };
-    ssh.startAgent = true;
+  programs.zsh = {
+    enable = true;
+    enableGlobalCompInit = false;
   };
 
   environment.pathsToLink = ["/share/zsh"];
