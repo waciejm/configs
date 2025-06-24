@@ -19,7 +19,7 @@
         discord
         feh
         firefox
-        gimp
+        gimp3
         google-chrome
         gsettings-qt
         gsettings-desktop-schemas
@@ -28,7 +28,7 @@
         keepassxc
         libreoffice
         obsidian
-        # openscad-unstable # (2025-06-20) fails to build
+        openscad-unstable
         prusa-slicer
         signal-desktop
         slack
