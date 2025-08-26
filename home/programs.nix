@@ -16,6 +16,7 @@
         exiftool
         fd
         ffmpeg
+        glow
         git-review
         gzip
         htop
@@ -23,7 +24,6 @@
         jless
         just
         lsd
-        mdcat
         mediainfo
         mpv
         ncspot
