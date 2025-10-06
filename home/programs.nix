@@ -12,6 +12,7 @@
         amber
         bat
         cyme
+        difftastic
         du-dust
         exiftool
         fd
