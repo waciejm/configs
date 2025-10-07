@@ -26,6 +26,7 @@
         just
         lsd
         mediainfo
+        mergiraf
         mpv
         ncspot
         neovim
