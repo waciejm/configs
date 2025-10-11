@@ -11,6 +11,7 @@
         alejandra
         amber
         bat
+        bottom
         cyme
         difftastic
         du-dust
