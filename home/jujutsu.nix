@@ -6,6 +6,7 @@
         {
           "--when".repositories = ["~/qed"];
           user.email = "mac1@qed.ai";
+          templates.commit_trailers = "format_gerrit_change_id_trailer(self)";
         }
       ];
       user = {
@@ -18,7 +19,6 @@
         diff-editor = ":builtin";
         diff-formatter = ["difft" "--color=always" "$left" "$right"];
       };
-      git.write-change-id-header = true;
     };
   };
 }
