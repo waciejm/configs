@@ -140,22 +140,6 @@
           format = "($output )";
           command = "starship module ${module}";
         });
-        git_branch = {
-          disabled = false;
-          when = "! jj root --ignore-working-copy";
-        };
-        git_commit = {
-          disabled = false;
-          when = "! jj root --ignore-working-copy";
-        };
-        git_status = {
-          disabled = false;
-          when = "! jj root --ignore-working-copy";
-        };
-        git_state = {
-          disabled = false;
-          when = "! jj root --ignore-working-copy";
-        };
         shlvl = {
           disabled = false;
         };
