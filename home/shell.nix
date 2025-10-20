@@ -171,6 +171,9 @@
       enable = true;
       enableZshIntegration = true;
       enableNushellIntegration = true;
+      settings = {
+        style = "auto";
+      };
     };
   };
 
