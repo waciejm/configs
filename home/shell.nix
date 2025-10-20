@@ -168,9 +168,9 @@
 
     zoxide = {
       enable = true;
-      options = ["--cmd cd"];
       enableZshIntegration = true;
       enableNushellIntegration = true;
+      options = ["--cmd cd"];
     };
 
     keychain = {
@@ -181,6 +181,12 @@
         "~/Keys/ssh_waciejm"
         "~/Keys/ssh_mac1"
       ];
+    };
+
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      enableNushellIntegration = true;
     };
   };
 
