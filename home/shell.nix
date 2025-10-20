@@ -176,6 +176,7 @@
       ];
       settings = {
         style = "auto";
+        enter_accept = true;
       };
     };
   };
