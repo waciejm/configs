@@ -171,12 +171,11 @@
       enable = true;
       enableZshIntegration = true;
       enableNushellIntegration = true;
-      flags = [
-        "--disable-up-arrow"
-      ];
       settings = {
-        style = "auto";
+        style = "compact";
+        inline_height = 15;
         enter_accept = true;
+        filter_mode_shell_up_key_binding = "directory";
       };
     };
   };
