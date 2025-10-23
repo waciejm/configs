@@ -12,6 +12,7 @@
     ./graphical
     ./helix.nix
     ./jujutsu.nix
+    ./nushell
     ./options.nix
     ./programs.nix
     ./shell.nix

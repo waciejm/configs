@@ -7,13 +7,6 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      historySubstringSearch.enable = true;
-      history = {
-        path = "$HOME/.zhistory";
-        size = 100000;
-        save = 100000;
-        share = true;
-      };
       shellAliases = {
         # lsd
         l = "lsd -l";
@@ -44,10 +37,6 @@
         stty start undef stop undef kill undef
         stty discard undef lnext undef rprnt undef werase undef
       '';
-    };
-
-    nushell = {
-      enable = true;
     };
 
     starship = let

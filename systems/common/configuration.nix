@@ -73,7 +73,7 @@
     users.waciejm = {
       isNormalUser = true;
       extraGroups = ["wheel" "disk"];
-      shell = pkgs.zsh;
+      shell = pkgs.nushell;
       hashedPassword = configs-private.hashedUserPassword;
     };
   };
