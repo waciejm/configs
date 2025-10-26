@@ -85,17 +85,17 @@ $env.config.highlight_resolved_externals = true;
 ## aliases and alias-like scripts
 
 # ls
-def --wrapped l [...rest] {
-  match $rest {
+def l [...paths: glob] {
+  match $paths {
     [] => (ls -a | sort-by type name | select name)
-    _ => (ls -a ...$rest | sort-by type name | select name)
+    _ => (ls -a ...$paths | sort-by type name | select name)
   }
 }
 
-def --wrapped ll [...rest] {
-  match $rest {
+def ll [...paths: glob] {
+  match $paths {
     [] => (ls -al | sort-by type name | select name target size modified user group mode)
-    _ => (ls -al ...$rest | sort-by type name | select name target size modified user group mode)
+    _ => (ls -al ...$paths | sort-by type name | select name target size modified user group mode)
   }
 }
 
