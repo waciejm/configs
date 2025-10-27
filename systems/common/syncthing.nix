@@ -9,7 +9,7 @@
     dataDir = "/home/waciejm/.local/state/syncthing";
 
     openDefaultPorts = false;
-    guiAddress = "0.0.0.0:8384";
+    guiAddress = "127.0.0.1:8384";
 
     overrideDevices = true;
     overrideFolders = false;
@@ -39,10 +39,6 @@
         # ferra = {
         #   id = "KQFXNZF-OQXAZCM-7UPK65V-HKHXXUH-LZFTY2Q-OG3DVEO-HBTNBIG-QINT6AA";
         #   addresses = ["tcp://100.112.8.82:22000"];
-        # };
-        # foldy = {
-        #   id = "S7HDYYO-4GIT2Y4-ALK6FBM-IJOGPVC-KJIHCFV-B6MDEQ2-EUB2GIA-EC5ALAM";
-        #   addresses = ["tcp://100.123.209.38:22000"];
         # };
         # frork = {
         #   id = "3DPNCRL-NI7CEXE-UT2ZXMW-ZSOVUFP-LKJN4PX-6OL2PAU-PLUBY4Q-DBGKEQP";
