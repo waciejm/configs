@@ -29,6 +29,7 @@
         (config.xdg.configHome + "/nix/nix.conf")
         (config.home.homeDirectory + "/Keys/nix-github-access.conf")
       ];
+      SHELL = "${pkgs.nushell}/bin/nu";
     };
   };
 
