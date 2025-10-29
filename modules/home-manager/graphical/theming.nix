@@ -1,16 +1,11 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
-  imports = [
-    ./kitty.nix
-    ./rofi.nix
-    ./wezterm.nix
-  ];
+{ config, lib, pkgs, ...}: {
+  options.custom.graphical.theming = {
+    enable = lib.mkEnableOption "GUI theming stuff";
+  };
 
-  config = lib.mkIf config.waciejm.graphical {
+  config = let
+    cfg = config.custom.graphical.theming;
+  in lib.mkIf cfg.enable {
     xdg.systemDirs.data = [
       "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"

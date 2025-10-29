@@ -1,9 +1,6 @@
 {
-  selfPkgs,
   modulesPath,
   nixos-hardware,
-  lib,
-  config,
   ...
 }: {
   imports = [
@@ -88,10 +85,11 @@
       };
     };
   };
-  services.logind = {
-    lidSwitch = "suspend-then-hibernate";
-    lidSwitchDocked = "ignore";
-    lidSwitchExternalPower = "suspend-then-hibernate";
+
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitchDocked = "ignore";
+    HandleLidSwitchExternalPower = "suspend-then-hibernate";
   };
 
   systemd.sleep.extraConfig = ''

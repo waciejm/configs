@@ -2,6 +2,7 @@
   description = "Home and systems configurations for waciejm";
 
   inputs = {
+    # keep-sorted start block=yes
     arion = {
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,15 +35,18 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # keep-sorted end
   };
 
   outputs = inputs @ {
+    # keep-sorted start
     self,
     nixpkgs,
     home-manager,
     fenix,
     configs-private,
     deploy-rs,
+    # keep-sorted end
     ...
   }: let
     utils = import ./utils.nix;
@@ -50,48 +54,26 @@
   in {
     nixosConfigurations = import ./systems/mkSystems.nix inputs;
 
-    deploy.nodes.bolek = {
-      hostname = self.nixosConfigurations.bolek.config.networking.fqdn;
-      user = "root";
-      profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.bolek;
-    };
-
-    homeConfigurations = utils.forEachPlatform (
-      platform: let
-        selfPkgs = self.packages."${platform}";
-      in
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."${platform}";
-          extraSpecialArgs = {inherit self nixpkgs configs-private selfPkgs;};
-          modules = [./home/default.nix];
-        }
-    );
-
-    packages = utils.forEachPlatform (
-      platform: let
+    homeConfigurations = utils.forEachPlatform (platform:
+      home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."${platform}";
-        selfPkgs = lib.packagesFromDirectoryRecursive {
-          inherit (pkgs) callPackage;
-          directory = ./packages;
+        extraSpecialArgs = {
+          nixpkgsFlake = nixpkgs;
+          selfFlake = self;
         };
-        privatePkgs = configs-private.mkPackages pkgs;
-      in
-        selfPkgs // privatePkgs
-    );
-
-    apps = utils.forEachPlatform (
-      platform: {
-        deploy = deploy-rs.apps.${platform}.default;
+        modules = [
+          ./modules/home-manager/default.nix
+          { custom.my-home-manager-configuration.enable = true; }
+        ];
       }
     );
 
-    devShells = utils.forEachPlatform (
-      platform: let
-        pkgs = nixpkgs.legacyPackages."${platform}";
-        fenixPkgs = fenix.packages."${platform}";
-        selfPkgs = self.packages."${platform}";
+    devShells = utils.forEachPlatform (platform:
+      let
+        pkgs = nixpkgs.legacyPackages.${platform};
+        fenixPkgs = fenix.packages.${platform};
         attrSetOfShellLists = lib.packagesFromDirectoryRecursive {
-          callPackage = lib.callPackageWith (pkgs // {inherit fenixPkgs selfPkgs;});
+          callPackage = lib.callPackageWith (pkgs // {inherit fenixPkgs;});
           directory = ./shells;
         };
         listOfShells = builtins.concatLists (lib.attrValues attrSetOfShellLists);
@@ -106,5 +88,15 @@
     checks = utils.forEachPlatform (
       platform: deploy-rs.lib.${platform}.deployChecks self.deploy
     );
+
+    apps = utils.forEachPlatform (platform: {
+      deploy = deploy-rs.apps.${platform}.default;
+    });
+
+    deploy.nodes.bolek = {
+      hostname = self.nixosConfigurations.bolek.config.networking.fqdn;
+      user = "root";
+      profiles.system.path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.bolek;
+    };
   };
 }

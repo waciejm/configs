@@ -1,6 +1,5 @@
 {
   fenixPkgs,
-  selfPkgs,
   pkgs,
   mkShell,
   ...
@@ -10,7 +9,6 @@
     value = mkShell {
       packages = [
         fenixPkgs.stable.toolchain
-        selfPkgs.clippy-watch
         pkgs.rust-analyzer
       ];
       nativeBuildInputs = [

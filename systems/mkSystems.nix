@@ -27,7 +27,6 @@
           configs-private
           nixos-hardware
           ;
-        selfPkgs = self.packages."${system}";
       };
       modules =
         [

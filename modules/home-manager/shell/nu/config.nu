@@ -84,7 +84,7 @@ $env.config.highlight_resolved_externals = true;
 
 ## aliases and alias-like scripts
 
-# ls
+## ls
 def l [...paths: glob] {
   match $paths {
     [] => (ls -a | sort-by type name | select name)
@@ -99,7 +99,8 @@ def ll [...paths: glob] {
   }
 }
 
-# git
+## git
+# keep-sorted start
 alias glog = git log --all --oneline --graph
 alias gc = git commit
 alias gca = git commit --amend
@@ -108,10 +109,13 @@ alias gaa = git add .
 alias gr = git review
 alias gs = git status
 alias gd = git diff
+# keep-sorted end
 
-# jj
+## jj
+# keep-sorted start
 alias jjgf = jj git fetch
 alias jjgp = jj git push
+# keep-sorted end
 
 def --wrapped jjgu [
   revision?: string
@@ -123,13 +127,30 @@ def --wrapped jjgu [
   }
 }
 
-# nix
+## nix
+# keep-sorted start
 alias ns = nix shell
 alias nd = nix develop
+# keep-sorted end
 
 def --wrapped ds [
   name: string
   ...rest
 ] {
   nix develop $"c#shell-($name)" -c nu ...$rest
+}
+
+## mpv
+def --wrapped kpv [...rest] {
+  mpv --vo=kitty ...$rest
+}
+
+## cargo
+def --wrapped clippy-watch [...rest] {  
+  cargo watch -q -s "clear; cargo clippy --all-targets" ...$rest
+}
+
+## sops
+def --wrapped homesops [...rest] {
+  SOPS_AGE_KEY=(age -d ~/Keys/homeops.age) sops ...rest
 }

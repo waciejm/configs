@@ -1,6 +1,5 @@
 {
   fenixPkgs,
-  selfPkgs,
   pkgs,
   mkShell,
   ...
@@ -28,7 +27,7 @@ in
     value = mkShell {
       packages = [
         fenixPkgs."${toolchain}".toolchain
-        selfPkgs.clippy-watch
+        pkgs.cargo-watch
         pkgs.rust-analyzer
       ];
     };

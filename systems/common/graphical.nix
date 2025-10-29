@@ -1,9 +1,10 @@
 {
   pkgs,
-  selfPkgs,
   ...
 }: {
-  home-manager.sharedModules = [{waciejm.graphical = true;}];
+  home-manager.sharedModules = [
+    { custom.my-home-manager-configuration.pc = true; }
+  ];
 
   services = {
     desktopManager.cosmic.enable = true;
@@ -38,7 +39,6 @@
     ++ [
       pkgs.qt6.qtwayland
       pkgs.libsForQt5.qt5.qtwayland
-      selfPkgs.picocad
     ];
 
   programs.dconf.enable = true;

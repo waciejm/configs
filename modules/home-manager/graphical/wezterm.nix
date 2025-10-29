@@ -1,12 +1,14 @@
-{
-  config,
-  lib,
-  ...
-}: {
-  config = lib.mkIf config.waciejm.graphical {
+{ config, lib, ...}: {
+  options.custom.graphical.wezterm = {
+    enable = lib.mkEnableOption "wezterm with custom config";
+  };
+
+  config = let
+    cfg = config.custom.graphical.wezterm;
+  in lib.mkIf cfg.enable {
     programs.wezterm = {
       enable = true;
-      enableZshIntegration = true;
+      enableZshIntegration = config.custom.shell.zsh.enable;
       extraConfig = ''
         local config = wezterm.config_builder()
 

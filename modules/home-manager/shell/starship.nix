@@ -1,56 +1,23 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
-  programs = {
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      shellAliases = {
-        # lsd
-        l = "lsd -l";
-        ls = "lsd";
-        la = "lsd -lA";
-        # git
-        glog = "git log --all --oneline --graph";
-        gc = "git commit";
-        gca = "git commit --amend";
-        gch = "git checkout";
-        gaa = "git add .";
-        gr = "git review";
-        gs = "git status";
-        gd = "git diff";
-        # sops
-        homesops = "SOPS_AGE_KEY=$(age -d ~/Keys/homeops.age) sops";
-        # nix
-        ns = "nix shell";
-        nd = "nix develop";
-      };
-      initContent = ''
-        # dev shells
-        ds() {
-        	nix develop "c#shell-$1" -c zsh
-        }
+{ config, lib, ...}: {
+  options.custom.shell.starship = {
+    enable = lib.mkEnableOption "starship with custom configuration";
+  };
 
-        # Disable terminal controls bound by default to ^Q ^S ^U ^O ^V ^R ^W
-        stty start undef stop undef kill undef
-        stty discard undef lnext undef rprnt undef werase undef
-      '';
-    };
-
-    starship = let
-      gitModules = [
-        "git_branch"
-        "git_commit"
-        "git_status"
-        "git_state"
-      ];
-    in {
+  config = let
+    cfg = config.custom.shell.starship;
+  in lib.mkIf cfg.enable {
+    programs.starship = {
       enable = true;
-      enableZshIntegration = true;
-      enableNushellIntegration = true;
-      settings = {
+      enableZshIntegration = config.custom.shell.zsh.enable;
+      enableNushellIntegration = config.custom.shell.nu.enable;
+      settings = let 
+        gitModules = [
+          "git_branch"
+          "git_commit"
+          "git_status"
+          "git_state"
+        ];
+      in {
         format = let          
           vcs = lib.concatMapStrings (s: "\${custom.${s}}") (gitModules ++ [ "jj" ]);
         in ''
@@ -79,7 +46,7 @@
         };
         cmd_duration = {
           disabled = false;
-          min_time = 1000;
+          min_time = 1;
           show_milliseconds = true;
         };
         shell = {
@@ -138,38 +105,5 @@
         };
       };
     };
-
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-      enableNushellIntegration = true;
-      options = ["--cmd cd"];
-    };
-
-    keychain = {
-      enable = true;
-      enableZshIntegration = true;
-      enableNushellIntegration = true;
-      keys = [
-        "~/Keys/ssh_waciejm"
-        "~/Keys/ssh_mac1"
-      ];
-    };
-
-    atuin = {
-      enable = true;
-      enableZshIntegration = true;
-      enableNushellIntegration = true;
-      settings = {
-        style = "compact";
-        inline_height = 15;
-        enter_accept = true;
-        filter_mode_shell_up_key_binding = "directory";
-      };
-    };
   };
-
-  home.packages = [
-    pkgs.zsh-completions
-  ];
 }
