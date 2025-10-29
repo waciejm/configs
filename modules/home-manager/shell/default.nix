@@ -1,13 +1,13 @@
 {
   imports = [
     # keep-sorted start
-    ./nu
-    ./zsh.nix
-    ./starship.nix
-    ./zoxide.nix
     ./atuin.nix
-    ./yazi.nix
     ./keychain.nix
+    ./nu
+    ./starship.nix
+    ./yazi.nix
+    ./zoxide.nix
+    ./zsh.nix
     # keep-sorted end
   ];
 }

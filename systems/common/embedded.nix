@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = [
     pkgs.probe-rs
   ];
@@ -126,6 +127,6 @@
 
     LABEL="probe_rs_rules_end"
   '';
-  users.groups.plugdev = {};
-  users.users.waciejm.extraGroups = ["plugdev"];
+  users.groups.plugdev = { };
+  users.users.waciejm.extraGroups = [ "plugdev" ];
 }

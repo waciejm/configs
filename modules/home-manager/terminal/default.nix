@@ -1,12 +1,12 @@
 {
   imports = [
-    # keep-sorted start    
-    ./rip.nix
+    # keep-sorted start
     ./git.nix
-    ./jujutsu.nix
-    ./ssh.nix
     ./helix.nix
+    ./jujutsu.nix
     ./nix.nix
+    ./rip.nix
+    ./ssh.nix
     # keep-sorted end
   ];
 }

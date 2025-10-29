@@ -2,10 +2,11 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   services.tailscale.permitCertUid = "caddy";
 
-  users.users.caddy.extraGroups = ["users"];
+  users.users.caddy.extraGroups = [ "users" ];
 
   services.caddy = {
     enable = true;
@@ -32,8 +33,8 @@
   };
 
   systemd.services.caddy = {
-    requires = ["tailscaled.service"];
-    after = ["tailscaled.service"];
+    requires = [ "tailscaled.service" ];
+    after = [ "tailscaled.service" ];
     # waiting for tailscaled is not enough, and it still fails on boot with
     # `cannot assign requested address`, so we try restarting a few times
     serviceConfig = {

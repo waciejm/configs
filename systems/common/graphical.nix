@@ -1,7 +1,8 @@
 {
   pkgs,
   ...
-}: {
+}:
+{
   home-manager.sharedModules = [
     { custom.my-home-manager-configuration.pc = true; }
   ];
@@ -13,8 +14,7 @@
 
   environment.systemPackages =
     builtins.attrValues {
-      inherit
-        (pkgs)
+      inherit (pkgs)
         audacity
         blender
         discord
@@ -65,7 +65,7 @@
       pkgs.nerd-fonts.iosevka-term
     ];
     fontconfig = {
-      defaultFonts.monospace = ["IosevkaTerm Nerd Font"];
+      defaultFonts.monospace = [ "IosevkaTerm Nerd Font" ];
     };
   };
 

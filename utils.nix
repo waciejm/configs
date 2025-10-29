@@ -1,9 +1,9 @@
 rec {
-  forEachPlatform = block: (forEachPlatformImpl mkPlatformName ({platform, ...}: block platform));
+  forEachPlatform = block: (forEachPlatformImpl mkPlatformName ({ platform, ... }: block platform));
 
-  forEachPlatformImpl = prefixFn: block:
-    (forEachLinuxPlatformImpl prefixFn block)
-    // (forEachDarwinPlatformImpl prefixFn block);
+  forEachPlatformImpl =
+    prefixFn: block:
+    (forEachLinuxPlatformImpl prefixFn block) // (forEachDarwinPlatformImpl prefixFn block);
 
   forEachLinuxPlatformImpl = prefixFn: block: {
     "${prefixFn "x86_64" "linux"}" = block {

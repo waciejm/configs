@@ -3,7 +3,8 @@
   pkgs,
   mkShell,
   ...
-}: [
+}:
+[
   {
     name = "shell-macroquad";
     value = mkShell {

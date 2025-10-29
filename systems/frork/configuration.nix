@@ -2,7 +2,8 @@
   modulesPath,
   nixos-hardware,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.framework-16-7040-amd
@@ -18,9 +19,16 @@
     };
     initrd = {
       systemd.enable = true;
-      availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod"];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "thunderbolt"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
     };
-    kernelModules = ["kvm-amd"];
+    kernelModules = [ "kvm-amd" ];
   };
 
   disko.devices.disk.ssd1 = {
@@ -36,7 +44,12 @@
             type = "filesystem";
             format = "vfat";
             mountpoint = "/boot";
-            extraArgs = ["-F" "32" "-n" "ESP"];
+            extraArgs = [
+              "-F"
+              "32"
+              "-n"
+              "ESP"
+            ];
           };
         };
         root = {
@@ -49,19 +62,28 @@
             settings.allowDiscards = true;
             content = {
               type = "btrfs";
-              extraArgs = ["-f"];
+              extraArgs = [ "-f" ];
               subvolumes = {
                 "root" = {
                   mountpoint = "/";
-                  mountOptions = ["compress=zstd" "relatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "relatime"
+                  ];
                 };
                 "home" = {
                   mountpoint = "/home";
-                  mountOptions = ["compress=zstd" "relatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "relatime"
+                  ];
                 };
                 "nix" = {
                   mountpoint = "/nix";
-                  mountOptions = ["compress=zstd" "noatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
               };
             };

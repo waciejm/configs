@@ -8,7 +8,8 @@
   lib,
   configs-private,
   ...
-}: {
+}:
+{
   imports = [
     home-manager.nixosModules.home-manager
   ];
@@ -17,7 +18,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.waciejm = {
-      imports = [../../modules/home-manager/default.nix];
+      imports = [ ../../modules/home-manager/default.nix ];
       custom.my-home-manager-configuration.enable = true;
     };
     extraSpecialArgs = {
@@ -37,8 +38,14 @@
       flake = nixpkgs;
     };
     settings = {
-      experimental-features = ["nix-command" "flakes"];
-      trusted-users = ["root" "@wheel"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
     };
   };
 
@@ -75,7 +82,10 @@
     mutableUsers = false;
     users.waciejm = {
       isNormalUser = true;
-      extraGroups = ["wheel" "disk"];
+      extraGroups = [
+        "wheel"
+        "disk"
+      ];
       shell = pkgs.zsh;
       hashedPassword = configs-private.hashedUserPassword;
     };
@@ -91,7 +101,7 @@
     enableGlobalCompInit = false;
   };
 
-  environment.pathsToLink = ["/share/zsh"];
+  environment.pathsToLink = [ "/share/zsh" ];
 
   services = {
     avahi = {

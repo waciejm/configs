@@ -13,7 +13,12 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              extraArgs = ["-F" "32" "-n" "ESP"];
+              extraArgs = [
+                "-F"
+                "32"
+                "-n"
+                "ESP"
+              ];
             };
           };
           root = {
@@ -26,19 +31,28 @@
               settings.allowDiscards = true;
               content = {
                 type = "btrfs";
-                extraArgs = ["-f"];
+                extraArgs = [ "-f" ];
                 subvolumes = {
                   "root" = {
                     mountpoint = "/";
-                    mountOptions = ["compress=zstd" "relatime"];
+                    mountOptions = [
+                      "compress=zstd"
+                      "relatime"
+                    ];
                   };
                   "home" = {
                     mountpoint = "/home";
-                    mountOptions = ["compress=zstd" "relatime"];
+                    mountOptions = [
+                      "compress=zstd"
+                      "relatime"
+                    ];
                   };
                   "nix" = {
                     mountpoint = "/nix";
-                    mountOptions = ["compress=zstd" "noatime"];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                   };
                 };
               };
@@ -64,11 +78,14 @@
               settings.allowDiscards = true;
               content = {
                 type = "btrfs";
-                extraArgs = ["-f"];
+                extraArgs = [ "-f" ];
                 subvolumes = {
                   "data" = {
                     mountpoint = "/data";
-                    mountOptions = ["compress=zstd" "relatime"];
+                    mountOptions = [
+                      "compress=zstd"
+                      "relatime"
+                    ];
                   };
                 };
               };
@@ -79,5 +96,5 @@
     };
   };
 
-  swapDevices = [];
+  swapDevices = [ ];
 }

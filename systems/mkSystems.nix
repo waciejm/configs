@@ -9,12 +9,14 @@
   sops-nix,
   arion,
   ...
-}: let
-  mkSystem = {
-    hostname,
-    system,
-    extraModules,
-  }:
+}:
+let
+  mkSystem =
+    {
+      hostname,
+      system,
+      extraModules,
+    }:
     nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = {
@@ -28,18 +30,18 @@
           nixos-hardware
           ;
       };
-      modules =
-        [
-          ./${hostname}/configuration.nix
-          ./common/configuration.nix
-          disko.nixosModules.disko
-          lanzaboote.nixosModules.lanzaboote
-          sops-nix.nixosModules.sops
-          arion.nixosModules.arion
-        ]
-        ++ extraModules;
+      modules = [
+        ./${hostname}/configuration.nix
+        ./common/configuration.nix
+        disko.nixosModules.disko
+        lanzaboote.nixosModules.lanzaboote
+        sops-nix.nixosModules.sops
+        arion.nixosModules.arion
+      ]
+      ++ extraModules;
     };
-in {
+in
+{
   ferra = mkSystem {
     hostname = "ferra";
     system = "x86_64-linux";
@@ -101,6 +103,6 @@ in {
   bolek = mkSystem {
     hostname = "bolek";
     system = "x86_64-linux";
-    extraModules = [];
+    extraModules = [ ];
   };
 }

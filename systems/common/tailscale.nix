@@ -1,17 +1,19 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   tailscale-restart = pkgs.writeShellApplication {
     name = "tailscale-restart";
-    runtimeInputs = [pkgs.tailscale];
+    runtimeInputs = [ pkgs.tailscale ];
     text = "tailscale down && tailscale up";
   };
-in {
+in
+{
   services.tailscale = {
     enable = true;
     interfaceName = "tailscale0";
     openFirewall = true;
   };
 
-  networking.firewall.trustedInterfaces = ["tailscale0"];
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
   systemd.services.tailscale-restart = {
     description = "Restart tailscale after suspend";

@@ -2,7 +2,8 @@
   modulesPath,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./assertions.nix
@@ -17,10 +18,17 @@
     };
     initrd = {
       systemd.enable = true;
-      availableKernelModules = ["nvme" "xhci_pci" "thunderbolt" "usb_storage" "usbhid" "sd_mod"];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "thunderbolt"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
     };
-    kernelModules = ["kvm-amd"];
-    kernelParams = ["amd_pstate=active"];
+    kernelModules = [ "kvm-amd" ];
+    kernelParams = [ "amd_pstate=active" ];
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
@@ -37,7 +45,12 @@
             type = "filesystem";
             format = "vfat";
             mountpoint = "/boot";
-            extraArgs = ["-F" "32" "-n" "ESP"];
+            extraArgs = [
+              "-F"
+              "32"
+              "-n"
+              "ESP"
+            ];
           };
         };
         root = {
@@ -50,19 +63,28 @@
             settings.allowDiscards = true;
             content = {
               type = "btrfs";
-              extraArgs = ["-f"];
+              extraArgs = [ "-f" ];
               subvolumes = {
                 "root" = {
                   mountpoint = "/";
-                  mountOptions = ["compress=zstd" "relatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "relatime"
+                  ];
                 };
                 "home" = {
                   mountpoint = "/home";
-                  mountOptions = ["compress=zstd" "relatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "relatime"
+                  ];
                 };
                 "nix" = {
                   mountpoint = "/nix";
-                  mountOptions = ["compress=zstd" "noatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
               };
             };

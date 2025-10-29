@@ -1,4 +1,5 @@
-{modulesPath, ...}: {
+{ modulesPath, ... }:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./assertions.nix
@@ -13,9 +14,16 @@
     };
     initrd = {
       systemd.enable = true;
-      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
     };
-    kernelModules = ["kvm-amd"];
+    kernelModules = [ "kvm-amd" ];
   };
 
   disko.devices.disk.ssd1 = {
@@ -31,7 +39,12 @@
             type = "filesystem";
             format = "vfat";
             mountpoint = "/boot";
-            extraArgs = ["-F" "32" "-n" "ESP"];
+            extraArgs = [
+              "-F"
+              "32"
+              "-n"
+              "ESP"
+            ];
           };
         };
         luks = {
@@ -44,19 +57,28 @@
             settings.allowDiscards = true;
             content = {
               type = "btrfs";
-              extraArgs = ["-f"];
+              extraArgs = [ "-f" ];
               subvolumes = {
                 "root" = {
                   mountpoint = "/";
-                  mountOptions = ["compress=zstd" "relatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "relatime"
+                  ];
                 };
                 "home" = {
                   mountpoint = "/home";
-                  mountOptions = ["compress=zstd" "relatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "relatime"
+                  ];
                 };
                 "nix" = {
                   mountpoint = "/nix";
-                  mountOptions = ["compress=zstd" "noatime"];
+                  mountOptions = [
+                    "compress=zstd"
+                    "noatime"
+                  ];
                 };
               };
             };
@@ -66,7 +88,7 @@
     };
   };
 
-  swapDevices = [];
+  swapDevices = [ ];
 
   hardware.cpu.amd.updateMicrocode = true;
 

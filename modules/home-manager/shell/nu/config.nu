@@ -101,14 +101,14 @@ def ll [...paths: glob] {
 
 ## git
 # keep-sorted start
-alias glog = git log --all --oneline --graph
+alias gaa = git add .
 alias gc = git commit
 alias gca = git commit --amend
 alias gch = git checkout
-alias gaa = git add .
+alias gd = git diff
+alias glog = git log --all --oneline --graph
 alias gr = git review
 alias gs = git status
-alias gd = git diff
 # keep-sorted end
 
 ## jj
@@ -129,8 +129,8 @@ def --wrapped jjgu [
 
 ## nix
 # keep-sorted start
-alias ns = nix shell
 alias nd = nix develop
+alias ns = nix shell
 # keep-sorted end
 
 def --wrapped ds [

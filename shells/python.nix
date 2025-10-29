@@ -3,7 +3,8 @@
   mkShell,
   poetry,
   ...
-}: let
+}:
+let
   shells = [
     {
       suffix = "";
@@ -31,10 +32,12 @@
     }
   ];
 in
-  builtins.map ({
+builtins.map (
+  {
     suffix,
     version,
-  }: {
+  }:
+  {
     name = "shell-python${suffix}";
     value = mkShell {
       packages = [
@@ -42,5 +45,5 @@ in
         poetry
       ];
     };
-  })
-  shells
+  }
+) shells

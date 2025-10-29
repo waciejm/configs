@@ -2,9 +2,9 @@
   imports = [
     # keep-sorted start
     ./kitty.nix
-    ./wezterm.nix
     ./rofi.nix
     ./theming.nix
+    ./wezterm.nix
     # keep-sorted end
   ];
 }

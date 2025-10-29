@@ -1,4 +1,5 @@
-{modulesPath, ...}: {
+{ modulesPath, ... }:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ./assertions.nix
@@ -14,8 +15,8 @@
   system.stateVersion = "24.05";
 
   sops = {
-    age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-    gnupg.sshKeyPaths = [];
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    gnupg.sshKeyPaths = [ ];
   };
 
   networking.domain = "rat-interval.ts.net";

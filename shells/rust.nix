@@ -3,7 +3,8 @@
   pkgs,
   mkShell,
   ...
-}: let
+}:
+let
   shells = [
     {
       suffix = "";
@@ -19,10 +20,12 @@
     }
   ];
 in
-  builtins.map ({
+builtins.map (
+  {
     suffix,
     toolchain,
-  }: {
+  }:
+  {
     name = "shell-rust${suffix}";
     value = mkShell {
       packages = [
@@ -31,5 +34,5 @@ in
         pkgs.rust-analyzer
       ];
     };
-  })
-  shells
+  }
+) shells
