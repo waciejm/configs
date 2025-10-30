@@ -87,17 +87,24 @@ $env.config.highlight_resolved_externals = true;
 ## ls
 def l [...paths: glob] {
   match $paths {
-    [] => (ls -a | sort-by type name | select name)
-    _ => (ls -a ...$paths | sort-by type name | select name)
+    [] => (ls -a | sort-by type name | select name type)
+    _ => (ls -a ...$paths | sort-by type name | select name type)
   }
 }
 
 def ll [...paths: glob] {
   match $paths {
-    [] => (ls -al | sort-by type name | select name target size modified user group mode)
-    _ => (ls -al ...$paths | sort-by type name | select name target size modified user group mode)
+    [] => (ls -al | sort-by type name | select name type target size modified user group mode)
+    _ => (ls -al ...$paths | sort-by type name | select name type target size modified user group mode)
   }
 }
+
+## tree (eza)
+# keep-sorted start
+alias t = eza --tree --group-directories-first
+alias tt = t --long --header --group --binary --time-style=iso
+# keep-sorted end
+
 
 ## git
 # keep-sorted start
@@ -117,10 +124,7 @@ alias jjgf = jj git fetch
 alias jjgp = jj git push
 # keep-sorted end
 
-def --wrapped jjgu [
-  revision?: string
-  ...rest
-] {
+def --wrapped jjgu [revision?: string, ...rest] {
   match $revision {
     null => (jj gerrit upload -r @ ...$rest)
     _ => (jj gerrit upload -r $revision ...$rest)
@@ -133,24 +137,15 @@ alias nd = nix develop
 alias ns = nix shell
 # keep-sorted end
 
-def --wrapped ds [
-  name: string
-  ...rest
-] {
+def --wrapped ds [name: string, ...rest] {
   nix develop $"c#shell-($name)" -c nu ...$rest
 }
 
 ## mpv
-def --wrapped kpv [...rest] {
-  mpv --vo=kitty ...$rest
-}
+alias kpv = mpv --vo=kitty
 
 ## cargo
-def --wrapped clippy-watch [...rest] {  
-  cargo watch -q -s "clear; cargo clippy --all-targets" ...$rest
-}
+alias clippy-watch = cargo watch -q -s "clear; cargo clippy --all-targets"
 
 ## sops
-def --wrapped homesops [...rest] {
-  SOPS_AGE_KEY=(age -d ~/Keys/homeops.age) sops ...rest
-}
+alias homesops = SOPS_AGE_KEY=(age -d ~/Keys/homeops.age) sops

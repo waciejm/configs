@@ -81,6 +81,7 @@
           bottom
           cyme
           du-dust
+          eza
           fd
           ffmpeg
           git-review
@@ -99,7 +100,6 @@
           sops
           taplo
           tdf
-          tree
           unzip
           viu
           yt-dlp
