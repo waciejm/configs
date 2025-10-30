@@ -84,7 +84,6 @@
           eza
           fd
           ffmpeg
-          git-review
           glow
           gzip
           htop
