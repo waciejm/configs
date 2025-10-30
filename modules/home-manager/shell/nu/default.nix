@@ -13,6 +13,10 @@
         enable = true;
         configFile.source = ./config.nu;
       };
+      xdg.configFile."nushell/autoload" = {
+        source = ./autoload;
+        recursive = true;
+      };
       home.sessionVariables.SHELL = lib.getExe config.programs.nushell.package;
     };
 }
