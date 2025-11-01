@@ -2,8 +2,8 @@
   config,
   lib,
   pkgs,
-  nixpkgsFlake ? null,
-  selfFlake ? null,
+  nixpkgsFlake,
+  selfFlake,
   osConfig ? null,
   ...
 }:
@@ -44,5 +44,10 @@
       nixpkgs.config = lib.mkIf (osConfig == null) {
         allowUnfree = true;
       };
+
+      home.sessionVariables.NIX_USER_CONF_FILES = lib.concatStringsSep ":" [
+        "${config.xdg.configHome}/nix/nix.conf"
+        "${config.home.homeDirectory}/Keys/nix-github-access.conf"
+      ];
     };
 }

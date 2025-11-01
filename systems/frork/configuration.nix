@@ -7,16 +7,34 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     nixos-hardware.nixosModules.framework-16-7040-amd
-    ./assertions.nix
   ];
+
+  custom = {
+    # keep-sorted start block=yes
+    capabilities = {
+      # keep-sorted start block=yes
+      android-development.enable = true;
+      bluetooth.enable = true;
+      containerisation.enable = true;
+      embedded-development.enable = true;
+      gaming.enable = true;
+      gui.enable = true;
+      printing-and-scanning.enable = true;
+      # keep-sorted end
+    };
+    services = {
+      # keep-sorted start block=yes
+      syncthing.client.enable = true;
+      # keep-sorted end
+    };
+    users.pc = true;
+    # keep-sorted end
+  };
 
   system.stateVersion = "24.05";
 
   boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
+    loader.efi.canTouchEfiVariables = true;
     initrd = {
       systemd.enable = true;
       availableKernelModules = [

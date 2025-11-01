@@ -19,8 +19,12 @@
   ];
 
   options.custom.my-home-manager-configuration = {
-    enable = lib.mkEnableOption "my home-manager configuration";
+    enable = lib.mkEnableOption "my home-manager configuration for specified user";
     pc = lib.mkEnableOption "GUI and other components for personal PCs";
+    username = lib.mkOption {
+      type = lib.types.str;
+      default = "waciejm";
+    };
   };
 
   config =
@@ -28,17 +32,6 @@
       cfg = config.custom.my-home-manager-configuration;
     in
     lib.mkIf cfg.enable {
-      programs.home-manager.enable = true;
-
-      home = {
-        stateVersion = "22.11";
-        username = "waciejm";
-        homeDirectory = "/home/waciejm";
-        sessionVariables.NIX_USER_CONF_FILES = lib.concatStringsSep ":" [
-          "${config.xdg.configHome}/nix/nix.conf"
-          "${config.home.homeDirectory}/Keys/nix-github-access.conf"
-        ];
-      };
 
       custom = {
         # keep-sorted start block=yes
@@ -73,6 +66,14 @@
         # keep-sorted end
       };
 
+      programs.home-manager.enable = true;
+
+      home = {
+        stateVersion = "22.11";
+        username = cfg.username;
+        homeDirectory = "/home/${cfg.username}";
+      };
+
       home.packages = builtins.attrValues {
         inherit (pkgs)
           # keep-sorted start
@@ -81,6 +82,7 @@
           bat
           bottom
           cyme
+          dive
           du-dust
           eza
           fd

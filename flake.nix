@@ -43,14 +43,19 @@
   };
 
   outputs =
-    inputs@{
+    {
       # keep-sorted start
+      arion,
       configs-private,
       deploy-rs,
+      disko,
       fenix,
       home-manager,
+      lanzaboote,
+      nixos-hardware,
       nixpkgs,
       self,
+      sops-nix,
       treefmt-nix,
       # keep-sorted end
       ...
@@ -63,7 +68,36 @@
       );
     in
     {
-      nixosConfigurations = import ./systems/mkSystems.nix inputs;
+      nixosConfigurations = lib.mapAttrs (
+        system: _:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            selfFlake = self;
+            nixpkgsFlake = nixpkgs;
+            inherit configs-private nixos-hardware;
+          };
+          modules = [
+            # keep-sorted start
+            arion.nixosModules.arion
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            lanzaboote.nixosModules.lanzaboote
+            sops-nix.nixosModules.sops
+            # keep-sorted end
+            ./modules/nixos
+            ./systems/${system}/configuration.nix
+            {
+              custom.my-nixos-configuration = {
+                enable = true;
+                hostName = system;
+                hashedUserPassword = configs-private.hashedUserPassword;
+                sshAuthorizedKeyFiles = [ "${configs-private}/keys/ssh/waciejm.pub" ];
+              };
+            }
+          ];
+        }
+      ) (builtins.readDir ./systems);
 
       homeConfigurations = utils.forEachPlatform (
         platform:
