@@ -5,13 +5,13 @@
   ...
 }:
 {
-  options.custom.graphical.theming = {
+  options.custom.gui.theming = {
     enable = lib.mkEnableOption "GUI theming stuff";
   };
 
   config =
     let
-      cfg = config.custom.graphical.theming;
+      cfg = config.custom.gui.theming;
     in
     lib.mkIf cfg.enable {
       xdg.systemDirs.data = [

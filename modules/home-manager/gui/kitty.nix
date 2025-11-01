@@ -1,12 +1,12 @@
 { config, lib, ... }:
 {
-  options.custom.graphical.kitty = {
+  options.custom.gui.kitty = {
     enable = lib.mkEnableOption "kitty with custom configuration";
   };
 
   config =
     let
-      cfg = config.custom.graphical.kitty;
+      cfg = config.custom.gui.kitty;
     in
     lib.mkIf cfg.enable {
       programs.kitty = {

@@ -8,13 +8,13 @@
   ...
 }:
 {
-  options.custom.terminal.nix = {
+  options.custom.nix = {
     enable = lib.mkEnableOption "custom nix configuration";
   };
 
   config =
     let
-      cfg = config.custom.terminal.nix;
+      cfg = config.custom.nix;
     in
     lib.mkIf cfg.enable {
       nix = {

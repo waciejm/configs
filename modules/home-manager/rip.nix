@@ -5,13 +5,13 @@
   ...
 }:
 {
-  options.custom.terminal.rip = {
+  options.custom.rip = {
     enable = lib.mkEnableOption "rm-improved with custom configuration";
   };
 
   config =
     let
-      cfg = config.custom.terminal.rip;
+      cfg = config.custom.rip;
     in
     lib.mkIf cfg.enable {
       home.packages = [ pkgs.rm-improved ];

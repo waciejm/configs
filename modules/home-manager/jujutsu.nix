@@ -5,13 +5,13 @@
   ...
 }:
 {
-  options.custom.terminal.jujutsu = {
+  options.custom.jujutsu = {
     enable = lib.mkEnableOption "jujutsu with custom configuration";
   };
 
   config =
     let
-      cfg = config.custom.terminal.jujutsu;
+      cfg = config.custom.jujutsu;
     in
     lib.mkIf cfg.enable {
       programs.jujutsu = {

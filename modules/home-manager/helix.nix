@@ -1,12 +1,12 @@
 { config, lib, ... }:
 {
-  options.custom.terminal.helix = {
+  options.custom.helix = {
     enable = lib.mkEnableOption "helix with custom configuration as default editor";
   };
 
   config =
     let
-      cfg = config.custom.terminal.helix;
+      cfg = config.custom.helix;
     in
     lib.mkIf cfg.enable {
       programs.helix = {

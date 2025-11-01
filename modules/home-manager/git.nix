@@ -1,12 +1,12 @@
 { config, lib, ... }:
 {
-  options.custom.terminal.git = {
+  options.custom.git = {
     enable = lib.mkEnableOption "git with custom configuration";
   };
 
   config =
     let
-      cfg = config.custom.terminal.git;
+      cfg = config.custom.git;
     in
     lib.mkIf cfg.enable {
       programs.git = {

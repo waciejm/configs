@@ -1,12 +1,12 @@
 { config, lib, ... }:
 {
-  options.custom.graphical.rofi = {
+  options.custom.gui.rofi = {
     enable = lib.mkEnableOption "rofi with custom configuration";
   };
 
   config =
     let
-      cfg = config.custom.graphical.rofi;
+      cfg = config.custom.gui.rofi;
     in
     lib.mkIf cfg.enable {
       programs.rofi = {

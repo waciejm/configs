@@ -7,9 +7,14 @@
 {
   imports = [
     # keep-sorted start
-    ./graphical
+    ./git.nix
+    ./gui
+    ./helix.nix
+    ./jujutsu.nix
+    ./nix.nix
+    ./rip.nix
     ./shell
-    ./terminal
+    ./ssh.nix
     # keep-sorted end
   ];
 
@@ -37,7 +42,8 @@
 
       custom = {
         # keep-sorted start block=yes
-        graphical = lib.mkIf cfg.pc {
+        git.enable = true;
+        gui = lib.mkIf cfg.pc {
           # keep-sorted start block=yes
           kitty.enable = true;
           rofi.enable = true;
@@ -45,6 +51,10 @@
           wezterm.enable = true;
           # keep-sorted end
         };
+        helix.enable = true;
+        jujutsu.enable = true;
+        nix.enable = true;
+        rip.enable = true;
         shell = {
           # keep-sorted start block=yes
           atuin.enable = cfg.pc;
@@ -56,18 +66,9 @@
           zsh.enable = true;
           # keep-sorted end
         };
-        terminal = {
-          # keep-sorted start block=yes
-          git.enable = true;
-          helix.enable = true;
-          jujutsu.enable = true;
-          nix.enable = true;
-          rip.enable = true;
-          ssh = {
-            enable = true;
-            enableIdentities = cfg.pc;
-          };
-          # keep-sorted end
+        ssh = {
+          enable = true;
+          enableIdentities = cfg.pc;
         };
         # keep-sorted end
       };

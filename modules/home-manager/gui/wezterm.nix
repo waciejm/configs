@@ -1,12 +1,12 @@
 { config, lib, ... }:
 {
-  options.custom.graphical.wezterm = {
+  options.custom.gui.wezterm = {
     enable = lib.mkEnableOption "wezterm with custom config";
   };
 
   config =
     let
-      cfg = config.custom.graphical.wezterm;
+      cfg = config.custom.gui.wezterm;
     in
     lib.mkIf cfg.enable {
       programs.wezterm = {

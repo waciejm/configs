@@ -1,13 +1,13 @@
 { config, lib, ... }:
 {
-  options.custom.terminal.ssh = {
+  options.custom.ssh = {
     enable = lib.mkEnableOption "openssh with custom client configuration";
     enableIdentities = lib.mkEnableOption "identity files in ~/Keys";
   };
 
   config =
     let
-      cfg = config.custom.terminal.ssh;
+      cfg = config.custom.ssh;
     in
     lib.mkIf cfg.enable {
       programs.ssh = {
