@@ -51,6 +51,7 @@
       environment.systemPackages =
         builtins.attrValues {
           inherit (pkgs)
+            # keep-sorted start
             audacity
             blender
             discord
@@ -58,15 +59,17 @@
             firefox
             gimp3
             google-chrome
-            gsettings-qt
             gsettings-desktop-schemas
+            gsettings-qt
             gthumb
             gtk-engine-murrine
             keepassxc
             libreoffice
+            moonlight-qt
             # openscad-unstable
             prusa-slicer
             signal-desktop
+            # keep-sorted end
             ;
         }
         ++ [

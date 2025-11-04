@@ -7,8 +7,6 @@
 {
   options.custom.capabilities.gaming = {
     enable = lib.mkEnableOption "GAMING!";
-    steam = lib.mkEnableOption "Steam";
-    minecraft = lib.mkEnableOption "Minecraft";
   };
 
   config =
@@ -17,12 +15,12 @@
     in
     lib.mkIf cfg.enable {
 
-      programs.steam = lib.mkIf cfg.steam {
+      programs.steam = {
         enable = true;
         extraCompatPackages = [ pkgs.proton-ge-bin ];
       };
 
-      environment.systemPackages = lib.mkIf cfg.minecraft [
+      environment.systemPackages = [
         pkgs.prismlauncher
       ];
     };

@@ -19,6 +19,7 @@
     };
     services = {
       # keep-sorted start block=yes
+      sunshine.enable = true;
       syncthing.client.enable = true;
       # keep-sorted end
     };
