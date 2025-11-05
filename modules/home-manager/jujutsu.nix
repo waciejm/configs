@@ -41,6 +41,11 @@
           ];
         };
       };
-      home.packages = [ pkgs.difftastic ];
+      home.packages = [
+        # keep-sorted start
+        pkgs.difftastic
+        pkgs.jjui
+        # keep-sorted end
+      ];
     };
 }
