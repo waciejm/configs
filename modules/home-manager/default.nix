@@ -83,7 +83,7 @@
           bottom
           cyme
           dive
-          du-dust
+          dust
           eza
           fd
           ffmpeg

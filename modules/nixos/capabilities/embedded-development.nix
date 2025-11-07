@@ -15,7 +15,7 @@
     in
     lib.mkIf cfg.enable {
       environment.systemPackages = [
-        pkgs.probe-rs
+        pkgs.probe-rs-tools
       ];
 
       users = lib.mkIf config.custom.users.enable {
