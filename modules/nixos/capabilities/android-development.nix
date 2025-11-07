@@ -22,7 +22,7 @@
       programs.adb.enable = true;
 
       users = lib.mkIf config.custom.users.enable {
-        users.${config.custom.users.username}.extraGroups = [ "adbusers" ];
+        groups.adbusers.members = [ config.custom.users.username ];
       };
 
       services.udev.extraRules = lib.mkIf config.custom.users.enable ''

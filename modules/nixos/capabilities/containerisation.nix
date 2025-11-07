@@ -12,8 +12,8 @@
 
       virtualisation.docker.enable = true;
 
-      users.users = lib.mkIf config.custom.users.enable {
-        ${config.custom.users.username}.extraGroups = [ "docker" ];
+      users = lib.mkIf config.custom.users.enable {
+        groups.docker.members = [ config.custom.users.username ];
       };
     };
 }

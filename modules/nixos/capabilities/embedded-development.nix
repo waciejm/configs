@@ -19,8 +19,7 @@
       ];
 
       users = lib.mkIf config.custom.users.enable {
-        groups.plugdev = { };
-        users.${config.custom.users.username}.extraGroups = [ "plugdev" ];
+        groups.plugdev.members = [ config.custom.users.username ];
       };
 
       services.udev.extraRules = lib.mkIf config.custom.users.enable ''

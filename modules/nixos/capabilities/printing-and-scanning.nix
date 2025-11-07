@@ -15,10 +15,8 @@
       hardware.sane.enable = true;
 
       users = lib.mkIf config.custom.users.enable {
-        users.${config.custom.users.username}.extraGroups = [
-          "scanner"
-          "lp"
-        ];
+        groups.scanner.members = [ config.custom.users.username ];
+        groups.lp.members = [ config.custom.users.username ];
       };
     };
 }
