@@ -90,6 +90,7 @@
           glow
           gzip
           htop
+          inotify-tools
           jless
           just
           mediainfo
