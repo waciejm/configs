@@ -55,7 +55,7 @@ def --wrapped jjgu [revision?: string, ...rest] {
 # ========= nix ==========
 # keep-sorted start
 
-alias nd = nix develop
+alias nd = nix develop -c $env.SHELL
 alias ns = nix shell
 
 # keep-sorted end
