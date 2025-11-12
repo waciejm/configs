@@ -26,7 +26,8 @@
       };
 
       services.udev.extraRules = lib.mkIf config.custom.users.enable ''
-        SUBSYSTEM=="usb", ATTR{idVendor}=="1782", ATTR{idProduct}=="4003", MODE="0666", GROUP="adbusers"
+        SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="2d00", MODE="0666", GROUP="adbusers"
+        SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="2d01", MODE="0666", GROUP="adbusers"
       '';
     };
 }
