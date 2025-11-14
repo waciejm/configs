@@ -3,7 +3,6 @@
   options.custom.ssh = {
     enable = lib.mkEnableOption "openssh with custom client configuration";
     enableIdentities = lib.mkEnableOption "identity files in ~/Keys";
-    enableAgent = lib.mkEnableOption "ssh-agent and addKeysToAgent";
   };
 
   config =
@@ -15,22 +14,16 @@
       programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
-        matchBlocks = {
+        matchBlocks = lib.mkIf cfg.enableIdentities {
           "*" = {
-            identityFile = lib.mkIf cfg.enableIdentities "${config.home.homeDirectory}/Keys/ssh_waciejm";
-            addKeysToAgent = lib.mkIf cfg.enableAgent "yes";
+            identityFile = "${config.home.homeDirectory}/Keys/ssh_waciejm";
+            addKeysToAgent = "yes";
           };
           "*.qed.ai" = {
             user = "mac1";
-            identityFile = lib.mkIf cfg.enableIdentities "${config.home.homeDirectory}/Keys/ssh_mac1";
+            identityFile = "${config.home.homeDirectory}/Keys/ssh_mac1";
           };
         };
-      };
-
-      services.ssh-agent = lib.mkIf cfg.enableAgent {
-        enable = true;
-        enableZshIntegration = config.custom.shell.zsh.enable;
-        enableNushellIntegration = config.custom.shell.nu.enable;
       };
     };
 }

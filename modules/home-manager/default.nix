@@ -61,7 +61,6 @@
         ssh = {
           enable = true;
           enableIdentities = cfg.pc;
-          enableAgent = cfg.pc;
         };
         # keep-sorted end
       };
