@@ -2,7 +2,6 @@
   imports = [
     # keep-sorted start
     ./atuin.nix
-    ./keychain.nix
     ./nu
     ./starship.nix
     ./yazi.nix

@@ -51,7 +51,6 @@
         shell = {
           # keep-sorted start block=yes
           atuin.enable = cfg.pc;
-          keychain.enable = cfg.pc;
           nu.enable = true;
           starship.enable = true;
           yazi.enable = true;
@@ -62,6 +61,7 @@
         ssh = {
           enable = true;
           enableIdentities = cfg.pc;
+          enableAgent = cfg.pc;
         };
         # keep-sorted end
       };
