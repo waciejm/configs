@@ -51,6 +51,7 @@
         shell = {
           # keep-sorted start block=yes
           atuin.enable = cfg.pc;
+          carapace.enable = true;
           nu.enable = true;
           starship.enable = true;
           yazi.enable = true;
