@@ -91,8 +91,8 @@
                 addresses = [ "tcp://100.112.8.82:22000" ];
               };
               frork = {
-                id = "3DPNCRL-NI7CEXE-UT2ZXMW-ZSOVUFP-LKJN4PX-6OL2PAU-PLUBY4Q-DBGKEQP";
-                addresses = [ "tcp://100.92.136.116:22000" ];
+                id = "IYRL3AO-RCMCJRV-LMRV3D4-KCKOLES-X6F5CQK-LE6HJXY-GDG4BBL-BE6HSQI";
+                addresses = [ "tcp://100.104.91.71:22000" ];
               };
               gablet = {
                 id = "FBQQIYY-Q02V3DE-6NWKG2Y-PWVW4A5-CNG5S2G-5EMQ3XB-T7YEDK3-CRSVWAA";
