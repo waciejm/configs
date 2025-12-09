@@ -66,7 +66,7 @@
             keepassxc
             libreoffice
             moonlight-qt
-            # openscad-unstable
+            openscad-unstable
             prusa-slicer
             signal-desktop
             # keep-sorted end
