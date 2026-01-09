@@ -41,6 +41,8 @@
         enable = true;
         interfaceName = "tailscale0";
         openFirewall = true;
+        useRoutingFeatures = "both";
+        extraSetFlags = [ "--operator=${config.custom.users.username}" ];
       };
 
       networking.firewall.trustedInterfaces = lib.mkIf cfg.tailscale [ "tailscale0" ];
