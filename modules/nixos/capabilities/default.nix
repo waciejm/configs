@@ -9,6 +9,7 @@
     ./gui.nix
     ./networking.nix
     ./printing-and-scanning.nix
+    ./python-development.nix
     ./secureboot.nix
     # keep-sorted end
   ];

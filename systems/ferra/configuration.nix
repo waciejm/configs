@@ -15,6 +15,7 @@
       gaming.enable = true;
       gui.enable = true;
       printing-and-scanning.enable = true;
+      python-development.enable = true;
       # keep-sorted end
     };
     services = {
