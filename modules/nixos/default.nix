@@ -69,7 +69,6 @@
             enable = true;
             hostName = cfg.hostName;
             domain = "rat-interval.ts.net";
-            wifi = true;
             mdns = true;
             tailscale = true;
           };

@@ -26,10 +26,6 @@ let
       suffix = "311";
       version = "311";
     }
-    {
-      suffix = "310";
-      version = "310";
-    }
   ];
 in
 builtins.map (
