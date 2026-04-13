@@ -1,4 +1,4 @@
-# ========= ls ==========
+# ========== ls ==========
 
 def l [...paths: glob] {
   match $paths {
@@ -14,7 +14,7 @@ def ll [...paths: glob] {
   }
 }
 
-# ========= tree (eza) ==========
+# ========== tree (eza) ==========
 # keep-sorted start
 
 alias t = eza --tree --group-directories-first
@@ -22,7 +22,7 @@ alias tt = t --long --header --group --binary --time-style=iso
 
 # keep-sorted end
 
-# ========= git ==========
+# ========== git ==========
 # keep-sorted start
 
 alias gaa = git add .
@@ -36,7 +36,7 @@ alias gs = git status
 
 # keep-sorted end
 
-# ========= jj ==========
+# ========== jj ==========
 # keep-sorted start
 
 alias jjgd = jj-gerrit-download
@@ -52,7 +52,7 @@ def --wrapped jjgu [revision?: string, ...rest] {
   }
 }
 
-# ========= nix ==========
+# ========== nix ==========
 # keep-sorted start
 
 alias nd = nix develop -c $env.SHELL
@@ -64,23 +64,30 @@ def --wrapped ds [name: string, ...rest] {
   nix develop $"c#shell-($name)" -c nu ...$rest
 }
 
-# ========= mpv ==========
+# ========== mpv ==========
 # keep-sorted start
 
 alias kpv = mpv --vo=kitty
 
 # keep-sorted end
 
-# ========= cargo ==========
+# ========== cargo ==========
 # keep-sorted start
 
 alias clippy-watch = cargo watch -q -s "clear; cargo clippy --all-targets"
 
 # keep-sorted end
 
-# ========= sops ==========
+# ========== sops ==========
 # keep-sorted start
 
 alias homesops = SOPS_AGE_KEY=(age -d ~/Keys/homeops.age) sops
+
+# keep-sorted end
+
+# ========= gerrit =========
+# keep-sorted start
+
+alias gerrit = ssh -p 29418 gerrit.qed.ai gerrit
 
 # keep-sorted end
