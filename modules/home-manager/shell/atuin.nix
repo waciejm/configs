@@ -11,6 +11,7 @@
     lib.mkIf cfg.enable {
       programs.atuin = {
         enable = true;
+        daemon.enable = true;
         enableZshIntegration = config.custom.shell.zsh.enable;
         enableNushellIntegration = config.custom.shell.nu.enable;
         settings = {
