@@ -69,6 +69,7 @@
             openscad-unstable
             prusa-slicer
             signal-desktop
+            slack
             # keep-sorted end
             ;
         }
