@@ -8,6 +8,7 @@
   imports = [
     # keep-sorted start
     ./git.nix
+    ./gpg.nix
     ./gui
     ./helix.nix
     ./jujutsu.nix
@@ -36,6 +37,7 @@
       custom = {
         # keep-sorted start block=yes
         git.enable = true;
+        gpg.enable = cfg.pc;
         gui = lib.mkIf cfg.pc {
           # keep-sorted start block=yes
           kitty.enable = true;
