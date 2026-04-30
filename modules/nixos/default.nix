@@ -34,6 +34,9 @@
     in
     lib.mkIf cfg.enable {
 
+      # copy.fail mitigation
+      boot.blacklistedKernelModules = [ "algif_aead" ];
+
       time.timeZone = "Europe/Warsaw";
 
       i18n = {
