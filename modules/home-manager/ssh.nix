@@ -14,7 +14,7 @@
       programs.ssh = {
         enable = true;
         enableDefaultConfig = false;
-        matchBlocks = lib.mkIf cfg.enableIdentities {
+        settings = lib.mkIf cfg.enableIdentities {
           "*" = {
             identityFile = "${config.home.homeDirectory}/Keys/ssh_waciejm";
             addKeysToAgent = "yes";
