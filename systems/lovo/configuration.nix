@@ -16,10 +16,8 @@
       bluetooth.enable = true;
       containerisation.enable = true;
       embedded-development.enable = true;
-      gaming.enable = true;
       gui.enable = true;
       networking.wifi = true;
-      printing-and-scanning.enable = true;
       python-development.enable = true;
       # keep-sorted end
     };
