@@ -20,7 +20,6 @@
       gaming.enable = true;
       gui.enable = true;
       networking.wifi = true;
-      python-development.enable = true;
       # keep-sorted end
     };
     services = {
