@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   options.custom.gpg = {
     enable = lib.mkEnableOption "gnupg with custom homedir";

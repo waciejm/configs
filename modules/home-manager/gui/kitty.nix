@@ -19,6 +19,7 @@
         };
         settings = {
           window_padding_width = 4;
+          auto_reload_config = -1;
         };
       };
     };
