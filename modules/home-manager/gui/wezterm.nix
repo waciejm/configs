@@ -12,20 +12,23 @@
       programs.wezterm = {
         enable = true;
         enableZshIntegration = config.custom.shell.zsh.enable;
-        extraConfig = ''
-          local config = wezterm.config_builder()
-
-          config.font = wezterm.font 'IosevkaTerm Nerd Font'
-          config.font_size = 12.0
-
-          config.color_scheme = 'Gruvbox dark, hard (base16)'
-
-          config.enable_tab_bar = false
-
-          config.window_padding = { left = '4px', right = '4px', top = '4px', bottom = '4px' }
-
-          return config
-        '';
+        settings = {
+          font = lib.generators.mkLuaInline ''wezterm.font("IosevkaTerm Nerd Font")'';
+          font_size = 12.0;
+          color_scheme = "Gruvbox dark, hard (base16)";
+          enable_tab_bar = false;
+          initial_cols = 300;
+          initial_rows = 200;
+          window_padding = {
+            left = "10px";
+            right = "10px";
+            top = "10px";
+            bottom = "10px";
+          };
+          set_environment_variables = {
+            SHELL = config.home.sessionVariables.SHELL;
+          };
+        };
       };
     };
 }
