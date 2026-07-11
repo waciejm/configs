@@ -18,6 +18,8 @@
           "*" = {
             identityFile = "${config.home.homeDirectory}/Keys/ssh_waciejm";
             addKeysToAgent = "yes";
+            serverAliveInterval = "10";
+            serverAliveCountMax = "3";
           };
           "*.qed.ai" = {
             user = "mac1";
