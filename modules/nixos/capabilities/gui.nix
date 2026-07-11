@@ -70,6 +70,7 @@
             prusa-slicer
             signal-desktop
             slack
+            wl-clipboard-rs
             # keep-sorted end
             ;
         }
