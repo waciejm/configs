@@ -98,6 +98,10 @@
                 id = "FBQQIYY-Q02V3DE-6NWKG2Y-PWVW4A5-CNG5S2G-5EMQ3XB-T7YEDK3-CRSVWAA";
                 addresses = [ "tcp://100.68.220.48:22000" ];
               };
+              joe = {
+                id = "3HMNKAL-ZNKAZ23-V3ANZ5I-AKN24UT-HCIZOLI-6WULWSI-MD2VR47-X4VQYQZ";
+                addresses = [ "tcp://100.110.137.125:22000" ];
+              };
               lovo = {
                 id = "RGT6TQN-MDORPYU-XPBE7UK-HC22IMV-GEYOBZO-7AWI26V-RQLBC7L-O3YNCQM";
                 addresses = [ "tcp://100.110.126.17:22000" ];
@@ -121,6 +125,7 @@
                 mobiles = [
                   # keep-sorted start
                   "gablet"
+                  "joe"
                   "pineo"
                   # keep-sorted end
                 ];
