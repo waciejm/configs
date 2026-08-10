@@ -62,7 +62,6 @@
             gsettings-desktop-schemas
             gsettings-qt
             gthumb
-            gtk-engine-murrine
             keepassxc
             libreoffice
             moonlight-qt
@@ -76,7 +75,7 @@
         }
         ++ [
           pkgs.qt6.qtwayland
-          pkgs.libsForQt5.qt5.qtwayland
+          pkgs.qt5.qtwayland
         ];
     };
 }

@@ -42,6 +42,7 @@
           gtk-application-prefer-dark-theme = true;
           gtk-icon-theme-name = "Adwaita";
         };
+        gtk4.theme = config.gtk.theme;
       };
 
       dconf.settings."org/gnome/desktop/interface" = {

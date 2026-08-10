@@ -21,8 +21,8 @@
         pkgs.alsa-lib.dev
       ];
       LD_LIBRARY_PATH = builtins.concatStringsSep ":" [
-        "${pkgs.xorg.libX11}/lib"
-        "${pkgs.xorg.libXi}/lib"
+        "${pkgs.libx11}/lib"
+        "${pkgs.libxi}/lib"
         "${pkgs.libGL}/lib"
         "${pkgs.libxkbcommon}/lib"
       ];
