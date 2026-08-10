@@ -13,9 +13,9 @@ module jj-gerrit-download-module {
       --no-move # Do not move to the downloaded change
       --edit (-e) # Edit the downloaded change instead of creating a new change based on it
   ]: nothing -> nothing {
-      assert greater or equal $change_number 10 "Change number must be 10 or greater"
+      assert ($change_number >= 10) "Change number must be 10 or greater"
       if $patchset_number != null {
-          assert greater or equal $patchset_number 1 "Patchset number must be a positive number"
+          assert ($patchset_number >= 1) "Patchset number must be a positive number"
       }
 
       let bookmark = match $patchset_number {
@@ -59,7 +59,7 @@ module jj-gerrit-download-module {
   }
 
   def get_gerrit_ref [change_number: int, patchset_number: oneof<int, string>]: nothing -> string {
-      assert greater or equal $change_number 10
+      assert ($change_number >= 10)
       let last_2_digits = $change_number | into string | str substring (-2)..
       $"refs/changes/($last_2_digits)/($change_number)/($patchset_number)"
   }
