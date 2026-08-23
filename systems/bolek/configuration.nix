@@ -13,7 +13,9 @@
     # keep-sorted start block=yes
     capabilities = {
       # keep-sorted start block=yes
+      bluetooth.enable = true;
       containerisation.enable = true;
+      gui.enable = true;
       # keep-sorted end
     };
     services = {
