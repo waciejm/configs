@@ -106,9 +106,9 @@
                 id = "RGT6TQN-MDORPYU-XPBE7UK-HC22IMV-GEYOBZO-7AWI26V-RQLBC7L-O3YNCQM";
                 addresses = [ "tcp://100.110.126.17:22000" ];
               };
-              pineo = {
-                id = "WQ6EGDG-OKMHJSI-5CNMEWY-ETT6IAB-KHGARZH-KK56AF3-JGJXVNY-ZTHCJQU";
-                addresses = [ "tcp://100.114.165.49:22000" ];
+              pixel-9-pro = {
+                id = "TQCXZXC-GI6W2QF-GLJUQEE-PWKTLZM-Y6W3JUI-PMK6K22-5CUU6I2-HBJPJAY";
+                addresses = [ "tcp://100.123.40.51:22000" ];
               };
               # keep-sorted end
             };
@@ -126,7 +126,7 @@
                   # keep-sorted start
                   "gablet"
                   "joe"
-                  "pineo"
+                  "pixel-9-pro"
                   # keep-sorted end
                 ];
               in
