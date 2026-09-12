@@ -3,10 +3,6 @@
 
   inputs = {
     # keep-sorted start block=yes
-    arion = {
-      url = "github:hercules-ci/arion";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     configs-private.url = "github:waciejm/configs-private";
     deploy-rs = {
       url = "github:serokell/deploy-rs";
@@ -45,7 +41,6 @@
   outputs =
     {
       # keep-sorted start
-      arion,
       configs-private,
       deploy-rs,
       disko,
@@ -79,7 +74,6 @@
           };
           modules = [
             # keep-sorted start
-            arion.nixosModules.arion
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             lanzaboote.nixosModules.lanzaboote
