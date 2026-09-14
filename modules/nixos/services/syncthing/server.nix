@@ -94,9 +94,9 @@
                 id = "IYRL3AO-RCMCJRV-LMRV3D4-KCKOLES-X6F5CQK-LE6HJXY-GDG4BBL-BE6HSQI";
                 addresses = [ "tcp://100.104.91.71:22000" ];
               };
-              joe = {
-                id = "3HMNKAL-ZNKAZ23-V3ANZ5I-AKN24UT-HCIZOLI-6WULWSI-MD2VR47-X4VQYQZ";
-                addresses = [ "tcp://100.110.137.125:22000" ];
+              gablet = {
+                id = "NR3F3YL-K4FEPZ7-2JJIIDU-D6RKMXZ-PMIDMHI-DYDEFOJ-3XMWZSX-ZWDZSQL";
+                addresses = [ "tcp://100.68.220.48:22000" ];
               };
               lovo = {
                 id = "RGT6TQN-MDORPYU-XPBE7UK-HC22IMV-GEYOBZO-7AWI26V-RQLBC7L-O3YNCQM";
@@ -118,10 +118,14 @@
                   "lovo"
                   # keep-sorted end
                 ];
-                mobiles = [
+                phones = [
                   # keep-sorted start
-                  "joe"
                   "pixel-9-pro"
+                  # keep-sorted end
+                ];
+                tablets = [
+                  # keep-sorted start
+                  "gablet"
                   # keep-sorted end
                 ];
               in
@@ -135,7 +139,7 @@
                 DCIM = {
                   path = "${cfg.foldersDir}/DCIM";
                   type = "sendreceive";
-                  devices = mobiles;
+                  devices = phones;
                 };
                 Desktop = {
                   path = "${cfg.foldersDir}/Desktop";
@@ -145,12 +149,12 @@
                 Documents = {
                   path = "${cfg.foldersDir}/Documents";
                   type = "sendreceive";
-                  devices = pcs ++ mobiles;
+                  devices = pcs ++ phones;
                 };
                 Keys = {
                   path = "${cfg.foldersDir}/Keys";
                   type = "sendreceive";
-                  devices = pcs ++ mobiles;
+                  devices = pcs ++ phones;
                 };
                 Music = {
                   path = "${cfg.foldersDir}/Music";
@@ -160,7 +164,7 @@
                 Pictures = {
                   path = "${cfg.foldersDir}/Pictures";
                   type = "sendreceive";
-                  devices = pcs ++ mobiles;
+                  devices = pcs ++ phones;
                 };
                 Projects = {
                   path = "${cfg.foldersDir}/Projects";
@@ -175,7 +179,7 @@
                 pad = {
                   path = "${cfg.foldersDir}/pad";
                   type = "sendreceive";
-                  devices = mobiles;
+                  devices = tablets;
                 };
                 qed = {
                   path = "${cfg.foldersDir}/qed";
