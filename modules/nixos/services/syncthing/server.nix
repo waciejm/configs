@@ -94,10 +94,6 @@
                 id = "IYRL3AO-RCMCJRV-LMRV3D4-KCKOLES-X6F5CQK-LE6HJXY-GDG4BBL-BE6HSQI";
                 addresses = [ "tcp://100.104.91.71:22000" ];
               };
-              gablet = {
-                id = "FBQQIYY-Q02V3DE-6NWKG2Y-PWVW4A5-CNG5S2G-5EMQ3XB-T7YEDK3-CRSVWAA";
-                addresses = [ "tcp://100.68.220.48:22000" ];
-              };
               joe = {
                 id = "3HMNKAL-ZNKAZ23-V3ANZ5I-AKN24UT-HCIZOLI-6WULWSI-MD2VR47-X4VQYQZ";
                 addresses = [ "tcp://100.110.137.125:22000" ];
@@ -107,8 +103,8 @@
                 addresses = [ "tcp://100.110.126.17:22000" ];
               };
               pixel-9-pro = {
-                id = "TQCXZXC-GI6W2QF-GLJUQEE-PWKTLZM-Y6W3JUI-PMK6K22-5CUU6I2-HBJPJAY";
-                addresses = [ "tcp://100.123.40.51:22000" ];
+                id = "UGHS4MZ-SVSEHKM-S7XKPLC-RXBFASK-XHBGWR5-BIHIBMK-YRQSEW5-O7GIPQF";
+                addresses = [ "tcp://100.109.76.20:22000" ];
               };
               # keep-sorted end
             };
@@ -124,7 +120,6 @@
                 ];
                 mobiles = [
                   # keep-sorted start
-                  "gablet"
                   "joe"
                   "pixel-9-pro"
                   # keep-sorted end

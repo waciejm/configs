@@ -20,6 +20,10 @@
           assertion = config.custom.capabilities.networking.enable == true;
           message = "custom.services.ydls.enable requires custom.capabilities.networking.enable";
         }
+        {
+          assertion = config.custom.capabilities.containerisation.enable == true;
+          message = "custom.services.ydls.enable requires custom.capabilities.containerisation.enable";
+        }
       ];
 
       virtualisation.oci-containers = {
