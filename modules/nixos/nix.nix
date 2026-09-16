@@ -42,18 +42,6 @@
           allowUnfree = true;
           hostPlatform = "x86_64-linux";
         };
-        # temporary workaroud for cosmic-session exporting wrong path to ssh agent
-        overlays = [
-          (final: prev: {
-            cosmic-session = prev.cosmic-session.overrideAttrs (old: {
-              postPatch = old.postPatch + ''
-                substituteInPlace data/start-cosmic --replace-fail \
-                  'export SSH_AUTH_SOCK="/run/user/$(id -u)/keyring/ssh"' \
-                  'export SSH_AUTH_SOCK="/run/user/$(id -u)/gcr/ssh"'
-              '';
-            });
-          })
-        ];
       };
     };
 }
