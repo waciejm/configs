@@ -17,6 +17,7 @@
 
       programs.gpg = {
         enable = true;
+        homedir = "${config.home.homeDirectory}/qed/gnupg";
       };
 
       services.gpg-agent = {
