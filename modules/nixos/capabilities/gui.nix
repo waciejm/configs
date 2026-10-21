@@ -55,7 +55,6 @@
         builtins.attrValues {
           inherit (pkgs)
             # keep-sorted start
-            audacity
             blender
             discord
             feh
@@ -66,8 +65,6 @@
             gsettings-qt
             gthumb
             keepassxc
-            libreoffice
-            moonlight-qt
             openscad-unstable
             prusa-slicer
             signal-desktop
