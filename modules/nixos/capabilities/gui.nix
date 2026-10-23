@@ -57,6 +57,7 @@
             # keep-sorted start
             blender
             discord
+            libreoffice
             feh
             firefox
             gimp3

@@ -55,7 +55,6 @@
   boot = {
     loader.efi.canTouchEfiVariables = true;
     initrd = {
-      systemd.enable = true;
       availableKernelModules = [
         "nvme"
         "xhci_pci"
